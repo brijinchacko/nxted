@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
-import { stripe } from "@/lib/stripe";
+import { getStripe } from "@/lib/stripe";
 import Stripe from "stripe";
 
 export async function POST(req: Request) {
@@ -15,6 +15,8 @@ export async function POST(req: Request) {
   }
 
   let event: Stripe.Event;
+
+  const stripe = getStripe();
 
   try {
     event = stripe.webhooks.constructEvent(

@@ -1,4 +1,4 @@
-import { auth } from "@clerk/nextjs/server";
+import { safeAuth } from "@/lib/clerk";
 import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { chatWithAITutor } from "@/lib/openrouter";
@@ -6,7 +6,7 @@ import { rateLimit } from "@/lib/rate-limit";
 
 export async function POST(req: Request) {
   try {
-    const { userId } = await auth();
+    const { userId } = await safeAuth();
 
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

@@ -1,5 +1,5 @@
 import { db } from "@/lib/db";
-import { auth } from "@clerk/nextjs/server";
+import { safeAuth } from "@/lib/clerk";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -18,9 +18,13 @@ import {
 } from "lucide-react";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const course = await db.course.findUnique({ where: { slug } });
-  return { title: course?.title ?? "Course" };
+  try {
+    const { slug } = await params;
+    const course = await db.course.findUnique({ where: { slug } });
+    return { title: course?.title ?? "Course" };
+  } catch {
+    return { title: "Course" };
+  }
 }
 
 export default async function CourseDetailPage({
@@ -28,19 +32,24 @@ export default async function CourseDetailPage({
 }: {
   params: Promise<{ slug: string }>;
 }) {
+  let course;
   const { slug } = await params;
-  const course = await db.course.findUnique({
-    where: { slug },
-    include: {
-      topic: true,
-      creator: true,
-      lessons: { where: { isPublished: true }, orderBy: { order: "asc" } },
-    },
-  });
+  try {
+    course = await db.course.findUnique({
+      where: { slug },
+      include: {
+        topic: true,
+        creator: true,
+        lessons: { where: { isPublished: true }, orderBy: { order: "asc" } },
+      },
+    });
+  } catch {
+    notFound();
+  }
 
   if (!course) notFound();
 
-  const { userId } = await auth();
+  const { userId } = await safeAuth();
   let userPlan = "FREE";
   let enrollment = null;
   let completedLessons: string[] = [];

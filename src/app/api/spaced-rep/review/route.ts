@@ -1,11 +1,11 @@
-import { auth } from "@clerk/nextjs/server";
+import { safeAuth } from "@/lib/clerk";
 import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { sm2, getNextReviewDate } from "@/lib/spaced-rep";
 
 export async function POST(req: Request) {
   try {
-    const { userId } = await auth();
+    const { userId } = await safeAuth();
 
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

@@ -1,4 +1,4 @@
-import { auth } from "@clerk/nextjs/server";
+import { safeAuth } from "@/lib/clerk";
 import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
 import Link from "next/link";
@@ -11,7 +11,7 @@ import { Plus, BookOpen, DollarSign, Users, BarChart3 } from "lucide-react";
 export const metadata = { title: "Creator Studio" };
 
 export default async function StudioPage() {
-  const { userId } = await auth();
+  const { userId } = await safeAuth();
   if (!userId) redirect("/sign-in");
 
   const user = await db.user.findUnique({ where: { clerkId: userId } });

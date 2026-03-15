@@ -92,7 +92,7 @@ export function ChatPanel({ lessonContext, lessonId }: ChatPanelProps) {
         {messages.length === 0 ? (
           <div className="flex h-full flex-col items-center justify-center gap-4 py-8">
             <div className="text-center">
-              <p className="font-heading text-lg font-semibold text-white">
+              <p className="font-heading text-lg font-semibold text-nxted-dark">
                 AI Tutor
               </p>
               <p className="text-sm text-nxted-muted">
@@ -104,7 +104,7 @@ export function ChatPanel({ lessonContext, lessonId }: ChatPanelProps) {
                 <button
                   key={q}
                   onClick={() => sendMessage(q)}
-                  className="rounded-full border border-nxted-border bg-nxted-surface px-3 py-1.5 text-xs text-nxted-muted transition-colors hover:border-brand-primary/30 hover:text-white"
+                  className="rounded-full border border-nxted-border bg-nxted-surface px-3 py-1.5 text-xs text-nxted-muted transition-colors hover:border-brand-primary/30 hover:text-nxted-dark"
                 >
                   {q}
                 </button>

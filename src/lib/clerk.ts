@@ -1,8 +1,20 @@
 import { auth } from "@clerk/nextjs/server";
 import { db } from "./db";
 
+/**
+ * Safe wrapper around Clerk's auth() that returns { userId: null }
+ * when Clerk is not configured instead of throwing.
+ */
+export async function safeAuth(): Promise<{ userId: string | null }> {
+  try {
+    return await auth();
+  } catch {
+    return { userId: null };
+  }
+}
+
 export async function getCurrentUser() {
-  const { userId } = await auth();
+  const { userId } = await safeAuth();
 
   if (!userId) {
     return null;
