@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Logo } from "@/components/branding/logo";
 import { cn } from "@/lib/utils";
 
 const hasClerkKey =
@@ -39,12 +40,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-nxted-border bg-nxted-bg/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <span className="font-heading text-xl font-bold text-brand-primary">
-            nxtED
-          </span>
-          <span className="text-sm font-medium text-nxted-muted">AI</span>
-        </Link>
+        <Logo size="md" />
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-1 md:flex">

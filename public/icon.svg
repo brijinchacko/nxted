@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Sparkle icon inspired by Claude's aesthetic -->
+  <path d="M16 1C16 1 18 10 16 16C14 10 16 1 16 1Z" fill="#e8491d"/>
+  <path d="M16 31C16 31 14 22 16 16C18 22 16 31 16 31Z" fill="#e8491d"/>
+  <path d="M1 16C1 16 10 14 16 16C10 18 1 16 1 16Z" fill="#e8491d"/>
+  <path d="M31 16C31 16 22 18 16 16C22 14 31 16 31 16Z" fill="#e8491d"/>
+  <path d="M5.4 5.4C5.4 5.4 11 11 16 16C11 11 5.4 5.4 5.4 5.4Z" fill="#e8491d" opacity="0.6"/>
+  <path d="M26.6 5.4C26.6 5.4 21 11 16 16C21 11 26.6 5.4 26.6 5.4Z" fill="#e8491d" opacity="0.6"/>
+  <path d="M5.4 26.6C5.4 5.4 11 21 16 16C11 21 5.4 26.6 5.4 26.6Z" fill="#e8491d" opacity="0.6"/>
+  <path d="M26.6 26.6C26.6 26.6 21 21 16 16C21 21 26.6 26.6 26.6 26.6Z" fill="#e8491d" opacity="0.6"/>
+  <circle cx="16" cy="16" r="3" fill="#e8491d"/>
+</svg>

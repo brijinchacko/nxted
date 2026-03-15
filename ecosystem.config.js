@@ -1,17 +1,17 @@
 module.exports = {
   apps: [
     {
-      name: "nxted",
+      name: "nxted-ai",
       script: "node_modules/.bin/next",
-      args: "start",
-      cwd: "/var/www/nxted",
+      args: "start --port 3002",
+      cwd: "/var/www/nxtedai",
       instances: 1,
       autorestart: true,
       watch: false,
       max_memory_restart: "1G",
       env: {
         NODE_ENV: "production",
-        PORT: 3010,
+        PORT: 3002,
       },
       error_file: "/var/log/pm2/nxted-error.log",
       out_file: "/var/log/pm2/nxted-out.log",

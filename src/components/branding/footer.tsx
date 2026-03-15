@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { Logo } from "@/components/branding/logo";
 
 export function Footer() {
   return (
@@ -8,11 +9,8 @@ export function Footer() {
         <div className="flex flex-col items-center gap-6 text-center md:flex-row md:justify-between md:text-left">
           {/* Brand */}
           <div className="space-y-2">
-            <div className="flex items-center justify-center gap-2 md:justify-start">
-              <span className="font-heading text-lg font-bold text-brand-primary">
-                nxtED
-              </span>
-              <span className="text-sm text-nxted-muted">AI</span>
+            <div className="flex items-center justify-center md:justify-start">
+              <Logo size="md" href="/" />
             </div>
             <p className="text-xs text-nxted-muted">
               Built with Intelligence That Works

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Syne, DM_Sans, JetBrains_Mono } from "next/font/google";
 import { Providers } from "@/components/providers";
+import { BetaBanner } from "@/components/branding/beta-banner";
 import "./globals.css";
 
 const syne = Syne({
@@ -58,6 +59,7 @@ export default function RootLayout({
       className={`${syne.variable} ${dmSans.variable} ${jetbrainsMono.variable}`}
     >
       <body className="min-h-screen bg-nxted-bg text-nxted-dark antialiased">
+        <BetaBanner />
         <Providers>{children}</Providers>
       </body>
     </html>
