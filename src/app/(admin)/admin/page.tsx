@@ -1,4 +1,4 @@
-import { auth } from "@clerk/nextjs/server";
+import { safeAuth } from "@/lib/clerk";
 import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
 export const metadata = { title: "Admin Dashboard" };
 
 export default async function AdminPage() {
-  const { userId } = await auth();
+  const { userId } = await safeAuth();
   if (!userId) redirect("/sign-in");
 
   const user = await db.user.findUnique({

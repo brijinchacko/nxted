@@ -1,5 +1,5 @@
 import { db } from "@/lib/db";
-import { auth } from "@clerk/nextjs/server";
+import { safeAuth } from "@/lib/clerk";
 import { notFound, redirect } from "next/navigation";
 import { LessonPlayerClient } from "./lesson-player-client";
 
@@ -10,9 +10,13 @@ export async function generateMetadata({
 }: {
   params: Promise<{ courseSlug: string; lessonSlug: string }>;
 }) {
-  const { courseSlug, lessonSlug } = await params;
-  const course = await db.course.findUnique({ where: { slug: courseSlug } });
-  return { title: course?.title ?? "Lesson" };
+  try {
+    const { courseSlug } = await params;
+    const course = await db.course.findUnique({ where: { slug: courseSlug } });
+    return { title: course?.title ?? "Lesson" };
+  } catch {
+    return { title: "Lesson" };
+  }
 }
 
 export default async function LessonPage({
@@ -22,7 +26,7 @@ export default async function LessonPage({
 }) {
   const { courseSlug, lessonSlug } = await params;
 
-  const { userId } = await auth();
+  const { userId } = await safeAuth();
   if (!userId) redirect("/sign-in");
 
   const user = await db.user.findUnique({ where: { clerkId: userId } });
