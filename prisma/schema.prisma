@@ -1,0 +1,320 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ═══════════════════════════════════
+// USERS
+// ═══════════════════════════════════
+model User {
+  id            String   @id @default(cuid())
+  clerkId       String   @unique
+  email         String   @unique
+  name          String?
+  avatarUrl     String?
+  role          UserRole @default(LEARNER)
+  plan          Plan     @default(FREE)
+  stripeCustomerId     String? @unique
+  stripeSubscriptionId String? @unique
+  planExpiresAt DateTime?
+
+  // Onboarding
+  onboardingCompleted Boolean  @default(false)
+  learningGoals       String[]
+  preferredTopics     String[]
+  studyTimeMinutes    Int      @default(15)
+
+  // Gamification
+  streakCount   Int       @default(0)
+  bestStreak    Int       @default(0)
+  lastStudyDate DateTime?
+  totalXP       Int       @default(0)
+
+  // Creator
+  isCreator      Boolean @default(false)
+  creatorBio     String?
+  creatorWebsite String?
+
+  // B2B
+  organisationId String?
+  organisation   Organisation? @relation(fields: [organisationId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  enrollments    Enrollment[]
+  lessonProgress LessonProgress[]
+  quizAttempts   QuizAttempt[]
+  aiSessions     AITutorSession[]
+  certificates   Certificate[]
+  createdCourses Course[]        @relation("CourseCreator")
+  spacedRepCards SpacedRepCard[]
+
+  @@map("users")
+}
+
+enum UserRole {
+  LEARNER
+  CREATOR
+  ADMIN
+  ORG_ADMIN
+}
+
+enum Plan {
+  FREE
+  PRO
+  PRO_ANNUAL
+  TEAMS
+  ENTERPRISE
+}
+
+// ═══════════════════════════════════
+// ORGANISATIONS (B2B)
+// ═══════════════════════════════════
+model Organisation {
+  id               String  @id @default(cuid())
+  name             String
+  slug             String  @unique
+  logoUrl          String?
+  stripeCustomerId String? @unique
+  plan             Plan    @default(TEAMS)
+  seatCount        Int     @default(10)
+
+  members User[]
+
+  primaryColor String @default("#00e5b4")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("organisations")
+}
+
+// ═══════════════════════════════════
+// COURSES & TOPICS
+// ═══════════════════════════════════
+model Topic {
+  id          String  @id @default(cuid())
+  name        String  @unique
+  slug        String  @unique
+  description String?
+  icon        String?
+  color       String?
+
+  courses Course[]
+
+  @@map("topics")
+}
+
+model Course {
+  id          String  @id @default(cuid())
+  title       String
+  slug        String  @unique
+  description String
+  coverImage  String?
+  topicId     String
+  topic       Topic   @relation(fields: [topicId], references: [id])
+
+  creatorId String
+  creator   User   @relation("CourseCreator", fields: [creatorId], references: [id])
+
+  difficulty  Difficulty @default(BEGINNER)
+  durationMin Int        @default(15)
+  isPublished Boolean    @default(false)
+  isFree      Boolean    @default(false)
+  price       Float?
+
+  lessons Lesson[]
+
+  enrollmentCount Int    @default(0)
+  avgRating       Float?
+
+  revenueShare Float @default(0.70)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  enrollments Enrollment[]
+
+  @@map("courses")
+}
+
+enum Difficulty {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
+}
+
+model Lesson {
+  id       String @id @default(cuid())
+  courseId  String
+  course   Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  title String
+  slug  String
+  order Int
+
+  content Json
+
+  audioUrl    String?
+  audioScript String?
+
+  estimatedMinutes Int     @default(5)
+  isPublished      Boolean @default(false)
+  isFree           Boolean @default(false)
+
+  keyPoints String[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  progress  LessonProgress[]
+  quizzes   Quiz[]
+  spacedRep SpacedRepCard[]
+
+  @@unique([courseId, order])
+  @@map("lessons")
+}
+
+// ═══════════════════════════════════
+// PROGRESS TRACKING
+// ═══════════════════════════════════
+model Enrollment {
+  id       String @id @default(cuid())
+  userId   String
+  user     User   @relation(fields: [userId], references: [id])
+  courseId  String
+  course   Course @relation(fields: [courseId], references: [id])
+
+  startedAt   DateTime  @default(now())
+  completedAt DateTime?
+  progress    Float     @default(0)
+
+  @@unique([userId, courseId])
+  @@map("enrollments")
+}
+
+model LessonProgress {
+  id       String @id @default(cuid())
+  userId   String
+  user     User   @relation(fields: [userId], references: [id])
+  lessonId String
+  lesson   Lesson @relation(fields: [lessonId], references: [id])
+
+  status      ProgressStatus @default(NOT_STARTED)
+  completedAt DateTime?
+  timeSpentSec Int           @default(0)
+
+  quizScore Int?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, lessonId])
+  @@map("lesson_progress")
+}
+
+enum ProgressStatus {
+  NOT_STARTED
+  IN_PROGRESS
+  COMPLETED
+}
+
+// ═══════════════════════════════════
+// QUIZZES
+// ═══════════════════════════════════
+model Quiz {
+  id       String @id @default(cuid())
+  lessonId String
+  lesson   Lesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  questions Json
+
+  attempts QuizAttempt[]
+
+  @@map("quizzes")
+}
+
+model QuizAttempt {
+  id     String @id @default(cuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+  quizId String
+  quiz   Quiz   @relation(fields: [quizId], references: [id])
+
+  score     Int
+  answers   Json
+  timeTaken Int
+
+  createdAt DateTime @default(now())
+
+  @@map("quiz_attempts")
+}
+
+// ═══════════════════════════════════
+// SPACED REPETITION (SM2 Algorithm)
+// ═══════════════════════════════════
+model SpacedRepCard {
+  id       String @id @default(cuid())
+  userId   String
+  user     User   @relation(fields: [userId], references: [id])
+  lessonId String
+  lesson   Lesson @relation(fields: [lessonId], references: [id])
+
+  easeFactor   Float    @default(2.5)
+  interval     Int      @default(1)
+  repetitions  Int      @default(0)
+  nextReviewAt DateTime @default(now())
+
+  front String
+  back  String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("spaced_rep_cards")
+}
+
+// ═══════════════════════════════════
+// AI TUTOR SESSIONS
+// ═══════════════════════════════════
+model AITutorSession {
+  id       String  @id @default(cuid())
+  userId   String
+  user     User    @relation(fields: [userId], references: [id])
+  lessonId String?
+
+  messages Json @default("[]")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("ai_tutor_sessions")
+}
+
+// ═══════════════════════════════════
+// CERTIFICATES
+// ═══════════════════════════════════
+model Certificate {
+  id       String @id @default(cuid())
+  userId   String
+  user     User   @relation(fields: [userId], references: [id])
+  courseId  String
+
+  courseName String
+  userName   String
+  issuedAt   DateTime @default(now())
+
+  verificationCode String @unique @default(cuid())
+
+  stripePriceId   String?
+  stripePaymentId String?
+  isPaid          Boolean @default(false)
+
+  @@map("certificates")
+}

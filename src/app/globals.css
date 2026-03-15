@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  /* nxtED AI — Warm Light Theme (inspired by Replit Agent 4 aesthetic) */
+  --color-brand-primary: #e8491d;     /* coral/orange-red accent */
+  --color-brand-secondary: #7b5cff;   /* OFORO purple — used sparingly */
+  --color-brand-dark: #2d2d2d;        /* dark charcoal for text */
+
+  --color-nxted-cream: #f5f0eb;       /* warm cream background */
+  --color-nxted-bg: #faf7f4;          /* page background */
+  --color-nxted-surface: #f0ebe5;     /* slightly darker cream for sections */
+  --color-nxted-card: #ffffff;        /* white cards */
+  --color-nxted-card-alt: #ede8e2;    /* alt card (gray-cream) */
+  --color-nxted-border: #e0dbd5;      /* warm gray border */
+  --color-nxted-muted: #8a8580;       /* muted text */
+  --color-nxted-dark: #2d2d2d;        /* headings / primary text */
+  --color-nxted-peach: #e8a090;       /* soft peach accent */
+  --color-nxted-orange: #e8491d;      /* primary orange */
+  --color-nxted-green: #00e5b4;       /* success / nxtED green */
+  --color-nxted-purple: #7b5cff;      /* OFORO purple */
+
+  /* Fonts */
+  --font-heading: "Syne", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+body {
+  background-color: var(--color-nxted-bg);
+  color: var(--color-nxted-dark);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+code, pre {
+  font-family: var(--font-mono);
+}
