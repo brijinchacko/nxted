@@ -1,15 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useUser } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Settings, User, BookOpen, CreditCard, Loader2 } from "lucide-react";
 
 export default function SettingsPage() {
-  const { user: clerkUser } = useUser();
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [studyTime, setStudyTime] = useState(15);
   const [saving, setSaving] = useState(false);
   const [loaded, setLoaded] = useState(false);
@@ -20,6 +19,7 @@ export default function SettingsPage() {
       .then((data) => {
         if (data.user) {
           setName(data.user.name ?? "");
+          setEmail(data.user.email ?? "");
           setStudyTime(data.user.studyTimeMinutes ?? 15);
         }
         setLoaded(true);
@@ -64,7 +64,7 @@ export default function SettingsPage() {
           <div>
             <label className="text-sm text-nxted-muted mb-1 block">Email</label>
             <Input
-              value={clerkUser?.primaryEmailAddress?.emailAddress ?? ""}
+              value={email}
               disabled
               className="opacity-50"
             />
