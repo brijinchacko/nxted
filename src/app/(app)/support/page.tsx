@@ -39,7 +39,9 @@ export default function SupportPage() {
   useEffect(() => {
     fetch("/api/tickets")
       .then((r) => r.json())
-      .then(setTickets)
+      .then((data) => {
+        if (Array.isArray(data)) setTickets(data);
+      })
       .finally(() => setLoading(false));
   }, []);
 
