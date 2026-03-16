@@ -134,12 +134,12 @@ function FAQAccordionItem({ item }: { item: FAQItem }) {
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between py-4 px-1 text-left group"
       >
-        <span className="font-medium text-[15px] text-nxted-dark group-hover:text-brand-primary transition-colors pr-4">
+        <span className="font-medium text-[15px] text-[#2d2d2d] group-hover:text-brand-primary transition-colors pr-4">
           {item.question}
         </span>
         <ChevronDown
           className={cn(
-            "h-4 w-4 shrink-0 text-nxted-dark/40 transition-transform duration-200",
+            "h-4 w-4 shrink-0 text-[#8a8580] transition-transform duration-200",
             open && "rotate-180 text-brand-primary"
           )}
         />
@@ -150,7 +150,7 @@ function FAQAccordionItem({ item }: { item: FAQItem }) {
           open ? "max-h-96 pb-5" : "max-h-0"
         )}
       >
-        <p className="text-[14px] text-nxted-dark/75 px-1 leading-[1.7]">
+        <p className="text-[14px] text-[#4a4540] px-1 leading-[1.7]">
           {item.answer}
         </p>
       </div>
@@ -162,10 +162,10 @@ export default function FAQPage() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-12">
       <div className="mb-10">
-        <h1 className="text-3xl font-heading font-bold text-nxted-dark mb-2">
+        <h1 className="text-3xl font-heading font-bold text-[#2d2d2d] mb-2">
           Frequently Asked Questions
         </h1>
-        <p className="text-nxted-dark/60 text-[15px]">
+        <p className="text-[#6b6560] text-[15px]">
           Got a question? We've probably answered it below. If not,{" "}
           <Link
             href="/support/new"
@@ -180,7 +180,7 @@ export default function FAQPage() {
       <div className="space-y-8">
         {faqCategories.map((category) => (
           <div key={category.title}>
-            <h2 className="text-sm font-heading font-semibold uppercase tracking-wide text-nxted-dark/50 mb-3 px-1">
+            <h2 className="text-sm font-heading font-semibold uppercase tracking-wide text-[#8a8580] mb-3 px-1">
               {category.title}
             </h2>
             <Card className="bg-nxted-card border-nxted-border/70 shadow-sm">
@@ -198,10 +198,10 @@ export default function FAQPage() {
         <div className="flex items-center gap-3">
           <MessageSquare className="h-5 w-5 text-brand-primary" />
           <div>
-            <p className="font-heading font-semibold text-nxted-dark text-[15px]">
+            <p className="font-heading font-semibold text-[#2d2d2d] text-[15px]">
               Still have questions?
             </p>
-            <p className="text-sm text-nxted-dark/55">
+            <p className="text-sm text-[#6b6560]">
               We're happy to help — just open a ticket.
             </p>
           </div>

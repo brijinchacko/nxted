@@ -19,17 +19,17 @@ interface TicketItem {
 }
 
 const statusConfig: Record<string, { label: string; color: string; icon: React.ElementType }> = {
-  OPEN: { label: "Open", color: "bg-blue-500/20 text-blue-400", icon: AlertCircle },
-  IN_PROGRESS: { label: "In Progress", color: "bg-yellow-500/20 text-yellow-400", icon: Clock },
-  RESOLVED: { label: "Resolved", color: "bg-green-500/20 text-green-400", icon: CheckCircle },
-  CLOSED: { label: "Closed", color: "bg-gray-500/20 text-gray-400", icon: CheckCircle },
+  OPEN: { label: "Open", color: "bg-blue-100 text-blue-700", icon: AlertCircle },
+  IN_PROGRESS: { label: "In Progress", color: "bg-yellow-100 text-yellow-700", icon: Clock },
+  RESOLVED: { label: "Resolved", color: "bg-green-100 text-green-700", icon: CheckCircle },
+  CLOSED: { label: "Closed", color: "bg-gray-100 text-gray-600", icon: CheckCircle },
 };
 
 const priorityColor: Record<string, string> = {
-  LOW: "bg-green-500/20 text-green-400",
-  MEDIUM: "bg-yellow-500/20 text-yellow-400",
-  HIGH: "bg-orange-500/20 text-orange-400",
-  URGENT: "bg-red-500/20 text-red-400",
+  LOW: "bg-green-100 text-green-700",
+  MEDIUM: "bg-yellow-100 text-yellow-700",
+  HIGH: "bg-orange-100 text-orange-700",
+  URGENT: "bg-red-100 text-red-700",
 };
 
 export default function SupportPage() {
