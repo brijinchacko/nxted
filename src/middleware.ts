@@ -13,6 +13,7 @@ const isPublicRoute = createRouteMatcher([
   "/api/webhooks/(.*)",
   "/courses",
   "/courses/(.*)",
+  "/faq",
 ]);
 
 export default hasClerkKey

@@ -3,7 +3,8 @@ import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Users, BookOpen, BarChart3, Settings, Download } from "lucide-react";
+import { Users, BookOpen, BarChart3, Settings, Download, Ticket } from "lucide-react";
+import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Admin Dashboard" };
@@ -77,6 +78,21 @@ export default async function AdminPage() {
             <p className="text-sm text-nxted-muted mt-1">Download Report</p>
           </CardContent>
         </Card>
+      </div>
+
+      {/* Quick actions */}
+      <div className="mb-8">
+        <Link href="/admin/tickets">
+          <Card className="bg-nxted-card border-nxted-border hover:border-brand-primary/50 transition-colors cursor-pointer">
+            <CardContent className="flex items-center gap-4 py-4">
+              <Ticket className="h-6 w-6 text-brand-primary" />
+              <div>
+                <p className="font-medium">Support Tickets</p>
+                <p className="text-sm text-nxted-muted">View and manage user support requests</p>
+              </div>
+            </CardContent>
+          </Card>
+        </Link>
       </div>
 
       {/* Team members */}

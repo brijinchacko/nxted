@@ -20,6 +20,20 @@ export function Footer() {
           {/* Links */}
           <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-nxted-muted">
             <Link
+              href="/faq"
+              className="transition-colors hover:text-brand-primary"
+            >
+              FAQ
+            </Link>
+            <span className="text-nxted-border">|</span>
+            <Link
+              href="/support"
+              className="transition-colors hover:text-brand-primary"
+            >
+              Support
+            </Link>
+            <span className="text-nxted-border">|</span>
+            <Link
               href="https://nxted.ai"
               target="_blank"
               rel="noopener noreferrer"

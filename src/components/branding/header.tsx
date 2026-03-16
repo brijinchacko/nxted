@@ -15,6 +15,8 @@ const navLinks = [
   { label: "Dashboard", href: "/dashboard" },
   { label: "Courses", href: "/courses" },
   { label: "Progress", href: "/progress" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Support", href: "/support" },
 ];
 
 function AuthButtons() {

@@ -54,6 +54,8 @@ model User {
   certificates   Certificate[]
   createdCourses Course[]        @relation("CourseCreator")
   spacedRepCards SpacedRepCard[]
+  tickets        Ticket[]
+  ticketReplies  TicketReply[]
 
   @@map("users")
 }
@@ -317,4 +319,62 @@ model Certificate {
   isPaid          Boolean @default(false)
 
   @@map("certificates")
+}
+
+// ═══════════════════════════════════
+// SUPPORT TICKETS
+// ═══════════════════════════════════
+model Ticket {
+  id          String       @id @default(cuid())
+  userId      String
+  user        User         @relation(fields: [userId], references: [id])
+  subject     String
+  description String
+  category    TicketCategory @default(GENERAL)
+  status      TicketStatus   @default(OPEN)
+  priority    TicketPriority @default(MEDIUM)
+
+  replies TicketReply[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("tickets")
+}
+
+model TicketReply {
+  id       String @id @default(cuid())
+  ticketId String
+  ticket   Ticket @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+  userId   String
+  user     User   @relation(fields: [userId], references: [id])
+  message  String
+  isAdmin  Boolean @default(false)
+
+  createdAt DateTime @default(now())
+
+  @@map("ticket_replies")
+}
+
+enum TicketCategory {
+  GENERAL
+  TECHNICAL
+  BILLING
+  COURSE_CONTENT
+  ACCOUNT
+  FEATURE_REQUEST
+}
+
+enum TicketStatus {
+  OPEN
+  IN_PROGRESS
+  RESOLVED
+  CLOSED
+}
+
+enum TicketPriority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
 }
