@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, HelpCircle, MessageSquare } from "lucide-react";
+import { ChevronDown, MessageSquare } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface FAQItem {
@@ -12,119 +12,114 @@ interface FAQItem {
   answer: string;
 }
 
-const faqCategories: { title: string; icon: string; items: FAQItem[] }[] = [
+const faqCategories: { title: string; items: FAQItem[] }[] = [
   {
     title: "Getting Started",
-    icon: "🚀",
     items: [
       {
         question: "What is nxtED?",
         answer:
-          "nxtED is an AI-powered microlearning platform that helps you learn anything in just 15 minutes per day. It combines personalized lessons, AI tutoring, spaced repetition, and gamification to make learning effective and fun.",
+          "nxtED is a microlearning platform where you can pick up new skills in about 15 minutes a day. We mix short lessons with quizzes, spaced repetition, and a bit of friendly competition to keep things interesting.",
       },
       {
         question: "How do I create an account?",
         answer:
-          'Click the "Sign Up" button on the top right corner. You can register with your email address or use social login. After signing up, you\'ll go through a quick onboarding to personalize your learning experience.',
+          "Hit the Sign Up button in the top right — you can use your email or sign in with Google. We'll ask a couple of quick questions to tailor your experience, and then you're good to go.",
       },
       {
         question: "Is nxtED free to use?",
         answer:
-          "Yes! nxtED offers a free plan that includes access to 3 lessons per week, basic progress tracking, and community courses. For unlimited access, AI tutoring, audio lessons, and spaced repetition, you can upgrade to our Pro plan.",
+          "Yep! The free plan gives you 3 lessons a week, progress tracking, and access to community courses. If you want unlimited lessons, the AI tutor, audio content, and spaced repetition, you can upgrade to Pro whenever you're ready.",
       },
       {
-        question: "What topics can I learn on nxtED?",
+        question: "What topics can I learn?",
         answer:
-          "nxtED covers a wide range of topics including Communication, History, Science, Math, Finance, Psychology, Philosophy, Art, Productivity, Business, Engineering, and PLC & Automation. New courses are added regularly by our community of creators.",
+          "We cover everything from Communication and History to Finance, Engineering, and PLC & Automation — plus a bunch more. Our community of creators is always adding new courses, so there's usually something new to explore.",
       },
     ],
   },
   {
     title: "Learning & Courses",
-    icon: "📚",
     items: [
       {
         question: "How does the microlearning format work?",
         answer:
-          "Each lesson is broken into bite-sized content cards that you can complete in about 5-15 minutes. This format leverages cognitive science principles to maximize retention and fit learning into your busy schedule.",
+          "Each lesson is split into short content cards you can get through in 5 to 15 minutes. The idea is simple: smaller chunks are easier to remember, and they fit into a busy day much better than hour-long lectures.",
       },
       {
-        question: "What is the AI Tutor?",
+        question: "What's the AI Tutor?",
         answer:
-          "The AI Tutor is your personal learning assistant powered by advanced AI. You can ask questions about lesson content, get explanations in different ways, and have interactive conversations to deepen your understanding. Available on Pro plans.",
+          "Think of it as a study buddy that's always available. You can ask it to explain things differently, dive deeper into a topic, or quiz you on what you've learned. It's included with Pro plans.",
       },
       {
         question: "What is spaced repetition?",
         answer:
-          "Spaced repetition is a scientifically proven learning technique that reviews information at optimal intervals to move knowledge into long-term memory. nxtED uses the SM2 algorithm to automatically schedule flashcard reviews based on your performance.",
+          "It's a study method where you review material at gradually increasing intervals — right before you'd normally forget it. nxtED handles the scheduling automatically based on how well you're doing, so the stuff you learn actually sticks.",
       },
       {
         question: "How do streaks and XP work?",
         answer:
-          "You earn XP (experience points) by completing lessons and quizzes. Your streak counts consecutive days of learning. These gamification features help you stay motivated and build consistent study habits.",
+          "You earn XP by finishing lessons and quizzes. Your streak tracks how many days in a row you've studied. It's a small thing, but it really does help you build a consistent habit.",
       },
     ],
   },
   {
     title: "Subscriptions & Billing",
-    icon: "💳",
     items: [
       {
-        question: "What's included in the Pro plan?",
+        question: "What do I get with Pro?",
         answer:
-          "The Pro plan (£9.99/month or £79.99/year) includes unlimited lessons, AI tutor access (100 messages/hour), audio lessons, spaced repetition, advanced analytics, and course certificates.",
+          "Pro costs £9.99/month (or £79.99/year if you go annual). You get unlimited lessons, AI tutor access, audio lessons, spaced repetition, detailed analytics, and certificates when you finish courses.",
       },
       {
-        question: "Can I cancel my subscription anytime?",
+        question: "Can I cancel anytime?",
         answer:
-          "Yes, you can cancel your subscription at any time. Your Pro access will continue until the end of your current billing period. You can manage your subscription from the Settings page.",
+          "Absolutely. No contracts, no hassle. Cancel whenever you want from your Settings page, and you'll keep Pro access until your current billing period ends.",
       },
       {
-        question: "Do you offer team plans?",
+        question: "Do you have team plans?",
         answer:
-          "Yes! Our Teams plan (£29/seat/month) is designed for organizations. It includes everything in Pro plus team analytics, admin controls, custom branding, and dedicated support.",
+          "We do — the Teams plan runs £29 per seat per month. It comes with everything in Pro, plus team analytics, admin controls, custom branding, and priority support.",
       },
     ],
   },
   {
-    title: "Creators",
-    icon: "✨",
+    title: "For Creators",
     items: [
       {
-        question: "How can I become a course creator?",
+        question: "Can I create my own courses?",
         answer:
-          "Any registered user can become a creator. Go to the Creator Studio from your dashboard to start building courses. You can create lessons with rich content, generate AI-powered quizzes, and publish courses for the community.",
+          "Anyone with an account can become a creator. Head to Creator Studio from your dashboard, and you can start building lessons with rich content and auto-generated quizzes. Publish when you're ready and share with the community.",
       },
       {
         question: "How does revenue sharing work?",
         answer:
-          "Creators earn 70% of the revenue from their paid courses. Earnings are tracked in the Creator Studio and payouts are processed through Stripe.",
+          "Creators keep 70% of the revenue from paid courses. You can track your earnings in Creator Studio, and payouts are handled through Stripe.",
       },
     ],
   },
   {
-    title: "Technical & Account",
-    icon: "⚙️",
+    title: "Account & Technical",
     items: [
       {
-        question: "I forgot my password. How do I reset it?",
+        question: "I forgot my password — what now?",
         answer:
-          'Click "Sign In" and then "Forgot Password". Enter your email address, and we\'ll send you a link to reset your password.',
+          "No worries. Go to the Sign In page, click Forgot Password, pop in your email, and we'll send you a reset link.",
       },
       {
-        question: "Which browsers are supported?",
+        question: "Which browsers work best?",
         answer:
-          "nxtED works best on modern browsers including Chrome, Firefox, Safari, and Edge. We recommend keeping your browser updated to the latest version for the best experience.",
+          "Chrome, Firefox, Safari, and Edge all work well. Just make sure you're on a reasonably recent version and you should be fine.",
       },
       {
-        question: "How do I report a bug or issue?",
+        question: "How do I report a problem?",
         answer:
-          'You can raise a support ticket from the "Support" section in your dashboard. Our team will investigate and respond as quickly as possible.',
+          "Head over to the Support section and open a ticket. Our team will take a look and get back to you as soon as we can.",
       },
       {
-        question: "Is my data secure?",
+        question: "Is my data safe?",
         answer:
-          "Yes, we take data security seriously. All data is encrypted in transit and at rest. We use industry-standard authentication through Clerk and payment processing through Stripe. We never share your personal data with third parties.",
+          "Security is a priority for us. All data is encrypted, we use Clerk for authentication and Stripe for payments, and we never share your personal information with third parties.",
       },
     ],
   },
@@ -134,16 +129,30 @@ function FAQAccordionItem({ item }: { item: FAQItem }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="border-b border-nxted-border last:border-0">
+    <div className="border-b border-nxted-border/60 last:border-0">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between py-4 px-1 text-left hover:text-brand-primary transition-colors"
+        className="w-full flex items-center justify-between py-4 px-1 text-left group"
       >
-        <span className="font-medium text-sm pr-4">{item.question}</span>
-        <ChevronDown className={cn("h-4 w-4 shrink-0 text-nxted-muted transition-transform", open && "rotate-180")} />
+        <span className="font-medium text-[15px] text-nxted-dark group-hover:text-brand-primary transition-colors pr-4">
+          {item.question}
+        </span>
+        <ChevronDown
+          className={cn(
+            "h-4 w-4 shrink-0 text-nxted-dark/40 transition-transform duration-200",
+            open && "rotate-180 text-brand-primary"
+          )}
+        />
       </button>
-      <div className={cn("overflow-hidden transition-all", open ? "max-h-96 pb-4" : "max-h-0")}>
-        <p className="text-sm text-nxted-muted px-1 leading-relaxed">{item.answer}</p>
+      <div
+        className={cn(
+          "overflow-hidden transition-all duration-200",
+          open ? "max-h-96 pb-5" : "max-h-0"
+        )}
+      >
+        <p className="text-[14px] text-nxted-dark/75 px-1 leading-[1.7]">
+          {item.answer}
+        </p>
       </div>
     </div>
   );
@@ -151,56 +160,56 @@ function FAQAccordionItem({ item }: { item: FAQItem }) {
 
 export default function FAQPage() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
-      <div className="text-center mb-12">
-        <div className="flex justify-center mb-4">
-          <div className="rounded-full bg-brand-primary/10 p-3">
-            <HelpCircle className="h-8 w-8 text-brand-primary" />
-          </div>
-        </div>
-        <h1 className="text-3xl font-heading font-bold mb-3">Frequently Asked Questions</h1>
-        <p className="text-nxted-muted max-w-xl mx-auto">
-          Find answers to common questions about nxtED. Can&apos;t find what you&apos;re looking for?{" "}
-          <Link href="/support/new" className="text-brand-primary hover:underline">
-            Raise a support ticket
-          </Link>
-          .
+    <div className="max-w-3xl mx-auto px-4 py-12">
+      <div className="mb-10">
+        <h1 className="text-3xl font-heading font-bold text-nxted-dark mb-2">
+          Frequently Asked Questions
+        </h1>
+        <p className="text-nxted-dark/60 text-[15px]">
+          Got a question? We've probably answered it below. If not,{" "}
+          <Link
+            href="/support/new"
+            className="text-brand-primary hover:underline"
+          >
+            drop us a message
+          </Link>{" "}
+          and we'll help you out.
         </p>
       </div>
 
-      <div className="space-y-6">
+      <div className="space-y-8">
         {faqCategories.map((category) => (
-          <Card key={category.title} className="bg-nxted-card border-nxted-border">
-            <CardContent className="pt-6">
-              <h2 className="text-lg font-heading font-semibold mb-4 flex items-center gap-2">
-                <span>{category.icon}</span>
-                {category.title}
-              </h2>
-              <div>
+          <div key={category.title}>
+            <h2 className="text-sm font-heading font-semibold uppercase tracking-wide text-nxted-dark/50 mb-3 px-1">
+              {category.title}
+            </h2>
+            <Card className="bg-nxted-card border-nxted-border/70 shadow-sm">
+              <CardContent className="py-2 px-5">
                 {category.items.map((item) => (
                   <FAQAccordionItem key={item.question} item={item} />
                 ))}
-              </div>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          </div>
         ))}
       </div>
 
-      {/* CTA */}
-      <Card className="bg-nxted-card border-nxted-border mt-10">
-        <CardContent className="flex flex-col sm:flex-row items-center justify-between py-8 gap-4">
-          <div className="flex items-center gap-3">
-            <MessageSquare className="h-8 w-8 text-brand-primary" />
-            <div>
-              <p className="font-heading font-semibold">Still have questions?</p>
-              <p className="text-sm text-nxted-muted">Our support team is here to help.</p>
-            </div>
+      <div className="mt-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-xl bg-nxted-surface px-6 py-6">
+        <div className="flex items-center gap-3">
+          <MessageSquare className="h-5 w-5 text-brand-primary" />
+          <div>
+            <p className="font-heading font-semibold text-nxted-dark text-[15px]">
+              Still have questions?
+            </p>
+            <p className="text-sm text-nxted-dark/55">
+              We're happy to help — just open a ticket.
+            </p>
           </div>
-          <Link href="/support/new">
-            <Button>Raise a Ticket</Button>
-          </Link>
-        </CardContent>
-      </Card>
+        </div>
+        <Link href="/support/new">
+          <Button>Raise a Ticket</Button>
+        </Link>
+      </div>
     </div>
   );
 }
