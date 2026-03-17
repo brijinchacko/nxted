@@ -2,9 +2,9 @@ module.exports = {
   apps: [
     {
       name: "nxted-ai",
-      script: "node_modules/.bin/next",
-      args: "start --port 3002",
-      cwd: "/var/www/nxtedai",
+      script: ".next/standalone/server.js",
+      args: "",
+      cwd: "/var/www/nxted",
       instances: 1,
       autorestart: true,
       watch: false,
