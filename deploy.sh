@@ -5,7 +5,7 @@
 set -e
 
 echo "Deploying nxtED AI..."
-cd /var/www/nxted
+cd /var/www/nxtedai
 
 echo "Installing dependencies..."
 npm ci --production=false

@@ -4,7 +4,7 @@ module.exports = {
       name: "nxted-ai",
       script: ".next/standalone/server.js",
       args: "",
-      cwd: "/var/www/nxted",
+      cwd: "/var/www/nxtedai",
       instances: 1,
       autorestart: true,
       watch: false,
