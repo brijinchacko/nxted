@@ -32,5 +32,8 @@ export default async function AdminTicketDetailPage({
 
   if (!ticket) redirect("/admin/tickets");
 
-  return <AdminTicketDetail ticket={ticket} />;
+  // Serialize to convert Date objects to strings for client component
+  const serialized = JSON.parse(JSON.stringify(ticket));
+
+  return <AdminTicketDetail ticket={serialized} />;
 }

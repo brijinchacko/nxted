@@ -23,5 +23,8 @@ export default async function AdminTicketsPage() {
     orderBy: { createdAt: "desc" },
   });
 
-  return <AdminTicketList tickets={tickets} />;
+  // Serialize to convert Date objects to strings for client component
+  const serialized = JSON.parse(JSON.stringify(tickets));
+
+  return <AdminTicketList tickets={serialized} />;
 }
