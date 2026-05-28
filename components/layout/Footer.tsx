@@ -18,7 +18,7 @@ const COLUMNS = [
       { href: '/about', label: 'About OFORO LTD' },
       { href: '/contact', label: 'Contact' },
       { href: '/research', label: 'Research' },
-      { href: '/how-it-works', label: 'How It Works' },
+      { href: '/how-it-works', label: 'How it works' },
     ],
   },
   {
@@ -34,34 +34,33 @@ const COLUMNS = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-[var(--border-dim)] bg-[var(--bg-surface)]">
-      <div className="container-site py-16">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
+    <footer className="border-t border-[var(--border-dim)] bg-[var(--bg-surface)] mt-20 pb-16">
+      <div className="container-site pt-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
           <div className="md:col-span-5">
             <Logo withParent={false} />
             <p className="text-[var(--text-secondary)] text-sm mt-4 max-w-sm">
-              Human Intelligence. Machine Scale.
+              Human intelligence. Machine scale.
             </p>
-            <div className="text-xs text-[var(--text-muted)] mt-6 space-y-1">
+            <div className="text-xs text-[var(--text-tertiary)] mt-6 space-y-1">
               <p>{COMPANY.name} · Company No. {COMPANY.number}</p>
               <p>{COMPANY.address}</p>
             </div>
-            <div className="flex gap-2 mt-6">
-              <span className="inline-flex items-center gap-1 h-6 px-2 rounded border border-[var(--border-default)] text-[10px] uppercase tracking-wider text-[var(--text-secondary)]">
-                GDPR Compliant
-              </span>
-              <span className="inline-flex items-center gap-1 h-6 px-2 rounded border border-[var(--border-default)] text-[10px] uppercase tracking-wider text-[var(--text-secondary)]">
-                UK Registered
-              </span>
-              <span className="inline-flex items-center gap-1 h-6 px-2 rounded border border-[var(--border-default)] text-[10px] uppercase tracking-wider text-[var(--text-secondary)]">
-                ISO 9001 ref
-              </span>
+            <div className="flex flex-wrap gap-2 mt-6">
+              {['GDPR Compliant', 'UK Registered', 'ISO 9001 ref'].map((b) => (
+                <span
+                  key={b}
+                  className="inline-flex items-center h-6 px-2.5 rounded border border-[var(--border-default)] text-[10px] uppercase tracking-wider text-[var(--text-secondary)]"
+                >
+                  {b}
+                </span>
+              ))}
             </div>
           </div>
           <div className="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8">
             {COLUMNS.map((col) => (
               <div key={col.title}>
-                <h4 className="text-label text-[var(--text-secondary)] mb-4">{col.title}</h4>
+                <h4 className="text-label mb-5">{col.title}</h4>
                 <ul className="space-y-3">
                   {col.links.map((link) => (
                     <li key={link.href}>
@@ -78,7 +77,7 @@ export function Footer() {
             ))}
           </div>
         </div>
-        <div className="mt-12 pt-8 border-t border-[var(--border-dim)] flex flex-col md:flex-row gap-4 justify-between text-xs text-[var(--text-muted)]">
+        <div className="mt-14 pt-8 border-t border-[var(--border-dim)] flex flex-col md:flex-row gap-4 justify-between text-xs text-[var(--text-tertiary)]">
           <p>© {new Date().getFullYear()} {COMPANY.name}. All rights reserved.</p>
           <p>Made in India. Registered in the UK.</p>
         </div>

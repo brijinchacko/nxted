@@ -9,7 +9,7 @@ export function Logo({ withParent = true }: { withParent?: boolean }) {
         <span className="text-[var(--text-secondary)] font-normal">.ai</span>
       </span>
       {withParent && (
-        <span className="text-[9px] text-[var(--text-muted)] tracking-[0.2em] uppercase mt-1">
+        <span className="text-[9px] text-[var(--text-secondary)] tracking-[0.2em] uppercase mt-1">
           by {APP.brandParent}
         </span>
       )}

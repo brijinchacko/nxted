@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { prisma } from '@/lib/prisma';
 import { FadeUp } from '@/components/motion/FadeUp';
 import { Badge } from '@/components/ui/Badge';
+import { ArrowRight } from '@phosphor-icons/react/dist/ssr';
 
 export const metadata: Metadata = {
   title: 'Research — Nxted',
@@ -20,36 +21,39 @@ export default async function ResearchPage() {
     .catch(() => []);
 
   return (
-    <section className="pt-[140px] pb-[120px]">
-      <div className="container-site max-w-5xl">
-        <div className="mb-12 max-w-3xl">
-          <div className="text-label text-[var(--text-secondary)] mb-4">Research</div>
+    <section className="page-pad">
+      <div className="container-narrow">
+        <div className="mb-14 max-w-3xl">
+          <div className="text-label mb-5">Research</div>
           <h1 className="text-h1">
             Notes from the frontier of <span className="text-[var(--expert)]">human × machine</span>.
           </h1>
         </div>
 
         {posts.length === 0 ? (
-          <p className="text-[var(--text-muted)]">No research posts published yet.</p>
+          <p className="text-[var(--text-tertiary)]">No research posts published yet.</p>
         ) : (
           <ul className="divide-y divide-[var(--border-dim)]">
             {posts.map((post, i) => (
               <FadeUp key={post.id} delay={i * 0.04}>
                 <li className="py-8">
                   <Link href={`/research/${post.slug}`} className="group block">
-                    <div className="flex items-center gap-3 mb-3">
+                    <div className="flex flex-wrap items-center gap-3 mb-3">
                       <Badge tone="expert">{post.category}</Badge>
                       {post.publishedAt && (
-                        <span className="text-xs text-[var(--text-muted)]">
+                        <span className="text-xs text-[var(--text-tertiary)]">
                           {new Date(post.publishedAt).toLocaleDateString('en-GB', { dateStyle: 'medium' })}
                         </span>
                       )}
                       {post.readingTime && (
-                        <span className="text-xs text-[var(--text-muted)]">· {post.readingTime} min read</span>
+                        <span className="text-xs text-[var(--text-tertiary)]">· {post.readingTime} min read</span>
                       )}
                     </div>
                     <h2 className="text-h3 mb-2 group-hover:text-[var(--expert)] transition-colors">{post.title}</h2>
-                    <p className="text-[var(--text-secondary)]">{post.excerpt}</p>
+                    <p className="text-[var(--text-secondary)] mb-3">{post.excerpt}</p>
+                    <span className="inline-flex items-center gap-1.5 text-sm text-[var(--expert)] group-hover:gap-2 transition-all">
+                      Read <ArrowRight size={14} />
+                    </span>
                   </Link>
                 </li>
               </FadeUp>

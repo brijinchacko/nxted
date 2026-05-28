@@ -10,34 +10,36 @@ const STATS = [
 
 export function MarketData() {
   return (
-    <section className="section-pad bg-[var(--bg-base)] relative overflow-hidden">
+    <section className="section-pad bg-[var(--bg-base)]">
       <div className="container-site">
-        <FadeUp>
-          <div className="text-label text-[var(--text-secondary)] mb-6">The Market</div>
-          <h2 className="text-h2 max-w-3xl mb-16">
+        <FadeUp className="max-w-3xl">
+          <div className="text-label mb-5">The Market</div>
+          <h2 className="text-h2">
             Why physical AI is the <span className="text-[var(--expert)]">biggest underserved opportunity</span> in machine learning.
           </h2>
         </FadeUp>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="mt-14 grid grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-8">
           {STATS.map((stat, i) => (
-            <FadeUp key={i} delay={i * 0.08} className="border-l-2 border-[var(--border-default)] pl-6">
-              <div className="text-[64px] md:text-[80px] font-bold tracking-[-0.04em] leading-none text-[var(--text-primary)]">
+            <FadeUp key={i} delay={i * 0.08} className="border-l-2 border-[var(--border-default)] pl-5">
+              <div
+                className="font-bold tracking-[-0.04em] leading-none text-[var(--text-primary)]"
+                style={{ fontSize: 'clamp(40px, 4.5vw, 64px)' }}
+              >
                 <CountUp end={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
               </div>
-              <p className="text-sm text-[var(--text-secondary)] mt-4 max-w-[180px]">{stat.label}</p>
+              <p className="text-sm text-[var(--text-secondary)] mt-3 max-w-[24ch]">{stat.label}</p>
             </FadeUp>
           ))}
         </div>
 
-        <FadeUp delay={0.4} className="mt-20 max-w-3xl">
-          <blockquote className="text-h3 font-medium text-[var(--text-primary)] border-l-2 border-[var(--capture)] pl-8">
+        <FadeUp delay={0.4} className="mt-16 max-w-3xl">
+          <blockquote className="text-h3 font-medium text-[var(--text-primary)] border-l-2 border-[var(--capture)] pl-6">
             "Robots cannot learn from the internet. Every skill a robot learns must come from a human demonstrating it. India has the humans. Nxted has the pipeline."
           </blockquote>
-        </FadeUp>
-
-        <FadeUp delay={0.5} className="mt-8 text-xs text-[var(--text-muted)] tracking-wider">
-          Source: Fortune Business Insights, 2026 · NVIDIA EgoScale · Claru Research
+          <p className="mt-4 text-xs text-[var(--text-tertiary)] tracking-wider">
+            Source: Fortune Business Insights, 2026 · NVIDIA EgoScale · Claru Research
+          </p>
         </FadeUp>
       </div>
     </section>

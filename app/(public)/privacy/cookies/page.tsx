@@ -4,7 +4,7 @@ export const metadata: Metadata = { title: 'Cookie policy' };
 
 export default function CookiesPage() {
   return (
-    <section className="pt-[140px] pb-[120px]">
+    <section className="page-pad">
       <div className="container-site max-w-3xl prose-content text-[var(--text-secondary)] space-y-5">
         <div className="text-label text-[var(--text-secondary)] mb-4">Legal</div>
         <h1 className="text-h1 text-[var(--text-primary)]">Cookie policy</h1>

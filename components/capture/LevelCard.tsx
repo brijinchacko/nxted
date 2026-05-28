@@ -13,33 +13,35 @@ interface LevelDetail {
 
 export function LevelCard({ level, full = false }: { level: LevelDetail; full?: boolean }) {
   return (
-    <article className="bg-[var(--bg-card)] border border-[var(--border-default)] rounded-[12px] overflow-hidden hover:border-[var(--capture)] transition-colors">
-      <div className="relative h-[200px]">
+    <article className="surface surface-hover overflow-hidden flex flex-col h-full">
+      <div className="relative aspect-[16/10] bg-[var(--bg-surface)]">
         <Image
           src={level.image}
           alt={level.title}
           fill
-          style={{ objectFit: 'cover', filter: 'brightness(0.6)' }}
+          style={{ objectFit: 'cover', filter: 'brightness(0.65)' }}
           sizes="(max-width: 768px) 100vw, 33vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-card)] via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-card)] via-[var(--bg-card)]/30 to-transparent" />
+        <span className="absolute top-4 left-5 text-[11px] tracking-[0.18em] uppercase text-[var(--text-secondary)]">
+          Level {level.number}
+        </span>
         <span
-          className="absolute top-0 right-3 text-[180px] font-bold leading-none text-white/[0.05] pointer-events-none"
-          style={{ letterSpacing: '-0.08em' }}
+          className="absolute -bottom-4 right-4 text-[140px] font-bold leading-none text-white/[0.05] pointer-events-none select-none"
+          style={{ letterSpacing: '-0.06em' }}
         >
           {level.number}
         </span>
       </div>
-      <div className="p-6">
-        <div className="flex items-center gap-3 mb-2">
-          <span className="text-label text-[var(--text-muted)]">Level {level.number}</span>
+      <div className="p-6 flex flex-col gap-4 flex-1">
+        <div className="flex items-start justify-between gap-3">
+          <h3 className="text-h3">{level.title}</h3>
           <Badge tone="capture">{level.price}</Badge>
         </div>
-        <h3 className="text-h3 mb-3">{level.title}</h3>
-        <p className="text-[var(--text-secondary)] mb-4">{level.skills}</p>
+        <p className="text-[var(--text-secondary)] flex-1">{level.skills}</p>
         {full && (
-          <div className="border-t border-[var(--border-dim)] pt-4 mt-4">
-            <div className="text-label text-[var(--text-muted)] mb-2">Example task</div>
+          <div className="border-t border-[var(--border-dim)] pt-4 mt-2">
+            <div className="text-label mb-2">Example task</div>
             <p className="text-sm text-[var(--text-primary)]">{level.example}</p>
           </div>
         )}

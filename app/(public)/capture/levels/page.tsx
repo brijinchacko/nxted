@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function LevelsPage() {
   return (
-    <section className="pt-[140px] pb-[120px] bg-[var(--bg-surface)]">
+    <section className="page-pad bg-[var(--bg-surface)]">
       <div className="container-site">
         <div className="max-w-3xl mb-12">
           <div className="text-label text-[var(--capture)] mb-4">Taxonomy</div>

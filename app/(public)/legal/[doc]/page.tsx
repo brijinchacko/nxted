@@ -44,7 +44,7 @@ export default async function LegalPage({ params }: { params: Promise<{ doc: str
   const found = DOCS[doc];
   if (!found) notFound();
   return (
-    <section className="pt-[140px] pb-[120px]">
+    <section className="page-pad">
       <div className="container-site max-w-3xl">
         <div className="text-label text-[var(--text-secondary)] mb-4">Legal</div>
         <h1 className="text-h1 mb-8">{found.title}</h1>

@@ -14,8 +14,8 @@ export function Card({
   return (
     <div
       className={cn(
-        'bg-[var(--bg-card)] border border-[var(--border-default)] rounded-[12px] p-6 transition-colors',
-        hoverable && 'hover:bg-[var(--bg-card-hover)] hover:border-[var(--border-bright)]',
+        'surface p-6 md:p-7 transition-colors',
+        hoverable && 'surface-hover',
         accent === 'expert' && 'hover:border-[var(--expert)]',
         accent === 'capture' && 'hover:border-[var(--capture)]',
         className,

@@ -1,5 +1,3 @@
-import { Card, CardTitle, CardBody } from '@/components/ui/Card';
-
 export function SkillCategory({
   title,
   examples,
@@ -10,14 +8,12 @@ export function SkillCategory({
   count: string;
 }) {
   return (
-    <Card hoverable accent="capture">
-      <div className="flex items-baseline justify-between mb-3">
-        <CardTitle>{title}</CardTitle>
-        <span className="text-xs text-[var(--text-muted)]">{count}</span>
+    <article className="surface surface-hover p-7 flex flex-col gap-4 h-full">
+      <div className="flex items-baseline justify-between gap-3">
+        <h3 className="text-h4">{title}</h3>
+        <span className="text-[10px] uppercase tracking-wider text-[var(--text-tertiary)]">{count}</span>
       </div>
-      <CardBody>
-        <p>{examples.join(' · ')}</p>
-      </CardBody>
-    </Card>
+      <p className="text-sm text-[var(--text-secondary)] leading-relaxed">{examples.join(' · ')}</p>
+    </article>
   );
 }

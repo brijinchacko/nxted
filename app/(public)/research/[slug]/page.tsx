@@ -21,7 +21,7 @@ export default async function ResearchPostPage({ params }: { params: Promise<{ s
   if (!post || post.status !== 'PUBLISHED') notFound();
 
   return (
-    <article className="pt-[140px] pb-[120px]">
+    <article className="page-pad">
       <div className="container-site max-w-3xl">
         <Link href="/research" className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)]">
           ← Back to research
