@@ -15,10 +15,10 @@ const COLUMNS = [
   {
     title: 'Company',
     links: [
-      { href: '/about', label: 'About OFORO LTD' },
-      { href: '/contact', label: 'Contact' },
+      { href: '/case-studies', label: 'Case Studies' },
       { href: '/research', label: 'Research' },
       { href: '/how-it-works', label: 'How it works' },
+      { href: '/contact', label: 'Contact' },
     ],
   },
   {
@@ -38,7 +38,7 @@ export function Footer() {
       <div className="container-site pt-16">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
           <div className="md:col-span-5">
-            <Logo withParent={false} />
+            <Logo />
             <p className="text-[var(--text-secondary)] text-sm mt-4 max-w-sm">
               Human intelligence. Machine scale.
             </p>
@@ -77,9 +77,8 @@ export function Footer() {
             ))}
           </div>
         </div>
-        <div className="mt-14 pt-8 border-t border-[var(--border-dim)] flex flex-col md:flex-row gap-4 justify-between text-xs text-[var(--text-tertiary)]">
+        <div className="mt-14 pt-8 border-t border-[var(--border-dim)] text-xs text-[var(--text-tertiary)]">
           <p>© {new Date().getFullYear()} {COMPANY.name}. All rights reserved.</p>
-          <p>Made in India. Registered in the UK.</p>
         </div>
       </div>
     </footer>

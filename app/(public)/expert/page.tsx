@@ -1,5 +1,11 @@
 import type { Metadata } from 'next';
-import { ArrowRight } from '@phosphor-icons/react/dist/ssr';
+import {
+  ArrowRight,
+  Upload,
+  UsersThree,
+  ClipboardText,
+  FileText,
+} from '@phosphor-icons/react/dist/ssr';
 import { FadeUp } from '@/components/motion/FadeUp';
 import { Button } from '@/components/ui/Button';
 import { Card, CardTitle, CardBody, CardHeader } from '@/components/ui/Card';
@@ -14,10 +20,10 @@ export const metadata: Metadata = {
 };
 
 const STEPS = [
-  { n: '01', title: 'Submit your AI outputs', body: 'Text via secure portal — EU-hosted.' },
-  { n: '02', title: 'We assign 2–3 verified domain contributors', body: 'Matched on expertise, workload, and score.' },
-  { n: '03', title: 'Experts evaluate against your rubric', body: 'Structured verdict plus free-text correction.' },
-  { n: '04', title: 'Quality report delivered', body: 'With inter-rater agreement and expert credentials.' },
+  { n: '01', icon: Upload, title: 'Submit your AI outputs', body: 'Text via secure portal — EU-hosted.' },
+  { n: '02', icon: UsersThree, title: 'We assign verified contributors', body: 'Matched on expertise, workload, and score.' },
+  { n: '03', icon: ClipboardText, title: 'Experts evaluate against your rubric', body: 'Structured verdict plus free-text correction.' },
+  { n: '04', icon: FileText, title: 'Quality report delivered', body: 'With inter-rater agreement and expert credentials.' },
 ];
 
 const RED_TEAM = [
@@ -92,19 +98,26 @@ export default function ExpertPage() {
               Four steps from brief to <span className="text-[var(--expert)]">quality report</span>.
             </h2>
           </FadeUp>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
-            {STEPS.map((step, i) => (
-              <FadeUp key={step.n} delay={i * 0.08}>
-                <div
-                  className="font-bold tracking-[-0.04em] text-[var(--expert)] leading-none mb-4"
-                  style={{ fontSize: 'clamp(48px, 4.2vw, 64px)' }}
-                >
-                  {step.n}
-                </div>
-                <h3 className="text-h4 mb-2">{step.title}</h3>
-                <p className="text-sm text-[var(--text-secondary)]">{step.body}</p>
-              </FadeUp>
-            ))}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {STEPS.map((step, i) => {
+              const Icon = step.icon;
+              return (
+                <FadeUp key={step.n} delay={i * 0.08}>
+                  <article className="surface surface-hover p-6 h-full flex flex-col gap-5">
+                    <div className="flex items-center justify-between">
+                      <div className="w-11 h-11 rounded-lg bg-[var(--expert-dim)] flex items-center justify-center">
+                        <Icon size={22} weight="duotone" style={{ color: 'var(--expert)' }} />
+                      </div>
+                      <span className="text-sm font-semibold tracking-tight text-[var(--text-tertiary)]">{step.n}</span>
+                    </div>
+                    <div>
+                      <h3 className="text-h4 mb-2">{step.title}</h3>
+                      <p className="text-sm text-[var(--text-secondary)]">{step.body}</p>
+                    </div>
+                  </article>
+                </FadeUp>
+              );
+            })}
           </div>
         </div>
       </section>

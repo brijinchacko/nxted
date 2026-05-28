@@ -15,8 +15,8 @@ export const NAV_LINKS = [
   { href: '/expert', label: 'Expert' },
   { href: '/capture', label: 'Capture' },
   { href: '/how-it-works', label: 'How It Works' },
+  { href: '/case-studies', label: 'Case Studies' },
   { href: '/research', label: 'Research' },
-  { href: '/about', label: 'About' },
 ] as const;
 
 export const TICKER_ITEMS = [

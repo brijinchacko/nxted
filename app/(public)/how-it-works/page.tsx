@@ -1,42 +1,68 @@
 'use client';
 
+import {
+  ClipboardText,
+  UsersThree,
+  Eye,
+  ChartBar,
+  Sparkle,
+  FileText,
+  Receipt,
+  Wallet,
+  VideoCamera,
+  Shield,
+  Truck,
+} from '@phosphor-icons/react/dist/ssr';
 import { Tabs } from '@/components/ui/Tabs';
 import { FadeUp } from '@/components/motion/FadeUp';
 
-const EXPERT_STEPS = [
-  { n: '01', title: 'Submit brief', body: 'Describe AI domain and what "correct" means.' },
-  { n: '02', title: 'Admin assigns contributors', body: 'Within 2 hours on business days.' },
-  { n: '03', title: 'Contributors evaluate', body: 'Using Nxted\'s structured interface.' },
-  { n: '04', title: 'Metrics calculated', body: 'Inter-rater agreement and accuracy score.' },
-  { n: '05', title: 'Report generated', body: 'AI narrative reviewed by admin.' },
-  { n: '06', title: 'Report delivered', body: 'Expert credentials, recommendations, optional EU AI Act docs.' },
+type Step = { n: string; title: string; body: string; icon: React.ComponentType<{ size?: number; weight?: string; style?: React.CSSProperties }> };
+
+const EXPERT_STEPS: Step[] = [
+  { n: '01', icon: ClipboardText, title: 'Submit brief', body: 'Describe AI domain and what "correct" means.' },
+  { n: '02', icon: UsersThree, title: 'Admin assigns contributors', body: 'Within 2 hours on business days.' },
+  { n: '03', icon: Eye, title: 'Contributors evaluate', body: 'Using Nxted\'s structured interface.' },
+  { n: '04', icon: ChartBar, title: 'Metrics calculated', body: 'Inter-rater agreement and accuracy score.' },
+  { n: '05', icon: Sparkle, title: 'Report generated', body: 'AI narrative reviewed by admin.' },
+  { n: '06', icon: FileText, title: 'Report delivered', body: 'Expert credentials, recommendations, optional EU AI Act docs.' },
 ];
 
-const CAPTURE_STEPS = [
-  { n: '01', title: 'Specify dataset', body: 'Skill, level, hours, environment, format.' },
-  { n: '02', title: 'Receive quote', body: 'Within 24 hours.' },
-  { n: '03', title: 'Confirm and pay deposit', body: '50% deposit, balance on delivery.' },
-  { n: '04', title: 'Recording in India', body: 'We coordinate sessions with verified contributors.' },
-  { n: '05', title: 'Quality review', body: 'Every batch reviewed before delivery.' },
-  { n: '06', title: 'Dataset delivered', body: 'Your format plus consent documentation.' },
+const CAPTURE_STEPS: Step[] = [
+  { n: '01', icon: ClipboardText, title: 'Specify dataset', body: 'Skill, level, hours, environment, format.' },
+  { n: '02', icon: Receipt, title: 'Receive quote', body: 'Within 24 hours.' },
+  { n: '03', icon: Wallet, title: 'Confirm and pay deposit', body: '50% deposit, balance on delivery.' },
+  { n: '04', icon: VideoCamera, title: 'Recording in India', body: 'We coordinate sessions with verified contributors.' },
+  { n: '05', icon: Shield, title: 'Quality review', body: 'Every batch reviewed before delivery.' },
+  { n: '06', icon: Truck, title: 'Dataset delivered', body: 'Your format plus consent documentation.' },
 ];
 
-function StepList({ steps, accent }: { steps: typeof EXPERT_STEPS; accent: 'expert' | 'capture' }) {
+function StepGrid({ steps, accent }: { steps: Step[]; accent: 'expert' | 'capture' }) {
   const color = accent === 'expert' ? 'var(--expert)' : 'var(--capture)';
+  const bg = accent === 'expert' ? 'var(--expert-dim)' : 'var(--capture-dim)';
   return (
-    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
-      {steps.map((step, i) => (
-        <FadeUp key={step.n} delay={i * 0.05}>
-          <div
-            className="font-bold tracking-[-0.04em] leading-none mb-4"
-            style={{ color, fontSize: 'clamp(40px, 3.6vw, 56px)' }}
-          >
-            {step.n}
-          </div>
-          <h3 className="text-h4 mb-2">{step.title}</h3>
-          <p className="text-sm text-[var(--text-secondary)] max-w-[36ch]">{step.body}</p>
-        </FadeUp>
-      ))}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {steps.map((step, i) => {
+        const Icon = step.icon;
+        return (
+          <FadeUp key={step.n} delay={i * 0.05}>
+            <article className="surface surface-hover p-6 h-full flex flex-col gap-5">
+              <div className="flex items-center justify-between">
+                <div
+                  className="w-11 h-11 rounded-lg flex items-center justify-center"
+                  style={{ background: bg }}
+                >
+                  <Icon size={22} weight="duotone" style={{ color }} />
+                </div>
+                <span className="text-sm font-semibold text-[var(--text-tertiary)]">{step.n}</span>
+              </div>
+              <div>
+                <h3 className="text-h4 mb-2">{step.title}</h3>
+                <p className="text-sm text-[var(--text-secondary)]">{step.body}</p>
+              </div>
+            </article>
+          </FadeUp>
+        );
+      })}
     </div>
   );
 }
@@ -57,8 +83,8 @@ export default function HowItWorksPage() {
 
         <Tabs
           items={[
-            { id: 'expert', label: 'Expert track', content: <StepList steps={EXPERT_STEPS} accent="expert" /> },
-            { id: 'capture', label: 'Capture track', content: <StepList steps={CAPTURE_STEPS} accent="capture" /> },
+            { id: 'expert', label: 'Expert track', content: <StepGrid steps={EXPERT_STEPS} accent="expert" /> },
+            { id: 'capture', label: 'Capture track', content: <StepGrid steps={CAPTURE_STEPS} accent="capture" /> },
           ]}
         />
       </div>
