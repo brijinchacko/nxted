@@ -1,0 +1,414 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  ADMIN
+  CLIENT
+  CONTRIBUTOR
+}
+
+enum ProjectStatus {
+  DRAFT
+  SUBMITTED
+  CONTRIBUTORS_ASSIGNED
+  IN_PROGRESS
+  COMPLETED
+  DELIVERED
+  ARCHIVED
+}
+
+enum TaskStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  REVIEWED
+}
+
+enum EvalResult {
+  CORRECT
+  PARTIALLY_CORRECT
+  INCORRECT
+  UNSAFE
+  OUT_OF_SCOPE
+}
+
+enum ErrorCategory {
+  FACTUAL_ERROR
+  DOMAIN_ERROR
+  REASONING_ERROR
+  HALLUCINATION
+  BIAS
+  SAFETY_VIOLATION
+  INCOMPLETE
+  MISUNDERSTOOD
+  OTHER
+}
+
+enum CaptureLevel {
+  L1_FOUNDATION
+  L2_SKILLED_TRADES
+  L3_TECHNICAL
+  L4_PROFESSIONAL
+  L5_SPECIALIST
+}
+
+enum CaptureStatus {
+  QUOTE_REQUESTED
+  QUOTED
+  CONFIRMED
+  SCHEDULED
+  IN_PROGRESS
+  DELIVERED
+  CANCELLED
+}
+
+enum PayoutStatus {
+  PENDING
+  PAID
+}
+
+enum LeadStage {
+  LEAD
+  CONTACTED
+  CALL_BOOKED
+  PROPOSAL
+  PILOT
+  ACTIVE
+  CHURNED
+}
+
+enum PostStatus {
+  DRAFT
+  PUBLISHED
+}
+
+model User {
+  id               String    @id @default(cuid())
+  email            String    @unique
+  passwordHash     String
+  role             UserRole
+  firstName        String
+  lastName         String
+  phone            String?
+  isActive         Boolean   @default(true)
+  isVerified       Boolean   @default(false)
+  resetToken       String?
+  resetTokenExpiry DateTime?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  clientProfile      ClientProfile?
+  contributorProfile ContributorProfile?
+  notifications      Notification[]
+}
+
+model ClientProfile {
+  id               String  @id @default(cuid())
+  userId           String  @unique
+  user             User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  companyName      String
+  industry         String?
+  website          String?
+  country          String  @default("United Kingdom")
+  billingEmail     String?
+  currency         String  @default("GBP")
+  stripeCustomerId String? @unique
+  notes            String?
+
+  expertProjects ExpertProject[]
+  captureOrders  CaptureOrder[]
+  leads          Lead[]
+  invoices       Invoice[]
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+}
+
+model ContributorProfile {
+  id           String   @id @default(cuid())
+  userId       String   @unique
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  bio          String?  @db.Text
+  location     String   @default("India")
+  timezone     String   @default("Asia/Kolkata")
+  expertise    String[]
+  credentials  String?
+  linkedinUrl  String?
+  isVerified   Boolean  @default(false)
+  isActive     Boolean  @default(true)
+  averageScore Float    @default(0)
+  totalTasks   Int      @default(0)
+  totalEarned  Float    @default(0)
+
+  tasks       EvaluationTask[]
+  evaluations OutputEvaluation[]
+  payouts     ContributorPayout[]
+  createdAt   DateTime            @default(now())
+  updatedAt   DateTime            @updatedAt
+}
+
+model ExpertProject {
+  id              String        @id @default(cuid())
+  projectCode     String        @unique
+  clientProfileId String
+  clientProfile   ClientProfile @relation(fields: [clientProfileId], references: [id])
+
+  title            String
+  aiDomain         String
+  aiUseCase        String  @db.Text
+  whatCorrectMeans String  @db.Text
+  rubricNotes      String? @db.Text
+  industry         String?
+
+  projectType String
+  status      ProjectStatus @default(DRAFT)
+
+  totalOutputs  Int            @default(0)
+  outputs       ExpertOutput[]
+  tasks         EvaluationTask[]
+  qualityReport QualityReport?
+
+  amountGBP       Float?
+  stripePaymentId String?
+  paidAt          DateTime?
+  deliveredAt     DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([clientProfileId, status])
+}
+
+model ExpertOutput {
+  id           String        @id @default(cuid())
+  projectId    String
+  project      ExpertProject @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  outputIndex  Int
+  prompt       String        @db.Text
+  aiResponse   String        @db.Text
+  groundTruth  String?       @db.Text
+  contextNotes String?       @db.Text
+
+  evaluations     OutputEvaluation[]
+  consensusResult EvalResult?
+  agreementScore  Float?
+  isControversial Boolean            @default(false)
+
+  createdAt DateTime @default(now())
+
+  @@index([projectId])
+}
+
+model EvaluationTask {
+  id               String             @id @default(cuid())
+  projectId        String
+  project          ExpertProject      @relation(fields: [projectId], references: [id])
+  contributorId    String
+  contributor      ContributorProfile @relation(fields: [contributorId], references: [id])
+  status           TaskStatus         @default(PENDING)
+  assignedAt       DateTime           @default(now())
+  startedAt        DateTime?
+  completedAt      DateTime?
+  outputsTotal     Int
+  outputsCompleted Int                @default(0)
+  payoutAmount     Float?
+  payoutStatus     PayoutStatus       @default(PENDING)
+  evaluations      OutputEvaluation[]
+
+  @@unique([projectId, contributorId])
+}
+
+model OutputEvaluation {
+  id              String             @id @default(cuid())
+  outputId        String
+  output          ExpertOutput       @relation(fields: [outputId], references: [id], onDelete: Cascade)
+  taskId          String
+  task            EvaluationTask     @relation(fields: [taskId], references: [id])
+  contributorId   String
+  contributor     ContributorProfile @relation(fields: [contributorId], references: [id])
+
+  result            EvalResult
+  confidence        Int
+  errorCategories   ErrorCategory[]
+  errorDescription  String?         @db.Text
+  correctedVersion  String?         @db.Text
+  severityScore     Int
+  isAdversarial     Boolean         @default(false)
+  adversarialPrompt String?         @db.Text
+  evaluatedAt       DateTime        @default(now())
+
+  @@unique([outputId, taskId])
+}
+
+model QualityReport {
+  id         String        @id @default(cuid())
+  reportCode String        @unique
+  projectId  String        @unique
+  project    ExpertProject @relation(fields: [projectId], references: [id])
+
+  overallScore         Float
+  accuracyRate         Float
+  interRaterAgreement  Float
+  criticalFailureCount Int
+  errorBreakdown       Json
+  executiveSummary     String @db.Text
+  keyFindings          Json
+  recommendations      Json
+  expertCredentials    Json
+
+  hasComplianceSection Boolean  @default(false)
+  complianceNarrative  String?  @db.Text
+  generatedAt          DateTime?
+  sentToClientAt       DateTime?
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+}
+
+model CaptureOrder {
+  id              String        @id @default(cuid())
+  orderCode       String        @unique
+  clientProfileId String
+  clientProfile   ClientProfile @relation(fields: [clientProfileId], references: [id])
+
+  skillCategory     String
+  level             CaptureLevel
+  hoursRequested    Int
+  environmentType   String
+  taskSpecification String       @db.Text
+  hardwareNotes     String?
+
+  outputFormat      String  @default("MP4_4K")
+  annotationLevel   String  @default("BASIC")
+  needsDepthMap     Boolean @default(false)
+  needsPoseSkeleton Boolean @default(false)
+  needsActionLabels Boolean @default(true)
+
+  status         CaptureStatus @default(QUOTE_REQUESTED)
+  quotedPriceGBP Float?
+  finalPriceGBP  Float?
+  hoursDelivered Int           @default(0)
+
+  scheduledDate DateTime?
+  deliveredAt   DateTime?
+
+  coordinatorNotes String? @db.Text
+  deliveryUrl      String?
+
+  invoiceId String?
+  invoice   Invoice? @relation(fields: [invoiceId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([clientProfileId, status])
+}
+
+model Invoice {
+  id            String        @id @default(cuid())
+  invoiceNumber String        @unique
+  clientId      String
+  client        ClientProfile @relation(fields: [clientId], references: [id])
+  currency      String        @default("GBP")
+  subtotal      Float
+  total         Float
+  status        String        @default("DRAFT")
+  dueDate       DateTime
+  paidAt        DateTime?
+  stripeId      String?
+  lineItems     Json
+  captureOrders CaptureOrder[]
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+}
+
+model ContributorPayout {
+  id            String             @id @default(cuid())
+  contributorId String
+  contributor   ContributorProfile @relation(fields: [contributorId], references: [id])
+  taskId        String?
+  amount        Float
+  currency      String             @default("GBP")
+  period        String
+  status        PayoutStatus       @default(PENDING)
+  paidAt        DateTime?
+  paymentRef    String?
+  paymentMethod String?
+  createdAt     DateTime           @default(now())
+}
+
+model Lead {
+  id              String             @id @default(cuid())
+  clientId        String?
+  client          ClientProfile?     @relation(fields: [clientId], references: [id])
+  contactName     String
+  companyName     String
+  email           String
+  industry        String?
+  productInterest String
+  stage           LeadStage          @default(LEAD)
+  source          String?
+  estimatedValue  Float?
+  notes           String?            @db.Text
+  nextAction      String?
+  nextActionDate  DateTime?
+  stageHistory    LeadStageHistory[]
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @updatedAt
+}
+
+model LeadStageHistory {
+  id        String     @id @default(cuid())
+  leadId    String
+  lead      Lead       @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  fromStage LeadStage?
+  toStage   LeadStage
+  movedAt   DateTime   @default(now())
+  note      String?
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title     String
+  body      String
+  link      String?
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([userId, isRead])
+}
+
+model ResearchPost {
+  id            String     @id @default(cuid())
+  slug          String     @unique
+  title         String
+  excerpt       String
+  content       String     @db.Text
+  category      String
+  tags          String[]
+  featuredImage String?
+  status        PostStatus @default(DRAFT)
+  publishedAt   DateTime?
+  readingTime   Int?
+  metaTitle     String?
+  metaDesc      String?
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+
+  @@index([slug])
+}
+
+model ConsentRecord {
+  id           String   @id @default(cuid())
+  userId       String?
+  ipHash       String?
+  consentGiven Boolean
+  consentTypes String[]
+  givenAt      DateTime @default(now())
+}
