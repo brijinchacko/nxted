@@ -47,6 +47,9 @@ export function Navbar() {
           </nav>
 
           <div className="hidden lg:flex items-center gap-3">
+            <Button href="/apply" variant="ghost" size="sm">
+              Apply as expert
+            </Button>
             <Button href="/auth/login" variant="ghost" size="sm">
               Sign In
             </Button>

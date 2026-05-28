@@ -22,6 +22,7 @@ const SECTIONS = [
     items: [
       { href: '/admin/expert-projects', label: 'Expert Projects' },
       { href: '/admin/capture-orders', label: 'Capture Orders' },
+      { href: '/admin/projects', label: 'Marketplace' },
       { href: '/admin/contributors', label: 'Contributors' },
       { href: '/admin/payouts', label: 'Payouts' },
     ],

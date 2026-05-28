@@ -8,7 +8,9 @@ import { cn } from '@/lib/utils';
 
 const ITEMS = [
   { href: '/me/dashboard', label: 'Dashboard' },
-  { href: '/me/tasks', label: 'Tasks' },
+  { href: '/me/marketplace', label: 'Browse projects' },
+  { href: '/me/tasks', label: 'My tasks' },
+  { href: '/me/applications', label: 'Applications' },
   { href: '/me/earnings', label: 'Earnings' },
   { href: '/me/profile', label: 'Profile' },
 ];
@@ -19,6 +21,7 @@ export function ContributorSidebar() {
     <aside className="w-[240px] shrink-0 bg-[var(--bg-surface)] border-r border-[var(--border-dim)] min-h-screen p-6 flex flex-col">
       <div className="mb-8">
         <Logo />
+        <div className="text-[10px] uppercase tracking-[0.2em] text-[var(--text-tertiary)] mt-2">Contributor</div>
       </div>
       <nav className="flex-1 flex flex-col gap-1">
         {ITEMS.map((item) => {

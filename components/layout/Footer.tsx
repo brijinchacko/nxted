@@ -26,8 +26,19 @@ const COLUMNS = [
     links: [
       { href: '/legal/terms', label: 'Terms' },
       { href: '/legal/privacy', label: 'Privacy' },
-      { href: '/legal/gdpr', label: 'GDPR & Data' },
-      { href: '/privacy/cookies', label: 'Cookies' },
+      { href: '/legal/cookies', label: 'Cookies' },
+      { href: '/legal/dpa', label: 'DPA' },
+      { href: '/legal/aup', label: 'Acceptable use' },
+      { href: '/legal/security', label: 'Security' },
+    ],
+  },
+  {
+    title: 'Contributors',
+    links: [
+      { href: '/apply', label: 'Apply' },
+      { href: '/legal/contributor-agreement', label: 'Contributor Agreement' },
+      { href: '/legal/ai-act', label: 'EU AI Act position' },
+      { href: '/legal/whistleblowing', label: 'Whistleblowing' },
     ],
   },
 ];
@@ -57,7 +68,7 @@ export function Footer() {
               ))}
             </div>
           </div>
-          <div className="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8">
+          <div className="md:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-8">
             {COLUMNS.map((col) => (
               <div key={col.title}>
                 <h4 className="text-label mb-5">{col.title}</h4>
