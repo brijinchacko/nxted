@@ -1,6 +1,6 @@
-import Image from 'next/image';
 import { INDIA_NUMBERS } from '@/lib/constants';
 import { FadeUp } from '@/components/motion/FadeUp';
+import { WorkforceGraphic } from '@/components/graphics/Infographics';
 
 export function IndiaAdvantage() {
   return (
@@ -14,15 +14,8 @@ export function IndiaAdvantage() {
           <p className="mt-6 text-body text-[var(--text-secondary)] max-w-[44ch]">
             500 million skilled workers. World-class IITs, AIIMS, IIMs and NLUs. English fluency. The supply structure no other country can match.
           </p>
-          <div className="relative mt-10 aspect-[5/3] rounded-2xl overflow-hidden border border-[var(--border-default)]">
-            <Image
-              src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=1200&h=800&fit=crop"
-              alt="Skilled Indian craftsperson at work"
-              fill
-              style={{ objectFit: 'cover', filter: 'brightness(0.55) saturate(1.1)' }}
-              sizes="(max-width: 1024px) 100vw, 40vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-surface)] via-transparent to-transparent" />
+          <div className="relative mt-10 aspect-[5/3] rounded-2xl overflow-hidden border border-[var(--border-default)] bg-[var(--bg-card)] p-5">
+            <WorkforceGraphic />
           </div>
         </FadeUp>
 

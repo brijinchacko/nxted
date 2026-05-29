@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import { FadeUp } from '@/components/motion/FadeUp';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import { ArrowRight, CheckCircle } from '@phosphor-icons/react/dist/ssr';
+import { CaseStudyGraphic } from '@/components/graphics/Infographics';
 
 export const metadata: Metadata = {
   title: 'Case Studies — Nxted',
@@ -146,27 +146,15 @@ export default function CaseStudiesPage() {
 function CaseStudyCard({ study, reversed }: { study: CaseStudy; reversed?: boolean }) {
   const accent = study.product === 'Capture' ? 'capture' : 'expert';
   const accentColor = accent === 'capture' ? 'var(--capture)' : 'var(--expert)';
+  const graphicVariant = study.product === 'Capture' ? 'capture' : study.product === 'Both' ? 'both' : 'expert';
   return (
     <FadeUp>
       <article className="surface overflow-hidden">
         <div className={`grid lg:grid-cols-12 gap-0 ${reversed ? 'lg:flex-row-reverse' : ''}`}>
-          <div className={`lg:col-span-5 relative min-h-[280px] lg:min-h-[480px] ${reversed ? 'lg:order-2' : ''}`}>
-            <Image
-              src={study.image}
-              alt={study.client}
-              fill
-              style={{ objectFit: 'cover', filter: 'brightness(0.55) saturate(1.05)' }}
-              sizes="(max-width: 1024px) 100vw, 40vw"
-            />
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  accent === 'capture'
-                    ? 'linear-gradient(135deg, rgba(255,140,66,0.22), transparent 70%)'
-                    : 'linear-gradient(135deg, rgba(92,225,230,0.22), transparent 70%)',
-              }}
-            />
+          <div className={`lg:col-span-5 relative min-h-[280px] lg:min-h-[480px] flex items-center bg-[var(--bg-surface)] border-b lg:border-b-0 lg:border-r border-[var(--border-dim)] p-6 ${reversed ? 'lg:order-2' : ''}`}>
+            <div className="w-full">
+              <CaseStudyGraphic variant={graphicVariant} />
+            </div>
             <div className="absolute bottom-0 inset-x-0 p-6">
               <Badge tone={accent}>Nxted {study.product}</Badge>
               <div className="text-[11px] tracking-[0.18em] uppercase text-[var(--text-secondary)] mt-3">{study.tag}</div>

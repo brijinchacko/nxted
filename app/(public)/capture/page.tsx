@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import {
   ArrowRight,
   ArrowUpRight,
@@ -17,6 +16,7 @@ import { Badge } from '@/components/ui/Badge';
 import { LevelCard } from '@/components/capture/LevelCard';
 import { DatasetSpec } from '@/components/capture/DatasetSpec';
 import { SkillCategory } from '@/components/capture/SkillCategory';
+import { EgocentricGraphic } from '@/components/graphics/Infographics';
 import { CAPTURE_LEVELS } from '@/lib/constants';
 import {
   OPPORTUNITY_STATS,
@@ -83,16 +83,8 @@ export default function CapturePage() {
           </FadeUp>
 
           <FadeUp delay={0.2} className="lg:col-span-5">
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-[var(--border-default)]">
-              <Image
-                src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=900&h=1100&fit=crop"
-                alt="Skilled garment worker in India"
-                fill
-                style={{ objectFit: 'cover', filter: 'brightness(0.62) saturate(1.05)' }}
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0A1616] via-transparent to-transparent" />
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-[var(--border-default)] bg-[var(--bg-card)] p-4">
+              <EgocentricGraphic />
               <div className="absolute bottom-0 inset-x-0 p-6">
                 <Badge tone="capture">Egocentric · first-person</Badge>
                 <p className="text-sm text-[var(--text-primary)] mt-3">

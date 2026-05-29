@@ -1,11 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import { ArrowRight } from '@phosphor-icons/react/dist/ssr';
 import { RevealText } from '@/components/motion/RevealText';
 import { FadeUp } from '@/components/motion/FadeUp';
 import { Button } from '@/components/ui/Button';
+import { DualPipelineGraphic } from '@/components/graphics/Infographics';
 
 export function HeroSection() {
   return (
@@ -59,24 +59,9 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="relative rounded-2xl overflow-hidden border border-[var(--border-default)] bg-[var(--bg-card)]"
+            className="relative rounded-2xl overflow-hidden border border-[var(--border-default)] bg-[var(--bg-card)] p-4"
           >
-            <div className="grid grid-cols-1 gap-px bg-[var(--border-default)]">
-              <HeroPanel
-                src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=900&h=700&fit=crop"
-                alt="Engineer reviewing AI output"
-                accent="expert"
-                label="Expert"
-                sub="RLHF · evaluation · red-team"
-              />
-              <HeroPanel
-                src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=900&h=700&fit=crop"
-                alt="Tailor working in India"
-                accent="capture"
-                label="Capture"
-                sub="Egocentric video · 5 levels"
-              />
-            </div>
+            <DualPipelineGraphic />
           </motion.div>
         </div>
       </div>
@@ -90,44 +75,5 @@ export function HeroSection() {
         }}
       />
     </section>
-  );
-}
-
-function HeroPanel({
-  src,
-  alt,
-  accent,
-  label,
-  sub,
-}: {
-  src: string;
-  alt: string;
-  accent: 'expert' | 'capture';
-  label: string;
-  sub: string;
-}) {
-  const color = accent === 'expert' ? 'var(--expert)' : 'var(--capture)';
-  const overlay =
-    accent === 'expert'
-      ? 'from-[rgba(92,225,230,0.20)] via-transparent to-transparent'
-      : 'from-[rgba(255,140,66,0.20)] via-transparent to-transparent';
-  return (
-    <div className="relative h-[240px] md:h-[280px] bg-[var(--bg-base)]">
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        style={{ objectFit: 'cover', filter: 'brightness(0.5)' }}
-        sizes="(max-width: 1024px) 100vw, 45vw"
-        priority={accent === 'expert'}
-      />
-      <div className={`absolute inset-0 bg-gradient-to-br ${overlay}`} />
-      <div className="absolute inset-x-0 bottom-0 p-5">
-        <div className="text-[11px] tracking-[0.18em] uppercase mb-1" style={{ color }}>
-          {label}
-        </div>
-        <div className="text-sm text-[var(--text-primary)]">{sub}</div>
-      </div>
-    </div>
   );
 }

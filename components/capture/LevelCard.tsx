@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import { Badge } from '@/components/ui/Badge';
+import { LevelMeter } from '@/components/graphics/Infographics';
 
 interface LevelDetail {
   number: string;
@@ -14,23 +14,10 @@ interface LevelDetail {
 export function LevelCard({ level, full = false }: { level: LevelDetail; full?: boolean }) {
   return (
     <article className="surface surface-hover overflow-hidden flex flex-col h-full">
-      <div className="relative aspect-[16/10] bg-[var(--bg-surface)]">
-        <Image
-          src={level.image}
-          alt={level.title}
-          fill
-          style={{ objectFit: 'cover', filter: 'brightness(0.65)' }}
-          sizes="(max-width: 768px) 100vw, 33vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-card)] via-[var(--bg-card)]/30 to-transparent" />
+      <div className="relative aspect-[16/10] bg-[var(--bg-surface)] border-b border-[var(--border-dim)]">
+        <LevelMeter number={level.number} complexity={level.complexity} accent="capture" />
         <span className="absolute top-4 left-5 text-[11px] tracking-[0.18em] uppercase text-[var(--text-secondary)]">
           Level {level.number}
-        </span>
-        <span
-          className="absolute -bottom-4 right-4 text-[140px] font-bold leading-none text-white/[0.05] pointer-events-none select-none"
-          style={{ letterSpacing: '-0.06em' }}
-        >
-          {level.number}
         </span>
       </div>
       <div className="p-6 flex flex-col gap-4 flex-1">
