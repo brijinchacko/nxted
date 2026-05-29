@@ -10,11 +10,11 @@ const spaceGrotesk = Space_Grotesk({
   display: 'swap',
 });
 
-// Heavy rounded sans for the logo wordmark — matches the rounded,
-// chunky construction of the monogram mark
+// Baloo 2 — the logo font, now used site-wide. Full weight range so it
+// works for body text as well as headings.
 const logoFont = Baloo_2({
   subsets: ['latin'],
-  weight: ['600', '700', '800'],
+  weight: ['400', '500', '600', '700', '800'],
   variable: '--font-logo',
   display: 'swap',
 });
