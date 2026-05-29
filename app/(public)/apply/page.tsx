@@ -370,7 +370,7 @@ function Benefit({
   title,
   body,
 }: {
-  icon: React.ComponentType<{ size?: number; weight?: string; style?: React.CSSProperties }>;
+  icon: React.ElementType;
   title: string;
   body: string;
 }) {

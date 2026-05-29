@@ -142,7 +142,7 @@ function StatCard({
   accent,
   href,
 }: {
-  icon: React.ComponentType<{ size?: number; weight?: string; style?: React.CSSProperties }>;
+  icon: React.ElementType;
   label: string;
   value: string | number;
   accent?: 'expert' | 'capture';

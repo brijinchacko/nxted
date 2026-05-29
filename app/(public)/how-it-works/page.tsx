@@ -16,7 +16,7 @@ import {
 import { Tabs } from '@/components/ui/Tabs';
 import { FadeUp } from '@/components/motion/FadeUp';
 
-type Step = { n: string; title: string; body: string; icon: React.ComponentType<{ size?: number; weight?: string; style?: React.CSSProperties }> };
+type Step = { n: string; title: string; body: string; icon: React.ElementType };
 
 const EXPERT_STEPS: Step[] = [
   { n: '01', icon: ClipboardText, title: 'Submit brief', body: 'Describe AI domain and what "correct" means.' },

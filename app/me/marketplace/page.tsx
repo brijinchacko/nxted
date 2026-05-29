@@ -94,7 +94,7 @@ function Meta({
   label,
   value,
 }: {
-  icon: React.ComponentType<{ size?: number; weight?: string; style?: React.CSSProperties }>;
+  icon: React.ElementType;
   label: string;
   value: string;
 }) {

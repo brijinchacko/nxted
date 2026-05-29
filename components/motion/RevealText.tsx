@@ -17,10 +17,10 @@ export function RevealText({
   perWord?: number;
 }) {
   const [visible, setVisible] = useState(false);
-  const ref = useRef<HTMLElement>(null);
+  const elRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
-    const el = ref.current;
+    const el = elRef.current;
     if (!el) return;
     if (typeof IntersectionObserver === 'undefined') {
       setVisible(true);
@@ -48,7 +48,7 @@ export function RevealText({
 
   const words = text.split(' ');
   return (
-    <Tag ref={ref as unknown as React.RefObject<HTMLSpanElement>} className={className}>
+    <Tag ref={(node: HTMLElement | null) => { elRef.current = node; }} className={className}>
       {words.map((word, i) => (
         <motion.span
           key={i}
