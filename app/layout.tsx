@@ -1,21 +1,22 @@
 import type { Metadata } from 'next';
-import { Space_Grotesk, Baloo_2 } from 'next/font/google';
+import { Baloo_2, Nunito } from 'next/font/google';
 import { Toaster } from 'react-hot-toast';
 import './globals.css';
 
-const spaceGrotesk = Space_Grotesk({
+// Baloo 2 — the logo + heading font (rounded display)
+const logoFont = Baloo_2({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-space-grotesk',
+  weight: ['500', '600', '700', '800'],
+  variable: '--font-logo',
   display: 'swap',
 });
 
-// Baloo 2 — the logo font, now used site-wide. Full weight range so it
-// works for body text as well as headings.
-const logoFont = Baloo_2({
+// Nunito — body font. Soft rounded terminals echo the logo, but it's a
+// proper text face built for readable paragraphs.
+const bodyFont = Nunito({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700', '800'],
-  variable: '--font-logo',
+  variable: '--font-body',
   display: 'swap',
 });
 
@@ -58,7 +59,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${logoFont.variable}`}>
+    <html lang="en" className={`${logoFont.variable} ${bodyFont.variable}`}>
       <body>
         {children}
         <Toaster

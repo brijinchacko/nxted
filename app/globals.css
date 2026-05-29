@@ -114,7 +114,8 @@
   --color-warning: var(--warning);
   --color-danger: var(--danger);
   --color-india-saffron: var(--india-saffron);
-  --font-sans: var(--font-logo), var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: var(--font-body), -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: var(--font-logo), var(--font-body), sans-serif;
 }
 
 * {
@@ -130,7 +131,7 @@ html {
 body {
   background-color: var(--bg-base);
   color: var(--text-primary);
-  font-family: var(--font-logo), var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-body), -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
   padding-bottom: env(safe-area-inset-bottom);
@@ -142,6 +143,12 @@ body {
 ::selection { background: rgba(92, 225, 230, 0.25); color: var(--text-primary); }
 
 /* ─── Typography ───────────────────────────────────────────────────────── */
+
+/* Headings use the rounded logo font (Baloo 2); body uses Nunito */
+h1, h2, h3, h4, h5, h6,
+.text-display, .text-h1, .text-h2, .text-h3, .text-h4 {
+  font-family: var(--font-heading);
+}
 
 .text-display {
   font-size: clamp(44px, 6.2vw, 88px);

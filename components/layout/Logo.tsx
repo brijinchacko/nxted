@@ -52,7 +52,7 @@ export function Logo({
       {!markOnly && (
         <span
           className={cn('font-bold tracking-[-0.01em] text-[var(--text-primary)]', textCls)}
-          style={{ fontFamily: 'var(--font-logo), var(--font-space-grotesk), sans-serif' }}
+          style={{ fontFamily: 'var(--font-logo), var(--font-body), sans-serif' }}
         >
           nxted
         </span>
