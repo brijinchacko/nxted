@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Space_Grotesk, Comfortaa } from 'next/font/google';
+import { Space_Grotesk, Baloo_2 } from 'next/font/google';
 import { Toaster } from 'react-hot-toast';
 import './globals.css';
 
@@ -10,11 +10,11 @@ const spaceGrotesk = Space_Grotesk({
   display: 'swap',
 });
 
-// Monoline geometric rounded sans for the logo wordmark — matches the
-// rounded, uniform-stroke construction of the monogram mark
-const logoFont = Comfortaa({
+// Heavy rounded sans for the logo wordmark — matches the rounded,
+// chunky construction of the monogram mark
+const logoFont = Baloo_2({
   subsets: ['latin'],
-  weight: ['500', '600', '700'],
+  weight: ['600', '700', '800'],
   variable: '--font-logo',
   display: 'swap',
 });
