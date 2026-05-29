@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Space_Grotesk, Quicksand } from 'next/font/google';
+import { Space_Grotesk, Fredoka } from 'next/font/google';
 import { Toaster } from 'react-hot-toast';
 import './globals.css';
 
@@ -11,7 +11,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 // Geometric, rounded sans for the logo wordmark — echoes the rounded monogram mark
-const logoFont = Quicksand({
+const logoFont = Fredoka({
   subsets: ['latin'],
   weight: ['500', '600', '700'],
   variable: '--font-logo',
