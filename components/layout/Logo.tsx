@@ -37,8 +37,8 @@ export function Logo({
   markOnly?: boolean;
   className?: string;
 }) {
-  const markPx = size === 'sm' ? 26 : size === 'lg' ? 38 : 30;
-  const textCls = size === 'sm' ? 'text-[19px]' : size === 'lg' ? 'text-[28px]' : 'text-[22px]';
+  const markPx = size === 'sm' ? 28 : size === 'lg' ? 40 : 32;
+  const textCls = size === 'sm' ? 'text-[22px]' : size === 'lg' ? 'text-[34px]' : 'text-[26px]';
 
   return (
     <Link
