@@ -54,7 +54,7 @@ export default function CapturePage() {
   return (
     <>
       {/* ─── Hero ─────────────────────────────────────────── */}
-      <section className="bg-[#1A0E06] hero-pad border-b border-[var(--border-dim)]">
+      <section className="bg-[#0A1616] hero-pad border-b border-[var(--border-dim)]">
         <div className="container-site grid lg:grid-cols-12 gap-12 xl:gap-20 items-center">
           <FadeUp className="lg:col-span-7">
             <div className="text-label mb-5" style={{ color: 'var(--capture)' }}>Nxted Capture</div>
@@ -92,7 +92,7 @@ export default function CapturePage() {
                 sizes="(max-width: 1024px) 100vw, 40vw"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1A0E06] via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A1616] via-transparent to-transparent" />
               <div className="absolute bottom-0 inset-x-0 p-6">
                 <Badge tone="capture">Egocentric · first-person</Badge>
                 <p className="text-sm text-[var(--text-primary)] mt-3">
