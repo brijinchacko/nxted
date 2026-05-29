@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ArrowRight } from '@phosphor-icons/react/dist/ssr';
 import { FadeUp } from '@/components/motion/FadeUp';
+import { ExpertMiniGraphic, CaptureMiniGraphic } from '@/components/graphics/Infographics';
 
 export function ProductSplit() {
   return (
@@ -15,6 +16,9 @@ export function ProductSplit() {
             <p className="text-body text-[var(--text-secondary)] mt-5 max-w-[42ch]">
               RLHF feedback, red-teaming, and structured training data from India's IIT engineers, AIIMS doctors, IIM consultants and ILS lawyers - the world's deepest talent base.
             </p>
+            <div className="mt-7 h-[110px]">
+              <ExpertMiniGraphic />
+            </div>
             <div className="flex flex-wrap gap-2 mt-7">
               <Tag>Quick Sprint £249</Tag>
               <Tag>Monthly from £1,500</Tag>
@@ -34,6 +38,9 @@ export function ProductSplit() {
             <p className="text-body text-[var(--text-secondary)] mt-5 max-w-[42ch]">
               Egocentric video from India's 45M garment workers, 15M carpenters, and elite medical professionals. Robotics-ready formats: RLDS, HDF5, LeRobot.
             </p>
+            <div className="mt-7 h-[110px]">
+              <CaptureMiniGraphic />
+            </div>
             <div className="flex flex-wrap gap-2 mt-7">
               <Tag>5-level skill taxonomy</Tag>
               <Tag>From $35/hr of footage</Tag>

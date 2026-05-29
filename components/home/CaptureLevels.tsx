@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { CAPTURE_LEVELS } from '@/lib/constants';
 import { FadeUp } from '@/components/motion/FadeUp';
-import { LevelMeter } from '@/components/graphics/Infographics';
+import { LevelGraphic } from '@/components/graphics/Infographics';
 
 function ComplexityDots({ level }: { level: number }) {
   return (
@@ -58,7 +58,7 @@ export function CaptureLevels() {
               className="surface surface-hover overflow-hidden flex flex-col"
             >
               <div className="relative aspect-[4/3] bg-[var(--bg-surface)] overflow-hidden border-b border-[var(--border-dim)]">
-                <LevelMeter number={level.number} complexity={level.complexity} accent="capture" />
+                <LevelGraphic number={level.number} />
               </div>
               <div className="p-5 flex flex-col gap-3 flex-1">
                 <h3 className="text-h4 leading-tight min-h-[2.6em]">{level.title}</h3>

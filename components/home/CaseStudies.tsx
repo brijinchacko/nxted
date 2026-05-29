@@ -1,7 +1,7 @@
 import { ArrowRight, ArrowUpRight } from '@phosphor-icons/react/dist/ssr';
 import { FadeUp } from '@/components/motion/FadeUp';
 import { Button } from '@/components/ui/Button';
-import { CaseStudyGraphic } from '@/components/graphics/Infographics';
+import { CaseStudyMini } from '@/components/graphics/Infographics';
 
 const PREVIEWS = [
   {
@@ -54,7 +54,7 @@ export function CaseStudies() {
                 className="surface surface-hover overflow-hidden flex flex-col h-full group"
               >
                 <div className="relative aspect-[16/10] bg-[var(--bg-surface)] border-b border-[var(--border-dim)] p-3">
-                  <CaseStudyGraphic variant={p.variant} />
+                  <CaseStudyMini variant={p.variant} />
                   <span
                     className="absolute top-4 left-4 inline-flex items-center h-6 px-2.5 rounded text-[10px] uppercase tracking-wider font-medium"
                     style={{ background: 'rgba(0,0,0,0.5)', color: p.tagColor }}

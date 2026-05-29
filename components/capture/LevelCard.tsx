@@ -1,5 +1,5 @@
 import { Badge } from '@/components/ui/Badge';
-import { LevelMeter } from '@/components/graphics/Infographics';
+import { LevelGraphic } from '@/components/graphics/Infographics';
 
 interface LevelDetail {
   number: string;
@@ -15,7 +15,7 @@ export function LevelCard({ level, full = false }: { level: LevelDetail; full?: 
   return (
     <article className="surface surface-hover overflow-hidden flex flex-col h-full">
       <div className="relative aspect-[16/10] bg-[var(--bg-surface)] border-b border-[var(--border-dim)]">
-        <LevelMeter number={level.number} complexity={level.complexity} accent="capture" />
+        <LevelGraphic number={level.number} />
         <span className="absolute top-4 left-5 text-[11px] tracking-[0.18em] uppercase text-[var(--text-secondary)]">
           Level {level.number}
         </span>

@@ -1,6 +1,7 @@
 import { Robot, ChartLineUp, Eye, UsersThree } from '@phosphor-icons/react/dist/ssr';
 import { CountUp } from '@/components/motion/CountUp';
 import { FadeUp } from '@/components/motion/FadeUp';
+import { MarketGrowthGraphic } from '@/components/graphics/Infographics';
 
 const STATS = [
   {
@@ -68,11 +69,18 @@ export function MarketData() {
           })}
         </div>
 
-        <FadeUp delay={0.4} className="mt-16 max-w-3xl">
-          <blockquote className="text-h3 font-medium text-[var(--text-primary)] border-l-2 border-[var(--capture)] pl-6">
-            "Robots cannot learn from the internet. Every skill a robot learns must come from a human demonstrating it. India has the humans. Nxted has the pipeline."
-          </blockquote>
-        </FadeUp>
+        <div className="mt-16 grid lg:grid-cols-12 gap-10 items-center">
+          <FadeUp delay={0.2} className="lg:col-span-6">
+            <blockquote className="text-h3 font-medium text-[var(--text-primary)] border-l-2 border-[var(--capture)] pl-6">
+              "Robots cannot learn from the internet. Every skill a robot learns must come from a human demonstrating it. India has the humans. Nxted has the pipeline."
+            </blockquote>
+          </FadeUp>
+          <FadeUp delay={0.3} className="lg:col-span-6">
+            <div className="surface p-5 aspect-[16/10]">
+              <MarketGrowthGraphic />
+            </div>
+          </FadeUp>
+        </div>
       </div>
     </section>
   );

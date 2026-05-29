@@ -1,4 +1,5 @@
 import { Badge } from '@/components/ui/Badge';
+import { FormatPipelineGraphic } from '@/components/graphics/Infographics';
 
 const FORMATS = ['MP4 4K', 'RLDS', 'HDF5', 'LeRobot', 'Custom'];
 const INCLUDED = [
@@ -25,6 +26,9 @@ export function DatasetSpec() {
                 {f}
               </Badge>
             ))}
+          </div>
+          <div className="surface mt-8 p-5 aspect-[2/1]">
+            <FormatPipelineGraphic />
           </div>
         </div>
         <div className="lg:col-span-7 grid sm:grid-cols-2 gap-10">
