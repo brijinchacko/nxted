@@ -43,7 +43,7 @@ export default async function MarketplaceProjectDetail({ params }: { params: Pro
         <div className="grid sm:grid-cols-4 gap-6">
           <Stat label="Hourly rate" value={`${formatGBP(project.hourlyRateGBP)}`} />
           <Stat label="Est. hours" value={`${project.estimatedHours}h`} />
-          <Stat label="Total budget" value={project.totalBudgetGBP ? formatGBP(project.totalBudgetGBP) : '—'} />
+          <Stat label="Total budget" value={project.totalBudgetGBP ? formatGBP(project.totalBudgetGBP) : '-'} />
           <Stat label="Seats left" value={`${seatsLeft} / ${project.seatsAvailable}`} />
         </div>
       </div>

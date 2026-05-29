@@ -15,7 +15,7 @@ export async function sendMail(args: {
   replyTo?: string;
 }) {
   if (!resend) {
-    console.warn('[resend] RESEND_API_KEY not set — skipping email:', args.subject);
+    console.warn('[resend] RESEND_API_KEY not set - skipping email:', args.subject);
     return { id: null };
   }
   const payload: Parameters<typeof resend.emails.send>[0] = {

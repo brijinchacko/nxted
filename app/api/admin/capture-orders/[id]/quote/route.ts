@@ -29,7 +29,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
 
   await sendMail({
     to: order.clientProfile.user.email,
-    subject: `Quote for your Nxted Capture order — ${order.orderCode}`,
+    subject: `Quote for your Nxted Capture order - ${order.orderCode}`,
     html: `<p>Hi ${order.clientProfile.user.firstName},</p>
 <p>Your quote for <strong>${order.orderCode}</strong> is <strong>£${quotedPriceGBP.toLocaleString('en-GB')}</strong>.</p>
 <p><a href="${process.env.NEXT_PUBLIC_APP_URL}/portal/capture/orders/${order.id}">Review and accept →</a></p>`,

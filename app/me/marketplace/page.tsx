@@ -63,7 +63,7 @@ export default async function MarketplacePage() {
                 <div className="grid grid-cols-3 gap-3 pt-2 border-t border-[var(--border-dim)]">
                   <Meta icon={CurrencyGbp} label="Rate" value={`${formatGBP(p.hourlyRateGBP)} / hr`} />
                   <Meta icon={Clock} label="Est. hours" value={`${p.estimatedHours}h`} />
-                  <Meta icon={UsersThree} label="Total" value={p.totalBudgetGBP ? formatGBP(p.totalBudgetGBP) : '—'} />
+                  <Meta icon={UsersThree} label="Total" value={p.totalBudgetGBP ? formatGBP(p.totalBudgetGBP) : '-'} />
                 </div>
                 <div className="mt-auto pt-2 flex items-center justify-between">
                   <Link

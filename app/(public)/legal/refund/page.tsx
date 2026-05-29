@@ -15,7 +15,7 @@ export default function RefundPage() {
         <p>Where you contract with us as a business, the order form or statement of work governs refunds. As a general principle:</p>
         <ul>
           <li>One-off sprints (e.g. Quick Sprint £249) are non-refundable once work has started, except where we fail to deliver to the agreed rubric.</li>
-          <li>Monthly retainers cancel at the end of the current billing period — already-paid fees for the current period are not refunded.</li>
+          <li>Monthly retainers cancel at the end of the current billing period - already-paid fees for the current period are not refunded.</li>
           <li>Capture engagements: the 50% deposit is refundable until contributor coordination begins; thereafter it is non-refundable.</li>
         </ul>
       </Section>
@@ -25,7 +25,7 @@ export default function RefundPage() {
       </Section>
 
       <Section title="3. Statutory rights preserved">
-        <p>Your statutory rights under the Consumer Rights Act 2015 are preserved. In particular, services are provided with reasonable skill and care (section 49) and you may seek repeat performance or a price reduction (sections 55–56) if those rights are breached.</p>
+        <p>Your statutory rights under the Consumer Rights Act 2015 are preserved. In particular, services are provided with reasonable skill and care (section 49) and you may seek repeat performance or a price reduction (sections 55-56) if those rights are breached.</p>
       </Section>
 
       <Section title="4. How to claim a refund">

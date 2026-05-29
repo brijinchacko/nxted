@@ -19,9 +19,9 @@ export default function CookiesPage() {
         <table>
           <thead><tr><th>Category</th><th>Purpose</th><th>Consent required?</th></tr></thead>
           <tbody>
-            <tr><td>Strictly necessary</td><td>Authentication, session persistence, security (CSRF), load balancing</td><td>No — exempted under regulation 6(4) PECR</td></tr>
-            <tr><td>Analytics</td><td>Google Analytics 4 with IP anonymisation; aggregate usage statistics</td><td>Yes — your consent</td></tr>
-            <tr><td>Marketing</td><td>Currently not used. If we add any, we will update this page and request fresh consent.</td><td>Yes — your consent</td></tr>
+            <tr><td>Strictly necessary</td><td>Authentication, session persistence, security (CSRF), load balancing</td><td>No - exempted under regulation 6(4) PECR</td></tr>
+            <tr><td>Analytics</td><td>Google Analytics 4 with IP anonymisation; aggregate usage statistics</td><td>Yes - your consent</td></tr>
+            <tr><td>Marketing</td><td>Currently not used. If we add any, we will update this page and request fresh consent.</td><td>Yes - your consent</td></tr>
           </tbody>
         </table>
       </Section>
@@ -39,14 +39,14 @@ export default function CookiesPage() {
       </Section>
 
       <Section title="4. How we obtain your consent">
-        <p>When you first visit nxted.ai, you see a cookie banner. Strictly necessary cookies load immediately because they are essential to the operation of the site. Analytics and marketing cookies do not load until you click <strong>Accept all</strong>. The banner also offers an equally prominent <strong>Essential only</strong> button — per the ICO's 2025 guidance on dark patterns.</p>
+        <p>When you first visit nxted.ai, you see a cookie banner. Strictly necessary cookies load immediately because they are essential to the operation of the site. Analytics and marketing cookies do not load until you click <strong>Accept all</strong>. The banner also offers an equally prominent <strong>Essential only</strong> button - per the ICO's 2025 guidance on dark patterns.</p>
       </Section>
 
       <Section title="5. Changing your preferences">
         <p>You can change your choices at any time:</p>
         <ul>
-          <li>Click the cookie icon at the bottom of any page (coming soon — currently you can clear the <code>nxted-consent-v1</code> localStorage entry to reset).</li>
-          <li>Use your browser's settings to block or delete cookies — note this may impair authentication.</li>
+          <li>Click the cookie icon at the bottom of any page (coming soon - currently you can clear the <code>nxted-consent-v1</code> localStorage entry to reset).</li>
+          <li>Use your browser's settings to block or delete cookies - note this may impair authentication.</li>
           <li>For Google Analytics specifically: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics opt-out</a>.</li>
         </ul>
       </Section>

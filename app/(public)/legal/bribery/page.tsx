@@ -16,14 +16,14 @@ export default function BriberyPage() {
       </Section>
 
       <Section title="2. The Bribery Act 2010">
-        <p>The Act creates four offences relevant to us: section 1 (bribing another); section 2 (being bribed); section 6 (bribing a foreign public official); and section 7 (failure of a commercial organisation to prevent bribery). Section 7 carries strict liability with an "adequate procedures" defence — this policy is part of our defence.</p>
+        <p>The Act creates four offences relevant to us: section 1 (bribing another); section 2 (being bribed); section 6 (bribing a foreign public official); and section 7 (failure of a commercial organisation to prevent bribery). Section 7 carries strict liability with an "adequate procedures" defence - this policy is part of our defence.</p>
       </Section>
 
-      <Section title="3. Adequate procedures — the six principles">
+      <Section title="3. Adequate procedures - the six principles">
         <ol>
           <li><strong>Proportionate procedures.</strong> This policy, due diligence, and gift/hospitality registers are sized to our risk profile.</li>
           <li><strong>Top-level commitment.</strong> The Board has approved this policy and reviews it annually.</li>
-          <li><strong>Risk assessment.</strong> Our highest-risk areas are payments to Indian intermediaries and payments at filming sites — both subject to enhanced due diligence.</li>
+          <li><strong>Risk assessment.</strong> Our highest-risk areas are payments to Indian intermediaries and payments at filming sites - both subject to enhanced due diligence.</li>
           <li><strong>Due diligence.</strong> We check third parties before payment is made, in particular site owners, agents, and intermediaries.</li>
           <li><strong>Communication and training.</strong> All staff and engaged contributors receive a written briefing on this policy at onboarding.</li>
           <li><strong>Monitoring and review.</strong> The DPO maintains the gift register and reports incidents to the Board.</li>
@@ -34,7 +34,7 @@ export default function BriberyPage() {
         <p>Routine business hospitality and gifts of nominal value are permitted. Anything above <strong>£100 per recipient per year</strong> must be approved in writing and entered in the register. Gifts to public officials, regardless of value, require prior approval.</p>
       </Section>
 
-      <Section title="5. Facilitation payments — strictly prohibited">
+      <Section title="5. Facilitation payments - strictly prohibited">
         <p>Facilitation payments (small unofficial payments to expedite a routine action) are prohibited, including in jurisdictions where they are culturally common. If a facilitation payment is demanded under threat of personal safety, comply if necessary to ensure safety and report immediately to the DPO.</p>
       </Section>
 

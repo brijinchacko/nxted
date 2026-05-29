@@ -73,7 +73,7 @@ export function QualityReport({ data }: { data: ReportData }) {
             <div className="text-[48px] font-bold tracking-tight text-[var(--danger)]">
               {data.criticalFailureCount}
             </div>
-            <p className="text-xs text-[var(--text-muted)] mt-2">Severity 4–5 outputs</p>
+            <p className="text-xs text-[var(--text-muted)] mt-2">Severity 4-5 outputs</p>
           </CardBody>
         </Card>
       </div>

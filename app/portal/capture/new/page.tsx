@@ -38,7 +38,7 @@ export default function NewCaptureOrderPage() {
       });
       if (!res.ok) throw new Error(await res.text());
       const body = (await res.json()) as { id: string };
-      toast.success('Quote requested — we\'ll respond within 24h');
+      toast.success('Quote requested - we\'ll respond within 24h');
       router.push(`/portal/capture/orders/${body.id}`);
     } catch (err) {
       toast.error((err as Error).message);
@@ -76,7 +76,7 @@ export default function NewCaptureOrderPage() {
               </div>
               <Input name="hoursRequested" type="number" min={1} label="Hours of footage" required defaultValue={50} />
               <Input name="environmentType" label="Environment" placeholder="e.g. Indoor Factory, Home Kitchen" required />
-              <TextArea name="taskSpecification" label="Tasks to record" required rows={5} placeholder="Be specific — list the exact tasks and any sub-steps you need" />
+              <TextArea name="taskSpecification" label="Tasks to record" required rows={5} placeholder="Be specific - list the exact tasks and any sub-steps you need" />
               <Input name="hardwareNotes" label="Hardware notes (optional)" placeholder="e.g. Project Aria, GoPro Hero 12" />
             </div>
           </CardBody>
@@ -94,9 +94,9 @@ export default function NewCaptureOrderPage() {
                 { value: 'Custom', label: 'Custom (specify in tasks)' },
               ]} />
               <Select name="annotationLevel" label="Annotation level" defaultValue="BASIC" options={[
-                { value: 'BASIC', label: 'Basic — timestamps + task segmentation' },
-                { value: 'RICH', label: 'Rich — adds metadata + environment classification' },
-                { value: 'ROBOTICS_READY', label: 'Robotics-ready — adds pose, depth, action labels' },
+                { value: 'BASIC', label: 'Basic - timestamps + task segmentation' },
+                { value: 'RICH', label: 'Rich - adds metadata + environment classification' },
+                { value: 'ROBOTICS_READY', label: 'Robotics-ready - adds pose, depth, action labels' },
               ]} />
               <div className="grid grid-cols-3 gap-3 text-sm">
                 <label className="flex items-center gap-2 p-3 border border-[var(--border-default)] rounded-md cursor-pointer">

@@ -27,9 +27,9 @@ import {
 } from '@/lib/capture-data';
 
 export const metadata: Metadata = {
-  title: 'Nxted Capture — Physical AI training data from India',
+  title: 'Nxted Capture - Physical AI training data from India',
   description:
-    'Egocentric human demonstration data for robots and embodied AI. Skilled Indian workers, research-grade capture rigs, robotics-ready formats (LeRobot, RLDS, HDF5). The scarce ingredient for physical AI — at India scale and cost.',
+    'Egocentric human demonstration data for robots and embodied AI. Skilled Indian workers, research-grade capture rigs, robotics-ready formats (LeRobot, RLDS, HDF5). The scarce ingredient for physical AI - at India scale and cost.',
 };
 
 const MODALITIES = [
@@ -65,10 +65,10 @@ export default function CapturePage() {
             </h1>
             <div className="text-body text-[var(--text-secondary)] mt-6 max-w-[60ch] space-y-3">
               <p>
-                LLMs had the whole internet to read. Robots have no internet of actions — the two largest open robot datasets combined add up to roughly <strong className="text-[var(--text-primary)]">5,000 hours</strong>. Physical AI is bottlenecked on one thing: first-person video of real humans doing real, skilled work.
+                LLMs had the whole internet to read. Robots have no internet of actions - the two largest open robot datasets combined add up to roughly <strong className="text-[var(--text-primary)]">5,000 hours</strong>. Physical AI is bottlenecked on one thing: first-person video of real humans doing real, skilled work.
               </p>
               <p className="text-[var(--text-primary)] font-medium">
-                Nxted Capture records that data from India&rsquo;s skilled workforce — at a fraction of Western cost, with the diversity the scaling laws reward.
+                Nxted Capture records that data from India&rsquo;s skilled workforce - at a fraction of Western cost, with the diversity the scaling laws reward.
               </p>
             </div>
             <div className="flex flex-wrap gap-3 mt-8">
@@ -131,13 +131,13 @@ export default function CapturePage() {
             <FadeUp className="surface p-7">
               <h3 className="text-h4 mb-3">No internet of actions</h3>
               <p className="text-sm text-[var(--text-secondary)]">
-                Language models trained on trillions of web tokens. There is no equivalent corpus of physical manipulation — so robots have to be shown, demonstration by demonstration.
+                Language models trained on trillions of web tokens. There is no equivalent corpus of physical manipulation - so robots have to be shown, demonstration by demonstration.
               </p>
             </FadeUp>
             <FadeUp delay={0.08} className="surface p-7">
               <h3 className="text-h4 mb-3">Diversity beats volume</h3>
               <p className="text-sm text-[var(--text-secondary)]">
-                Peer-reviewed scaling laws (ICLR 2025) show robot-policy generalisation follows a power law in the <em>number of environments and objects</em> — exactly what a diverse, India-wide workforce provides.
+                Peer-reviewed scaling laws (ICLR 2025) show robot-policy generalisation follows a power law in the <em>number of environments and objects</em> - exactly what a diverse, India-wide workforce provides.
               </p>
             </FadeUp>
             <FadeUp delay={0.16} className="surface p-7">
@@ -190,7 +190,7 @@ export default function CapturePage() {
           </FadeUp>
           <FadeUp delay={0.1} className="max-w-3xl mb-12">
             <p className="text-body text-[var(--text-secondary)]">
-              We don&rsquo;t ship fictional proprietary hardware. Our rigs are built on Meta Project Aria, Intel RealSense, Stereolabs ZED, and the Universal Manipulation Interface — the same stack behind Ego-Exo4D and EgoMimic. Three tiers, matched to how training-ready you need the data to be.
+              We don&rsquo;t ship fictional proprietary hardware. Our rigs are built on Meta Project Aria, Intel RealSense, Stereolabs ZED, and the Universal Manipulation Interface - the same stack behind Ego-Exo4D and EgoMimic. Three tiers, matched to how training-ready you need the data to be.
             </p>
           </FadeUp>
 
@@ -276,7 +276,7 @@ export default function CapturePage() {
           </FadeUp>
           <FadeUp delay={0.1} className="max-w-3xl mb-12">
             <p className="text-body text-[var(--text-secondary)]">
-              We don&rsquo;t ask you to take our word for it. Here is what the leading labs and companies have published — every claim links to its source.
+              We don&rsquo;t ask you to take our word for it. Here is what the leading labs and companies have published - every claim links to its source.
             </p>
           </FadeUp>
 
@@ -333,8 +333,8 @@ export default function CapturePage() {
             </h2>
           </div>
           <div className="lg:col-span-7 space-y-5 text-[var(--text-secondary)]">
-            <Why label="Cost" body="US data-collection labour runs ~$20–48/hr (Tesla paid up to $48/hr for Optimus capture). India delivers the same skilled capture at a fraction of that — industry estimates put the differential at 70–90%." />
-            <Why label="Diversity" body="45M garment workers, 15M+ carpenters, 12M+ construction workers, 500K doctors. The breadth of trades the scaling laws reward — and that Western, lab-bound datasets lack." />
+            <Why label="Cost" body="US data-collection labour runs ~$20-48/hr (Tesla paid up to $48/hr for Optimus capture). India delivers the same skilled capture at a fraction of that - industry estimates put the differential at 70-90%." />
+            <Why label="Diversity" body="45M garment workers, 15M+ carpenters, 12M+ construction workers, 500K doctors. The breadth of trades the scaling laws reward - and that Western, lab-bound datasets lack." />
             <Why label="Ethics" body="Workers paid above local market rate, fully consented, with signed releases and PII blurring. A GDPR-compliant DPA covers every frame. Ethical capture is a feature, not an afterthought." />
             <Why label="Scale" body="500 contributors today, scalable to 50,000 within six months. India already shipped 100,000+ hours of egocentric robot-training data to Hugging Face in 2025." />
           </div>

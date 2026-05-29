@@ -30,7 +30,7 @@ export default function HomePage() {
             name: 'nxted.ai',
             url: 'https://nxted.ai',
             description:
-              'Human Intelligence at Machine Scale — AI training data and physical AI capture from India, by OFORO LTD (UK).',
+              'Human Intelligence at Machine Scale - AI training data and physical AI capture from India, by OFORO LTD (UK).',
             parentOrganization: { '@type': 'Organization', name: 'OFORO LTD' },
             address: {
               '@type': 'PostalAddress',

@@ -55,7 +55,7 @@ function NewProjectInner() {
   return (
     <div className="max-w-4xl">
       <h1 className="text-h2 mb-2">New Expert project</h1>
-      <p className="text-[var(--text-secondary)] mb-8">Three short steps — brief, outputs, payment.</p>
+      <p className="text-[var(--text-secondary)] mb-8">Three short steps - brief, outputs, payment.</p>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-3 mb-10">
         <button
@@ -87,7 +87,7 @@ function NewProjectInner() {
               <Input name="industry" label="Industry" placeholder="e.g. Industrial manufacturing" />
               <TextArea name="aiUseCase" label="What your AI does" required rows={3} />
               <TextArea name="whatCorrectMeans" label='What "correct" means' required rows={3} />
-              <TextArea name="rubricNotes" label="Rubric / evaluation criteria" rows={4} placeholder="Optional — we'll structure these into our verdict UI" />
+              <TextArea name="rubricNotes" label="Rubric / evaluation criteria" rows={4} placeholder="Optional - we'll structure these into our verdict UI" />
             </div>
           </CardBody>
         </Card>

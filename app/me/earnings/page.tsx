@@ -34,7 +34,7 @@ export default async function EarningsPage() {
                   <td className="p-4 text-[var(--text-primary)]">{p.period}</td>
                   <td className="p-4">{formatGBP(p.amount)}</td>
                   <td className="p-4"><Badge tone={p.status === 'PAID' ? 'success' : 'warning'}>{p.status}</Badge></td>
-                  <td className="p-4 text-[var(--text-muted)] text-xs">{p.paymentRef || '—'}</td>
+                  <td className="p-4 text-[var(--text-muted)] text-xs">{p.paymentRef || '-'}</td>
                 </tr>
               ))
             ) : (

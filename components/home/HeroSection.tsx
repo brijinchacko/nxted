@@ -30,7 +30,7 @@ export function HeroSection() {
 
           <FadeUp delay={0.6} className="mt-7 max-w-[52ch]">
             <p className="text-body text-[var(--text-secondary)]">
-              The platform where India's brightest minds train the world's most advanced AI systems — text and physical. Two products. One mission. Zero compromise.
+              The platform where India's brightest minds train the world's most advanced AI systems - text and physical. Two products. One mission. Zero compromise.
             </p>
           </FadeUp>
 

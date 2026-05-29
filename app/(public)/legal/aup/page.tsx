@@ -14,11 +14,11 @@ export default function AupPage() {
       <Section title="1. Strictly prohibited content">
         <p>You may not use the Services in connection with content that is, depicts, encourages, or facilitates:</p>
         <ul>
-          <li>Child sexual abuse material (CSAM) — Protection of Children Act 1978; Online Safety Act 2023 priority illegal content.</li>
-          <li>Terrorism content, including content prepared for terrorist purposes — Terrorism Act 2006.</li>
+          <li>Child sexual abuse material (CSAM) - Protection of Children Act 1978; Online Safety Act 2023 priority illegal content.</li>
+          <li>Terrorism content, including content prepared for terrorist purposes - Terrorism Act 2006.</li>
           <li>Malware, ransomware, exploits, or instructions to circumvent security controls without authority.</li>
           <li>Trade in illegal goods, including controlled drugs (Misuse of Drugs Act 1971) and unlicensed firearms.</li>
-          <li>Non-consensual intimate imagery — Sexual Offences Act 2003 s.66B (as amended).</li>
+          <li>Non-consensual intimate imagery - Sexual Offences Act 2003 s.66B (as amended).</li>
           <li>Defamatory, knowingly false, or harassing content targeting individuals.</li>
         </ul>
       </Section>
@@ -33,7 +33,7 @@ export default function AupPage() {
         </ul>
       </Section>
 
-      <Section title="3. EU AI Act — prohibited practices (Article 5)">
+      <Section title="3. EU AI Act - prohibited practices (Article 5)">
         <p>The Services may not be used to build or evaluate AI systems that engage in the prohibited practices set out in Article 5 of Regulation (EU) 2024/1689 (the EU AI Act), in force from 2 February 2025:</p>
         <ul>
           <li>Subliminal or manipulative techniques causing significant harm.</li>
@@ -47,7 +47,7 @@ export default function AupPage() {
         </ul>
       </Section>
 
-      <Section title="4. Red-team and adversarial work — controlled carve-out">
+      <Section title="4. Red-team and adversarial work - controlled carve-out">
         <p>Bona-fide red-team and adversarial testing of harmful outputs is permitted, but only under a separate Red-Team Addendum that includes:</p>
         <ul>
           <li>Identification of the customer's safety lead and ethics committee.</li>
@@ -75,7 +75,7 @@ export default function AupPage() {
         <p>Report suspected abuse to <a href="mailto:abuse@nxted.ai">abuse@nxted.ai</a>. We aim to acknowledge reports within 72 hours.</p>
       </Section>
 
-      <Section title="8. Online Safety Act 2023 — note">
+      <Section title="8. Online Safety Act 2023 - note">
         <p>nxted.ai is a B2B service and not a user-to-user service for the purposes of the Online Safety Act 2023. However we cooperate with Ofcom and other authorities where required and our content controls reflect those obligations as best practice.</p>
       </Section>
     </LegalShell>

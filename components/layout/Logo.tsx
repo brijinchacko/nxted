@@ -13,7 +13,7 @@ export function LogoMark({ size = 30, className }: { size?: number; className?: 
       aria-hidden="true"
     >
       <rect width="36" height="36" rx="9" fill="var(--expert)" />
-      {/* Bold lowercase 'n' — left stem flows smoothly into an arch into the right stem */}
+      {/* Bold lowercase 'n' - left stem flows smoothly into an arch into the right stem */}
       <path
         d="M12.5 25.5 L12.5 17 A5.5 5.5 0 0 1 23.5 17 L23.5 25.5"
         stroke="#04181A"
@@ -22,7 +22,7 @@ export function LogoMark({ size = 30, className }: { size?: number; className?: 
         strokeLinejoin="round"
         fill="none"
       />
-      {/* node / spark — the dual-product accent */}
+      {/* node / spark - the dual-product accent */}
       <circle cx="27.5" cy="9.5" r="2.4" fill="var(--capture)" />
     </svg>
   );

@@ -32,7 +32,7 @@ export function CompetitorGap() {
             <br />
             <span className="text-[var(--expert)]">Nxted serves both.</span>
             <br />
-            And we do it from India — at a fraction of their cost.
+            And we do it from India - at a fraction of their cost.
           </div>
         </FadeUp>
       </div>

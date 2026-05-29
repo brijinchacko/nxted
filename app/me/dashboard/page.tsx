@@ -19,7 +19,7 @@ const STATUS_TONE: Record<string, 'success' | 'warning' | 'danger' | 'neutral'> 
 const STATUS_HELP: Record<string, string> = {
   SUBMITTED: "We review every application within 3 business days.",
   UNDER_REVIEW: 'Your application is being reviewed by our team.',
-  ASSESSMENT_PENDING: 'You have an assessment available — complete it to get matched.',
+  ASSESSMENT_PENDING: 'You have an assessment available - complete it to get matched.',
   APPROVED: "You're fully approved. Browse projects to start earning.",
   REJECTED: 'Your application was not progressed at this time.',
   DRAFT: 'Complete your application to get matched.',
@@ -92,8 +92,8 @@ export default async function ContributorDashboard() {
             <h2 className="text-h4">Quick stats</h2>
           </div>
           <dl className="grid grid-cols-2 gap-y-4 text-sm">
-            <Detail label="Reliability score" value={contributor ? `${contributor.reliabilityScore.toFixed(1)} / 5` : '—'} />
-            <Detail label="Average score" value={contributor ? contributor.averageScore.toFixed(1) : '—'} />
+            <Detail label="Reliability score" value={contributor ? `${contributor.reliabilityScore.toFixed(1)} / 5` : '-'} />
+            <Detail label="Average score" value={contributor ? contributor.averageScore.toFixed(1) : '-'} />
             <Detail label="Total tasks" value={contributor?.totalTasks ?? 0} />
             <Detail label="Total earned" value={formatGBP(contributor?.totalEarned || 0)} />
             <Detail label="Active applications" value={activeApps} />

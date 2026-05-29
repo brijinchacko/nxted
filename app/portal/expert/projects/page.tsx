@@ -48,7 +48,7 @@ export default async function ExpertProjectsList() {
                   </td>
                   <td className="p-4 text-[var(--text-secondary)]">{p._count.outputs}</td>
                   <td className="p-4"><Badge tone="expert">{p.status.replace(/_/g, ' ')}</Badge></td>
-                  <td className="p-4">{p.qualityReport ? `${p.qualityReport.overallScore.toFixed(0)} / 100` : '—'}</td>
+                  <td className="p-4">{p.qualityReport ? `${p.qualityReport.overallScore.toFixed(0)} / 100` : '-'}</td>
                   <td className="p-4 text-right">
                     <Link href={`/portal/expert/${p.id}`} className="text-[var(--expert)] hover:underline text-sm">Open →</Link>
                   </td>

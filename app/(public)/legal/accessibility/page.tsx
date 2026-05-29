@@ -20,7 +20,7 @@ export default function AccessibilityPage() {
           <li>Keyboard navigation across all interactive elements.</li>
           <li>Visible focus indicators and skip-to-content links.</li>
           <li>Sufficient colour contrast on body text and UI controls.</li>
-          <li>Respect for the <code>prefers-reduced-motion</code> media query — animations are disabled if requested.</li>
+          <li>Respect for the <code>prefers-reduced-motion</code> media query - animations are disabled if requested.</li>
           <li>Semantic HTML, landmarks, and ARIA roles where appropriate.</li>
         </ul>
       </Section>
@@ -28,9 +28,9 @@ export default function AccessibilityPage() {
       <Section title="3. Known limitations">
         <p>We honestly note current gaps and our planned fixes:</p>
         <ul>
-          <li>Some marketing imagery does not yet have descriptive alt text — being added.</li>
-          <li>The evaluation interface keyboard model does not yet meet WCAG 2.4.7 in all states — refactor scheduled.</li>
-          <li>Long-form legal pages may benefit from a higher-contrast theme — toggle planned.</li>
+          <li>Some marketing imagery does not yet have descriptive alt text - being added.</li>
+          <li>The evaluation interface keyboard model does not yet meet WCAG 2.4.7 in all states - refactor scheduled.</li>
+          <li>Long-form legal pages may benefit from a higher-contrast theme - toggle planned.</li>
         </ul>
       </Section>
 

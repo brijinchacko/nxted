@@ -54,7 +54,7 @@ export default async function PortalDashboard() {
         </Card>
         <Card>
           <CardHeader><CardTitle>Avg quality score</CardTitle></CardHeader>
-          <CardBody><div className="text-h2 text-[var(--expert)]">{avgScore ? avgScore.toFixed(0) : '—'}</div></CardBody>
+          <CardBody><div className="text-h2 text-[var(--expert)]">{avgScore ? avgScore.toFixed(0) : '-'}</div></CardBody>
         </Card>
         <Card>
           <CardHeader><CardTitle>Capture hours ordered</CardTitle></CardHeader>

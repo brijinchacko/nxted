@@ -14,7 +14,7 @@ export default function DmcaPage() {
       <Section title="1. Designated agent">
         <p>Our designated agent for receiving notices of claimed infringement under 17 U.S.C. § 512(c)(2) is:</p>
         <p>
-          <strong>DMCA Agent — OFORO LTD</strong><br />
+          <strong>DMCA Agent - OFORO LTD</strong><br />
           Unit 8 Lyon Road, Milton Keynes, England, MK1 1EX, United Kingdom<br />
           Email: <a href="mailto:dmca@nxted.ai">dmca@nxted.ai</a>
         </p>

@@ -50,16 +50,16 @@ export default function TermsPage() {
         <ul>
           <li>You will use the Services only for lawful purposes and in compliance with the <a href="/legal/aup">Acceptable Use Policy</a>.</li>
           <li>You warrant that AI outputs and other Client Data you upload do not infringe any third party's intellectual property, privacy, or other rights.</li>
-          <li>Where Client Data includes personal data, you act as data controller and we act as data processor — the <a href="/legal/dpa">Data Processing Agreement</a> applies and is incorporated by reference.</li>
+          <li>Where Client Data includes personal data, you act as data controller and we act as data processor - the <a href="/legal/dpa">Data Processing Agreement</a> applies and is incorporated by reference.</li>
           <li>You will not attempt to identify, contact, or solicit individual Nxted contributors outside the Services.</li>
         </ul>
       </Section>
 
-      <Section title="6. Intellectual property — inputs and Deliverables">
+      <Section title="6. Intellectual property - inputs and Deliverables">
         <Sub title="Your inputs">
           <p>You retain all right, title and interest in AI outputs, training datasets, and other materials you upload. You grant us a non-exclusive licence to use that material to provide the Services, including disclosure to vetted contributors under confidentiality.</p>
         </Sub>
-        <Sub title="Deliverables — written assignment">
+        <Sub title="Deliverables - written assignment">
           <p>Subject to your full payment of fees due, we assign to you absolutely all of our right, title and interest (including all copyright, database rights, and other intellectual property rights) in the Deliverables. This assignment is made under section 90 of the UK Copyright, Designs and Patents Act 1988 (CDPA 1988).</p>
         </Sub>
         <Sub title="Nxted background IP">

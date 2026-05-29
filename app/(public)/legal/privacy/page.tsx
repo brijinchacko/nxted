@@ -48,14 +48,14 @@ export default function PrivacyPage() {
       <Section title="4. Lawful bases">
         <p>We rely on the following lawful bases under Article 6 UK GDPR:</p>
         <ul>
-          <li><strong>Contract (Art 6(1)(b))</strong> — to deliver the Services to Clients and engage Contributors.</li>
-          <li><strong>Legitimate interests (Art 6(1)(f))</strong> — for service improvement, fraud prevention, security, and limited analytics. Our balancing assessment is available on request.</li>
-          <li><strong>Legal obligation (Art 6(1)(c))</strong> — to comply with tax, accounting, anti-money-laundering and other statutory duties.</li>
-          <li><strong>Consent (Art 6(1)(a) + Art 9(2)(a))</strong> — for biometric footage collected via Nxted Capture, and for non-essential cookies.</li>
+          <li><strong>Contract (Art 6(1)(b))</strong> - to deliver the Services to Clients and engage Contributors.</li>
+          <li><strong>Legitimate interests (Art 6(1)(f))</strong> - for service improvement, fraud prevention, security, and limited analytics. Our balancing assessment is available on request.</li>
+          <li><strong>Legal obligation (Art 6(1)(c))</strong> - to comply with tax, accounting, anti-money-laundering and other statutory duties.</li>
+          <li><strong>Consent (Art 6(1)(a) + Art 9(2)(a))</strong> - for biometric footage collected via Nxted Capture, and for non-essential cookies.</li>
         </ul>
       </Section>
 
-      <Section title="5. Special category data — Capture footage">
+      <Section title="5. Special category data - Capture footage">
         <p>
           Egocentric video collected through Nxted Capture is treated as Article 9 UK GDPR <strong>special category data</strong> from the moment of capture. Our lawful basis is the data subject's <strong>explicit consent</strong> (Article 9(2)(a) UK GDPR and section 6 of India's DPDP Act 2023).
         </p>
@@ -86,7 +86,7 @@ export default function PrivacyPage() {
           <tbody>
             <tr><td>Client account data</td><td>Duration of the contract plus 6 years (UK statutory limitation for contract claims, s.5 Limitation Act 1980)</td></tr>
             <tr><td>Contributor profile</td><td>Duration of engagement plus 24 months; longer if required by Indian tax law (typically 8 years for invoice records)</td></tr>
-            <tr><td>Contributor applicants — rejected</td><td>90 days, then deletion</td></tr>
+            <tr><td>Contributor applicants - rejected</td><td>90 days, then deletion</td></tr>
             <tr><td>Raw Capture footage</td><td>Term of the Client licence; deleted within 90 days of expiry unless explicit re-consent is given</td></tr>
             <tr><td>Audit logs</td><td>12 months (security and accountability)</td></tr>
             <tr><td>Anonymised metadata</td><td>Indefinite, no identification possible</td></tr>
@@ -103,7 +103,7 @@ export default function PrivacyPage() {
           <li>Restrict processing (Article 18)</li>
           <li>Data portability (Article 20)</li>
           <li>Object to processing, including profiling (Article 21)</li>
-          <li>Not be subject to a solely automated decision with legal or similarly significant effect (Article 22) — note our matching engine is decision-support, not solely automated</li>
+          <li>Not be subject to a solely automated decision with legal or similarly significant effect (Article 22) - note our matching engine is decision-support, not solely automated</li>
           <li>Withdraw consent at any time, where consent is the lawful basis (Article 7(3))</li>
         </ul>
         <p>
@@ -114,10 +114,10 @@ export default function PrivacyPage() {
       <Section title="9. International transfers">
         <p>The Services are delivered from the United Kingdom with a contributor network in India. This means we transfer personal data:</p>
         <ul>
-          <li>From the UK to India — protected by the UK International Data Transfer Agreement (IDTA) issued under section 119A of the Data Protection Act 2018.</li>
-          <li>From the EU to the UK — protected by the European Commission adequacy decision for the UK (28 June 2021, renewed 2025).</li>
-          <li>From the EU to India — protected by EU Standard Contractual Clauses (Commission Decision 2021/914) with the UK Addendum where applicable.</li>
-          <li>From the UK or EU to the US — only where the recipient is on the EU-US Data Privacy Framework or subject to UK SCCs.</li>
+          <li>From the UK to India - protected by the UK International Data Transfer Agreement (IDTA) issued under section 119A of the Data Protection Act 2018.</li>
+          <li>From the EU to the UK - protected by the European Commission adequacy decision for the UK (28 June 2021, renewed 2025).</li>
+          <li>From the EU to India - protected by EU Standard Contractual Clauses (Commission Decision 2021/914) with the UK Addendum where applicable.</li>
+          <li>From the UK or EU to the US - only where the recipient is on the EU-US Data Privacy Framework or subject to UK SCCs.</li>
         </ul>
         <p>A copy of the relevant transfer mechanism and our Transfer Risk Assessment is available on request to <a href="mailto:dpo@nxted.ai">dpo@nxted.ai</a>.</p>
       </Section>

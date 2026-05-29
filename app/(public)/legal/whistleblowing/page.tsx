@@ -30,14 +30,14 @@ export default function WhistleblowingPage() {
       <Section title="3. Channels">
         <ul>
           <li><strong>Internal first:</strong> CEO at <a href="mailto:ceo@nxted.ai">ceo@nxted.ai</a> or the Chair of the Board.</li>
-          <li><strong>Confidential third party:</strong> [provider to be appointed] — independent channel with anonymity option.</li>
+          <li><strong>Confidential third party:</strong> [provider to be appointed] - independent channel with anonymity option.</li>
           <li><strong>Prescribed person:</strong> the ICO, HMRC, or other prescribed regulator under the Public Interest Disclosure (Prescribed Persons) Order 2014, as relevant.</li>
-          <li><strong>External disclosure:</strong> permitted in limited circumstances under sections 43G–H ERA 1996.</li>
+          <li><strong>External disclosure:</strong> permitted in limited circumstances under sections 43G-H ERA 1996.</li>
         </ul>
       </Section>
 
       <Section title="4. No detriment, no retaliation">
-        <p>Detriment against a person who has made a protected disclosure is itself unlawful (section 47B ERA 1996). We commit that no person will suffer dismissal, demotion, withholding of work, or any other adverse treatment for making a protected disclosure in good faith — including disclosures that turn out to be mistaken.</p>
+        <p>Detriment against a person who has made a protected disclosure is itself unlawful (section 47B ERA 1996). We commit that no person will suffer dismissal, demotion, withholding of work, or any other adverse treatment for making a protected disclosure in good faith - including disclosures that turn out to be mistaken.</p>
       </Section>
 
       <Section title="5. Confidentiality and anonymity">

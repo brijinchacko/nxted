@@ -73,7 +73,7 @@ export default function ApplyPage() {
         }),
       });
       if (!res.ok) throw new Error(await res.text());
-      toast.success('Application submitted — check your email');
+      toast.success('Application submitted - check your email');
       router.push('/apply/success');
     } catch (err) {
       toast.error((err as Error).message);
@@ -91,7 +91,7 @@ export default function ApplyPage() {
             Apply to <span className="text-[var(--expert)]">train the world's AI</span>.
           </h1>
           <p className="text-body text-[var(--text-secondary)] max-w-[58ch] mb-10">
-            We pay UK rates to India-based domain experts. Average earnings: £15–£40 per hour. Most contributors come from IIT, AIIMS, IIM, NLU and ICAI backgrounds. Apply once — qualify for every role that matches your skills.
+            We pay UK rates to India-based domain experts. Average earnings: £15-£40 per hour. Most contributors come from IIT, AIIMS, IIM, NLU and ICAI backgrounds. Apply once - qualify for every role that matches your skills.
           </p>
         </FadeUp>
 
@@ -251,7 +251,7 @@ function StepSkills({ s, setS }: { s: Step3; setS: (s: Step3) => void }) {
   return (
     <div className="space-y-5">
       <h2 className="text-h3 mb-1">Skills & availability</h2>
-      <p className="text-sm text-[var(--text-secondary)]">Comma-separated. Be specific — "vibration analysis" not "engineering".</p>
+      <p className="text-sm text-[var(--text-secondary)]">Comma-separated. Be specific - "vibration analysis" not "engineering".</p>
       <Input
         label="Expertise domains"
         value={s.expertise}
@@ -343,7 +343,7 @@ function StepConsent({ s, setS }: { s: Step4; setS: (s: Step4) => void }) {
           <span className="text-sm text-[var(--text-secondary)]">
             I have read and accept the{' '}
             <a className="text-[var(--expert)] underline" href="/legal/contributor-agreement" target="_blank" rel="noopener">Contributor Agreement</a>
-            {' '}— I understand I am an independent contractor, paid in INR, with full IP assignment for evaluation work.
+            {' '}- I understand I am an independent contractor, paid in INR, with full IP assignment for evaluation work.
           </span>
         </label>
         <label className="flex items-start gap-3 cursor-pointer">

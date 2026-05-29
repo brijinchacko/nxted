@@ -30,7 +30,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
 
   await sendMail({
     to: project.clientProfile.user.email,
-    subject: `Your Nxted quality report is ready — ${project.title}`,
+    subject: `Your Nxted quality report is ready - ${project.title}`,
     html: `<p>Hi ${project.clientProfile.user.firstName},</p>
 <p>Your quality report for <strong>${project.title}</strong> is ready in the Nxted portal.</p>
 <p>Overall score: <strong>${project.qualityReport?.overallScore.toFixed(0)}/100</strong></p>

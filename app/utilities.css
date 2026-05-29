@@ -1,4 +1,4 @@
-/* Explicit utility classes — fallback for Tailwind v4 source detection issues
+/* Explicit utility classes - fallback for Tailwind v4 source detection issues
    with paths containing spaces. These mirror standard Tailwind names so any
    className references continue to work even if Tailwind doesn't generate them. */
 

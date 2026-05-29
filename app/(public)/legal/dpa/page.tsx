@@ -44,12 +44,12 @@ export default function DpaPage() {
           <p>Nxted implements the technical and organisational measures set out in Schedule 2 (TOMs), in line with Article 32 UK GDPR.</p>
         </Sub>
         <Sub title="5.4 Sub-processors">
-          <p>Client provides general written authorisation for Nxted to engage Sub-processors. Nxted maintains the current list in Schedule 3 and gives Client at least 30 days' notice of any intended additions or replacements, during which Client may object. Reasonable objection — for example based on credible security or compliance concerns — may be grounds for Client to terminate the affected Services without penalty.</p>
+          <p>Client provides general written authorisation for Nxted to engage Sub-processors. Nxted maintains the current list in Schedule 3 and gives Client at least 30 days' notice of any intended additions or replacements, during which Client may object. Reasonable objection - for example based on credible security or compliance concerns - may be grounds for Client to terminate the affected Services without penalty.</p>
         </Sub>
         <Sub title="5.5 Assistance with Data Subject rights">
           <p>Taking into account the nature of the Processing, Nxted assists Client by appropriate technical and organisational measures, insofar as possible, for the fulfilment of Client's obligation to respond to Data Subject rights requests.</p>
         </Sub>
-        <Sub title="5.6 Assistance with Articles 32–36">
+        <Sub title="5.6 Assistance with Articles 32-36">
           <p>Nxted assists Client in complying with security, breach notification, DPIAs and prior consultation, taking into account the information available to Nxted.</p>
         </Sub>
         <Sub title="5.7 Deletion or return">
@@ -73,7 +73,7 @@ export default function DpaPage() {
         <p>The liability provisions of the Terms of Service apply to this DPA, with the following clarification: nothing in the liability cap limits a party's liability for unlawful Processing of Personal Data that results in a fine imposed on the other party under the Data Protection Laws to the extent the fine arises from the first party's own breach.</p>
       </Section>
 
-      <Section title="Schedule 1 — Processing details">
+      <Section title="Schedule 1 - Processing details">
         <p>To be completed by Client at first upload. Default values apply where Client provides none:</p>
         <ul>
           <li>Data Subjects: end users of Client's AI system; individuals named in prompts/outputs.</li>
@@ -83,7 +83,7 @@ export default function DpaPage() {
         </ul>
       </Section>
 
-      <Section title="Schedule 2 — Technical and organisational measures (TOMs)">
+      <Section title="Schedule 2 - Technical and organisational measures (TOMs)">
         <p>Summary; full detail in the <a href="/legal/security">Security Whitepaper</a>.</p>
         <ul>
           <li><strong>Pseudonymisation and encryption:</strong> AES-256 at rest; TLS 1.3 in transit; per-tenant envelope encryption keys.</li>
@@ -94,14 +94,14 @@ export default function DpaPage() {
         </ul>
       </Section>
 
-      <Section title="Schedule 3 — Authorised Sub-processors">
+      <Section title="Schedule 3 - Authorised Sub-processors">
         <table>
           <thead><tr><th>Sub-processor</th><th>Purpose</th><th>Location</th></tr></thead>
           <tbody>
             <tr><td>Amazon Web Services EMEA SARL</td><td>Cloud infrastructure (eu-west-2 London)</td><td>UK / EU</td></tr>
             <tr><td>Stripe Payments UK Ltd</td><td>Payments processing</td><td>UK</td></tr>
             <tr><td>Resend, Inc.</td><td>Transactional email</td><td>US (DPF certified)</td></tr>
-            <tr><td>OFORO contributor network — India</td><td>Evaluation work — sub-processors for personal data in Client uploads</td><td>India (IDTA / SCCs)</td></tr>
+            <tr><td>OFORO contributor network - India</td><td>Evaluation work - sub-processors for personal data in Client uploads</td><td>India (IDTA / SCCs)</td></tr>
           </tbody>
         </table>
       </Section>

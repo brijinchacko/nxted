@@ -6,7 +6,7 @@ import { Badge } from '@/components/ui/Badge';
 import { ArrowRight } from '@phosphor-icons/react/dist/ssr';
 
 export const metadata: Metadata = {
-  title: 'Research — Nxted',
+  title: 'Research - Nxted',
 };
 
 export const dynamic = 'force-dynamic';

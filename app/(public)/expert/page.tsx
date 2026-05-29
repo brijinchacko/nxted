@@ -14,13 +14,13 @@ import { Progress } from '@/components/ui/Progress';
 import { EXPERT_PRODUCTS } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Nxted Expert — RLHF, AI evaluation, red-teaming',
+  title: 'Nxted Expert - RLHF, AI evaluation, red-teaming',
   description:
     'India\'s IIT engineers, AIIMS doctors, IIM consultants and ILS lawyers evaluate your AI outputs with full quality transparency. From £249.',
 };
 
 const STEPS = [
-  { n: '01', icon: Upload, title: 'Submit your AI outputs', body: 'Text via secure portal — EU-hosted.' },
+  { n: '01', icon: Upload, title: 'Submit your AI outputs', body: 'Text via secure portal - EU-hosted.' },
   { n: '02', icon: UsersThree, title: 'We assign verified contributors', body: 'Matched on expertise, workload, and score.' },
   { n: '03', icon: ClipboardText, title: 'Experts evaluate against your rubric', body: 'Structured verdict plus free-text correction.' },
   { n: '04', icon: FileText, title: 'Quality report delivered', body: 'With inter-rater agreement and expert credentials.' },
@@ -29,12 +29,12 @@ const STEPS = [
 const RED_TEAM = [
   {
     label: 'Adversarial Sprint',
-    price: '£499 – £2,000',
+    price: '£499 - £2,000',
     body: '50 adversarial prompts crafted by domain experts. Identify failure modes before they reach production.',
   },
   {
     label: 'EU AI Act Compliance Package',
-    price: '£2,000 – £8,000',
+    price: '£2,000 - £8,000',
     body: 'Evaluation plus structured compliance narrative for high-risk system documentation.',
   },
 ];
@@ -50,7 +50,7 @@ export default function ExpertPage() {
               Your AI learns from the <span className="text-[var(--expert)]">people who know it best</span>.
             </h1>
             <p className="text-body text-[var(--text-secondary)] mt-6 max-w-[52ch]">
-              India's IIT engineers, AIIMS doctors, and IIM consultants evaluate your AI outputs, generate training data, and red-team your models — with full transparency on who reviewed your AI and exactly how accurate they were.
+              India's IIT engineers, AIIMS doctors, and IIM consultants evaluate your AI outputs, generate training data, and red-team your models - with full transparency on who reviewed your AI and exactly how accurate they were.
             </p>
             <div className="flex flex-wrap gap-3 mt-8">
               <Button href="/portal/expert/new?product=TEST_KIT" variant="expert" size="lg">

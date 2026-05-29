@@ -12,7 +12,7 @@ export default function ApplySuccessPage() {
         </div>
         <h1 className="text-h1 mb-5">Application received.</h1>
         <p className="text-body text-[var(--text-secondary)] mb-3 max-w-[52ch] mx-auto">
-          We review every application within 3 business days. You'll get an email from <strong className="text-[var(--text-primary)]">hello@nxted.ai</strong> with the outcome — and if approved, your first project recommendations.
+          We review every application within 3 business days. You'll get an email from <strong className="text-[var(--text-primary)]">hello@nxted.ai</strong> with the outcome - and if approved, your first project recommendations.
         </p>
         <p className="text-sm text-[var(--text-tertiary)] mb-10">
           In the meantime, you can sign in to your contributor portal to complete your profile and see open projects.

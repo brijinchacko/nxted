@@ -36,7 +36,7 @@ export default async function PayoutsPage() {
                 <td className="p-4 text-[var(--text-secondary)]">{p.period}</td>
                 <td className="p-4">{formatGBP(p.amount)}</td>
                 <td className="p-4"><Badge tone={p.status === 'PAID' ? 'success' : 'warning'}>{p.status}</Badge></td>
-                <td className="p-4 text-xs text-[var(--text-muted)]">{p.paymentRef || '—'}</td>
+                <td className="p-4 text-xs text-[var(--text-muted)]">{p.paymentRef || '-'}</td>
                 <td className="p-4 text-right">
                   {p.status === 'PENDING' && (
                     <form action={`/api/admin/payouts/${p.id}/mark-paid`} method="POST" className="flex gap-2 items-center justify-end">

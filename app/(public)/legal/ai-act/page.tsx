@@ -17,16 +17,16 @@ export default function AiActPage() {
 
       <Section title="2. How we support client compliance">
         <ul>
-          <li><strong>Article 10 — Data and data governance.</strong> Capture footage is delivered with documented data provenance, consent records, balanced demographic sampling where the client specifies it, and quality controls (review of every batch before delivery).</li>
-          <li><strong>Annex IV — Technical documentation.</strong> Our quality reports include evaluation methodology, expert credentials (degree, institution, years of experience), inter-rater agreement metrics, and error taxonomy — designed to drop into Annex IV documentation packs.</li>
-          <li><strong>Article 14 — Human oversight.</strong> Our evaluation interface preserves the role of human experts as the source of ground truth; we do not substitute fully automated scoring.</li>
-          <li><strong>Article 15 — Accuracy, robustness, cybersecurity.</strong> Our red-team engagements directly test these properties.</li>
-          <li><strong>Articles 53, 55 — General-purpose AI models.</strong> For clients training GPAI models (including those crossing the systemic-risk threshold), our evaluations and capture data can feed the transparency, technical documentation, and post-market monitoring obligations effective 2 August 2025.</li>
+          <li><strong>Article 10 - Data and data governance.</strong> Capture footage is delivered with documented data provenance, consent records, balanced demographic sampling where the client specifies it, and quality controls (review of every batch before delivery).</li>
+          <li><strong>Annex IV - Technical documentation.</strong> Our quality reports include evaluation methodology, expert credentials (degree, institution, years of experience), inter-rater agreement metrics, and error taxonomy - designed to drop into Annex IV documentation packs.</li>
+          <li><strong>Article 14 - Human oversight.</strong> Our evaluation interface preserves the role of human experts as the source of ground truth; we do not substitute fully automated scoring.</li>
+          <li><strong>Article 15 - Accuracy, robustness, cybersecurity.</strong> Our red-team engagements directly test these properties.</li>
+          <li><strong>Articles 53, 55 - General-purpose AI models.</strong> For clients training GPAI models (including those crossing the systemic-risk threshold), our evaluations and capture data can feed the transparency, technical documentation, and post-market monitoring obligations effective 2 August 2025.</li>
         </ul>
       </Section>
 
       <Section title="3. Prohibited practices (Article 5)">
-        <p>We will not provide services that support practices prohibited under Article 5 — see the <a href="/legal/aup">Acceptable Use Policy</a> for the full list.</p>
+        <p>We will not provide services that support practices prohibited under Article 5 - see the <a href="/legal/aup">Acceptable Use Policy</a> for the full list.</p>
       </Section>
 
       <Section title="4. Authorised representative">

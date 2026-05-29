@@ -39,7 +39,7 @@ export default function ContactPage() {
 
         {done ? (
           <div className="surface p-10 md:p-12 text-center">
-            <h2 className="text-h3 mb-3">Thanks — we'll be in touch.</h2>
+            <h2 className="text-h3 mb-3">Thanks - we'll be in touch.</h2>
             <p className="text-[var(--text-secondary)]">A coordinator will reach out at the email you provided.</p>
           </div>
         ) : (

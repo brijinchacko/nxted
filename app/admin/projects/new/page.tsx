@@ -77,7 +77,7 @@ export default function NewMarketplaceProjectPage() {
             <div className="grid grid-cols-2 gap-4">
               <Input name="hourlyRateGBP" label="Rate (£/hr)" type="number" min={5} step={0.5} required defaultValue={25} />
               <Input name="estimatedHours" label="Estimated hours" type="number" min={1} required defaultValue={20} />
-              <Input name="totalBudgetGBP" label="Total budget (£) — optional" type="number" min={0} step={1} />
+              <Input name="totalBudgetGBP" label="Total budget (£) - optional" type="number" min={0} step={1} />
               <Input name="seatsAvailable" label="Seats available" type="number" min={1} required defaultValue={1} />
             </div>
           </CardBody>

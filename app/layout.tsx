@@ -3,7 +3,7 @@ import { Baloo_2, Nunito } from 'next/font/google';
 import { Toaster } from 'react-hot-toast';
 import './globals.css';
 
-// Baloo 2 — the logo + heading font (rounded display)
+// Baloo 2 - the logo + heading font (rounded display)
 const logoFont = Baloo_2({
   subsets: ['latin'],
   weight: ['500', '600', '700', '800'],
@@ -11,7 +11,7 @@ const logoFont = Baloo_2({
   display: 'swap',
 });
 
-// Nunito — body font. Soft rounded terminals echo the logo, but it's a
+// Nunito - body font. Soft rounded terminals echo the logo, but it's a
 // proper text face built for readable paragraphs.
 const bodyFont = Nunito({
   subsets: ['latin'],
@@ -22,11 +22,11 @@ const bodyFont = Nunito({
 
 export const metadata: Metadata = {
   title: {
-    default: 'nxted.ai — Human Intelligence at Machine Scale',
+    default: 'nxted.ai - Human Intelligence at Machine Scale',
     template: '%s | nxted.ai',
   },
   description:
-    'The platform where India\'s brightest minds train the world\'s most advanced AI systems — text and physical. Nxted Expert + Nxted Capture. By OFORO LTD, UK.',
+    'The platform where India\'s brightest minds train the world\'s most advanced AI systems - text and physical. Nxted Expert + Nxted Capture. By OFORO LTD, UK.',
   keywords: [
     'AI training data India',
     'RLHF platform',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://nxted.ai'),
   openGraph: {
     type: 'website',
-    title: 'nxted.ai — Human Intelligence at Machine Scale',
+    title: 'nxted.ai - Human Intelligence at Machine Scale',
     description:
       'Two products. One mission. Nxted Expert evaluates your AI. Nxted Capture records human skills for robotics.',
     siteName: 'nxted.ai',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'nxted.ai — Human Intelligence at Machine Scale',
+    title: 'nxted.ai - Human Intelligence at Machine Scale',
     description:
       'India-first training data for AI labs and humanoid robot companies. By OFORO LTD.',
   },

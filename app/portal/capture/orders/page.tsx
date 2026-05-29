@@ -45,7 +45,7 @@ export default async function CaptureOrdersPage() {
                   <td className="p-4 text-[var(--text-secondary)]">{o.level.replace('L', '').split('_')[0]}</td>
                   <td className="p-4 text-[var(--text-secondary)]">{o.hoursRequested}</td>
                   <td className="p-4"><Badge tone="capture">{o.status.replace(/_/g, ' ')}</Badge></td>
-                  <td className="p-4 text-[var(--text-secondary)]">{o.quotedPriceGBP ? formatGBP(o.quotedPriceGBP) : '—'}</td>
+                  <td className="p-4 text-[var(--text-secondary)]">{o.quotedPriceGBP ? formatGBP(o.quotedPriceGBP) : '-'}</td>
                   <td className="p-4 text-right">
                     <Link href={`/portal/capture/orders/${o.id}`} className="text-[var(--capture)] hover:underline text-sm">Open →</Link>
                   </td>

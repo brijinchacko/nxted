@@ -36,12 +36,12 @@ export default function ContributorAgreementPage() {
         </Sub>
       </Section>
 
-      <Section title="4. Intellectual property — Expert evaluation work">
+      <Section title="4. Intellectual property - Expert evaluation work">
         <p>For evaluation, RLHF, red-team, and compliance work, you irrevocably assign to OFORO LTD with full title guarantee all present and future rights, title and interest (including all copyright, database rights, and related rights) in any work product you create under this Agreement. The assignment is effective from creation under section 91 of the Copyright, Designs and Patents Act 1988.</p>
         <p>You waive all moral rights you may have in the work product to the extent permitted by law (CDPA 1988 section 87). To the extent moral rights under section 57 of the Indian Copyright Act 1957 cannot be assigned, you grant OFORO an irrevocable licence not to assert them.</p>
       </Section>
 
-      <Section title="5. Image and likeness release — Capture work">
+      <Section title="5. Image and likeness release - Capture work">
         <p>If your engagement involves being filmed for Nxted Capture, you grant OFORO a perpetual, worldwide, sublicensable licence to use your image, likeness, voice, and biometric data captured during the engagement to:</p>
         <ul>
           <li>Train, fine-tune, evaluate, and improve artificial intelligence and robotics systems;</li>
@@ -85,7 +85,7 @@ export default function ContributorAgreementPage() {
         <p>This Agreement, together with the project brief for each engagement and our Privacy Policy, forms the whole agreement between you and us on the subject matter.</p>
       </Section>
 
-      <Section title="Schedule A — Capture consent notice (summary)">
+      <Section title="Schedule A - Capture consent notice (summary)">
         <p>If you accept a Capture engagement, you will be asked to sign a separate consent notice in English and your regional language before any filming. The notice will set out the purpose of filming, the recipients of the footage, the retention period, your rights, and how to withdraw consent.</p>
       </Section>
     </LegalShell>

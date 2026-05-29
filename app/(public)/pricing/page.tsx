@@ -7,7 +7,7 @@ import { Badge } from '@/components/ui/Badge';
 import { EXPERT_PRODUCTS } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Pricing — Nxted Expert & Nxted Capture',
+  title: 'Pricing - Nxted Expert & Nxted Capture',
 };
 
 export default function PricingPage() {

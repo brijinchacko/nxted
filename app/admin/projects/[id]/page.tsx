@@ -63,7 +63,7 @@ export default async function AdminProjectDetail({ params }: { params: Promise<{
                     <div className="text-[var(--text-primary)] font-medium">{a.contributor.user.firstName} {a.contributor.user.lastName}</div>
                     <div className="text-xs text-[var(--text-tertiary)]">{a.contributor.user.email}</div>
                   </td>
-                  <td className="py-3 text-[var(--text-secondary)]">{a.contributor.expertise.slice(0, 2).join(' · ') || '—'}</td>
+                  <td className="py-3 text-[var(--text-secondary)]">{a.contributor.expertise.slice(0, 2).join(' · ') || '-'}</td>
                   <td className="py-3"><Badge tone={
                     a.status === 'OFFER_SENT' ? 'expert'
                     : a.status === 'OFFER_ACCEPTED' ? 'success'

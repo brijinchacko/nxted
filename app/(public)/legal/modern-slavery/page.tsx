@@ -23,10 +23,10 @@ export default function ModernSlaveryPage() {
       <Section title="2. Policies">
         <p>We maintain the following policies relevant to modern slavery and human trafficking:</p>
         <ul>
-          <li><a href="/legal/contributor-agreement">Contributor Agreement</a> — sets out fair pay, lawful working conditions, and the right to withdraw at any time.</li>
-          <li><a href="/legal/aup">Acceptable Use Policy</a> — prohibits work that could expose contributors to coercion or harm.</li>
-          <li><a href="/legal/bribery">Anti-Bribery Policy</a> — extends to recruitment and engagement of contributors.</li>
-          <li><a href="/legal/whistleblowing">Whistleblowing Policy</a> — independent channel for raising concerns.</li>
+          <li><a href="/legal/contributor-agreement">Contributor Agreement</a> - sets out fair pay, lawful working conditions, and the right to withdraw at any time.</li>
+          <li><a href="/legal/aup">Acceptable Use Policy</a> - prohibits work that could expose contributors to coercion or harm.</li>
+          <li><a href="/legal/bribery">Anti-Bribery Policy</a> - extends to recruitment and engagement of contributors.</li>
+          <li><a href="/legal/whistleblowing">Whistleblowing Policy</a> - independent channel for raising concerns.</li>
         </ul>
       </Section>
 

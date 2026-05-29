@@ -6,7 +6,7 @@ import { ArrowRight, CheckCircle } from '@phosphor-icons/react/dist/ssr';
 import { CaseStudyGraphic } from '@/components/graphics/Infographics';
 
 export const metadata: Metadata = {
-  title: 'Case Studies — Nxted',
+  title: 'Case Studies - Nxted',
   description:
     'How AI labs, robotics companies, and EU compliance teams use Nxted Expert and Nxted Capture in production.',
 };
@@ -33,11 +33,11 @@ const STUDIES: CaseStudy[] = [
     image:
       'https://images.unsplash.com/photo-1565514020179-026b92b2d70b?w=1600&h=900&fit=crop',
     challenge:
-      'A vibration-sensor predictive maintenance model was misdiagnosing bearing failures 32% of the time. The team needed deep-domain evaluation faster than their incumbent could deliver — and without GDPR exposure.',
+      'A vibration-sensor predictive maintenance model was misdiagnosing bearing failures 32% of the time. The team needed deep-domain evaluation faster than their incumbent could deliver - and without GDPR exposure.',
     approach: [
       'Assigned 50 IIT-verified mechanical engineers across three plants worth of failure-mode data.',
       'Built a 9-axis rubric covering bearing modes, lubrication faults, mounting errors, and combined-mode failures.',
-      'Delivered inter-rater agreement reports with every batch — surfacing controversial outputs for re-evaluation.',
+      'Delivered inter-rater agreement reports with every batch - surfacing controversial outputs for re-evaluation.',
     ],
     results: [
       { label: 'Accuracy', value: '68% → 91%' },
@@ -58,7 +58,7 @@ const STUDIES: CaseStudy[] = [
     image:
       'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1600&h=900&fit=crop',
     challenge:
-      'A humanoid robot company needed 1,000 hours of garment-making footage covering 60 distinct task variations — at a unit cost the US market couldn\'t deliver.',
+      'A humanoid robot company needed 1,000 hours of garment-making footage covering 60 distinct task variations - at a unit cost the US market couldn\'t deliver.',
     approach: [
       'Recruited 200 professional tailors across Tirupur and Bengaluru garment districts.',
       'Captured egocentric Project Aria footage with hand-pose annotations and action labels.',
@@ -66,7 +66,7 @@ const STUDIES: CaseStudy[] = [
     ],
     results: [
       { label: 'Hours captured', value: '1,000h' },
-      { label: 'Cost vs US benchmark', value: '−82%' },
+      { label: 'Cost vs US benchmark', value: '-82%' },
       { label: 'Lead time', value: '6 weeks' },
     ],
     quote: {
@@ -87,7 +87,7 @@ const STUDIES: CaseStudy[] = [
     approach: [
       'Expert module: AIIMS-trained doctors evaluated 300 model outputs against a 12-axis surgical rubric.',
       'Capture module: 150 hours of instrument-handoff and patient-prep footage with consent + ethics committee approval.',
-      'Unified delivery with one DPA, one contract, one invoice — and an EU AI Act compliance narrative.',
+      'Unified delivery with one DPA, one contract, one invoice - and an EU AI Act compliance narrative.',
     ],
     results: [
       { label: 'Domains served', value: 'Text + Physical' },
@@ -198,7 +198,7 @@ function CaseStudyCard({ study, reversed }: { study: CaseStudy; reversed?: boole
 
             <blockquote className="border-l-2 pl-5 mt-2" style={{ borderColor: accentColor }}>
               <p className="text-[var(--text-primary)] italic">{study.quote.text}</p>
-              <footer className="text-xs text-[var(--text-tertiary)] mt-2">— {study.quote.role}</footer>
+              <footer className="text-xs text-[var(--text-tertiary)] mt-2">- {study.quote.role}</footer>
             </blockquote>
 
             <div className="grid grid-cols-3 gap-3 text-xs border-t border-[var(--border-dim)] pt-5">

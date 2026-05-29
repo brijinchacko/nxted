@@ -31,7 +31,7 @@ export default async function ProfilePage() {
             <dt className="text-[var(--text-muted)]">Credentials</dt><dd className="col-span-2">{contributor?.credentials}</dd>
             <dt className="text-[var(--text-muted)]">LinkedIn</dt>
             <dd className="col-span-2">
-              {contributor?.linkedinUrl ? <a className="text-[var(--expert)] underline" href={contributor.linkedinUrl} target="_blank" rel="noopener noreferrer">{contributor.linkedinUrl}</a> : '—'}
+              {contributor?.linkedinUrl ? <a className="text-[var(--expert)] underline" href={contributor.linkedinUrl} target="_blank" rel="noopener noreferrer">{contributor.linkedinUrl}</a> : '-'}
             </dd>
           </dl>
           {contributor?.bio && (

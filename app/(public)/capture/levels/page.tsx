@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/Button';
 export const metadata: Metadata = {
   title: 'The 5-Level Physical Intelligence Taxonomy',
   description:
-    'L1 Foundation through L5 Specialist — how Nxted Capture classifies physical skill complexity for robotics training data.',
+    'L1 Foundation through L5 Specialist - how Nxted Capture classifies physical skill complexity for robotics training data.',
 };
 
 export default function LevelsPage() {

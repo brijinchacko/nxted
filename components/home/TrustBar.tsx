@@ -8,7 +8,7 @@ const ROWS = [
   ['UK/EU registered entity', 'All US-based', '✓ OFORO LTD, Milton Keynes'],
   ['No Meta conflict', 'Scale: 49% owned by Meta', '✓ Independent, neutral'],
   ['Physical AI from India', 'Claru: US-based, 10× cost', '✓ India-based, 90% cheaper'],
-  ['5-level skill taxonomy', 'No platform classifies this way', '✓ Level 1–5 complexity system'],
+  ['5-level skill taxonomy', 'No platform classifies this way', '✓ Level 1-5 complexity system'],
 ];
 
 export function TrustBar() {

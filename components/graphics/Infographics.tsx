@@ -256,11 +256,11 @@ export function CaseStudyGraphic({ variant }: { variant: 'expert' | 'capture' | 
           <rect key={i} x={50 + i * 92} y={250 - h} width="56" height={h} rx="7" fill={AMBER} opacity={0.45 + i * 0.18} />
         ))}
         <text x="372" y="40" fill={AMBER} fontSize="15" fontWeight="700" textAnchor="end" fontFamily="monospace">1,000h</text>
-        <text x="50" y="272" fill="#8A8A9A" fontSize="11" fontFamily="monospace">−82% vs US cost</text>
+        <text x="50" y="272" fill="#8A8A9A" fontSize="11" fontFamily="monospace">-82% vs US cost</text>
       </Frame>
     );
   }
-  // both — two rails converging (variant === 'both')
+  // both - two rails converging (variant === 'both')
   return (
     <Frame vb="0 0 440 280">
       <Grid />

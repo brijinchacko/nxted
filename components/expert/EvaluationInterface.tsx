@@ -194,7 +194,7 @@ export function EvaluationInterface({
           </section>
 
           <section>
-            <div className="text-label text-[var(--text-secondary)] mb-3">Confidence (1–5)</div>
+            <div className="text-label text-[var(--text-secondary)] mb-3">Confidence (1-5)</div>
             <div className="flex gap-2">
               {[1, 2, 3, 4, 5].map((n) => (
                 <button
@@ -251,7 +251,7 @@ export function EvaluationInterface({
           />
 
           <section>
-            <div className="text-label text-[var(--text-secondary)] mb-3">Severity (1–5)</div>
+            <div className="text-label text-[var(--text-secondary)] mb-3">Severity (1-5)</div>
             <div className="flex gap-2">
               {[1, 2, 3, 4, 5].map((n) => (
                 <button
