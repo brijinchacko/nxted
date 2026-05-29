@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Space_Grotesk, Fredoka } from 'next/font/google';
+import { Space_Grotesk, Comfortaa } from 'next/font/google';
 import { Toaster } from 'react-hot-toast';
 import './globals.css';
 
@@ -10,8 +10,9 @@ const spaceGrotesk = Space_Grotesk({
   display: 'swap',
 });
 
-// Geometric, rounded sans for the logo wordmark — echoes the rounded monogram mark
-const logoFont = Fredoka({
+// Monoline geometric rounded sans for the logo wordmark — matches the
+// rounded, uniform-stroke construction of the monogram mark
+const logoFont = Comfortaa({
   subsets: ['latin'],
   weight: ['500', '600', '700'],
   variable: '--font-logo',
