@@ -50,7 +50,10 @@ export function Logo({
         <LogoMark size={markPx} />
       </span>
       {!markOnly && (
-        <span className={cn('font-bold tracking-[-0.03em] text-[var(--text-primary)]', textCls)}>
+        <span
+          className={cn('font-bold tracking-[-0.01em] text-[var(--text-primary)]', textCls)}
+          style={{ fontFamily: 'var(--font-logo), var(--font-space-grotesk), sans-serif' }}
+        >
           nxted
         </span>
       )}
