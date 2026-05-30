@@ -3,6 +3,7 @@ import { Baloo_2, Nunito } from 'next/font/google';
 import { Toaster } from 'react-hot-toast';
 import Script from 'next/script';
 import { JsonLd } from '@/components/seo/JsonLd';
+import { ChunkReload } from '@/components/ChunkReload';
 import { organizationSchema, websiteSchema } from '@/lib/schema';
 import './globals.css';
 
@@ -82,6 +83,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${logoFont.variable} ${bodyFont.variable}`}>
       <body>
+        <ChunkReload />
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
         {children}
         <Toaster
