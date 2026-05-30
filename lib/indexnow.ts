@@ -1,6 +1,6 @@
 // IndexNow: instant indexing for Bing, Yandex and partners.
 // The key is also served as a static file at /<key>.txt for verification.
-export const INDEXNOW_KEY = '7f3a9c2e8b1d4056a9e7c3f1b2d8e6a4';
+export const INDEXNOW_KEY = '51e74a6566a14dc5b94fc7f9ecb02176';
 
 export async function submitToIndexNow(urls: string[]): Promise<{ ok: boolean; status: number; submitted: number }> {
   const host = (process.env.NEXT_PUBLIC_APP_URL || 'https://nxted.ai')
