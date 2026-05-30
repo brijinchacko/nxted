@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import {
   ShieldCheck,
   HandCoins,
@@ -13,11 +13,18 @@ import { FadeUp } from '@/components/motion/FadeUp';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 
-export const metadata: Metadata = {
-  title: 'Trust & Compliance - the Data Trust Pack',
+export const metadata = pageMeta({
+  title: 'Consented, DPDP-Compliant AI Data | nxted.ai',
   description:
-    'For UK/EU and regulated buyers, the real question is whether data can be safely used. Every nxted dataset ships with a Data Trust Pack: consent, fair-payment, skill verification, redaction, provenance, DPA, safety and QA.',
-};
+    'Every nxted dataset ships with a Data Trust Pack - consent records, provenance, a DPDP & GDPR-aligned DPA, redaction and QA. Data you can safely use.',
+  path: '/trust',
+  keywords: [
+    'consented AI training data',
+    'data provenance robotics',
+    'DPDP-compliant AI training data',
+    'EU AI Act data governance training data',
+  ],
+});
 
 const PACK = [
   {

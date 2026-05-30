@@ -8,6 +8,21 @@ import { IndiaAdvantage } from '@/components/home/IndiaAdvantage';
 import { TrustBar } from '@/components/home/TrustBar';
 import { CaseStudies } from '@/components/home/CaseStudies';
 import { TICKER_ITEMS } from '@/lib/constants';
+import { pageMeta } from '@/lib/seo';
+
+export const metadata = pageMeta({
+  title: 'Physical AI Training Data & RLHF, India | nxted.ai',
+  description:
+    'nxted supplies egocentric physical-AI training data and expert RLHF evaluation from India - consented, robotics-ready and UK/EU-contracted. By OFORO LTD.',
+  path: '/',
+  keywords: [
+    'physical AI training data',
+    'egocentric data for robotics',
+    'RLHF data provider',
+    'humanoid robot training data',
+    'AI training data company UK',
+  ],
+});
 
 export default function HomePage() {
   return (

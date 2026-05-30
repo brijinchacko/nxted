@@ -1,13 +1,15 @@
-import type { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import { LevelCard } from '@/components/capture/LevelCard';
 import { CAPTURE_LEVELS } from '@/lib/constants';
 import { Button } from '@/components/ui/Button';
 
-export const metadata: Metadata = {
-  title: 'The 5-Level Physical Intelligence Taxonomy',
+export const metadata = pageMeta({
+  title: 'Capture Skill Levels L1-L5 | nxted.ai',
   description:
-    'L1 Foundation through L5 Specialist - how Nxted Capture classifies physical skill complexity for robotics training data.',
-};
+    'The nxted Capture 5-level taxonomy - from basic packing to specialist craft - mapped to robotics-readiness, annotation depth and pricing.',
+  path: '/capture/levels',
+  keywords: ['robot skill taxonomy', 'physical AI data levels', 'manipulation difficulty'],
+});
 
 export default function LevelsPage() {
   return (

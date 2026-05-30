@@ -1,15 +1,21 @@
-import type { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import { FadeUp } from '@/components/motion/FadeUp';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import { ArrowRight, CheckCircle } from '@phosphor-icons/react/dist/ssr';
 import { CaseStudyGraphic } from '@/components/graphics/Infographics';
 
-export const metadata: Metadata = {
-  title: 'Case Studies - Nxted',
+export const metadata = pageMeta({
+  title: 'Physical AI & RLHF Case Studies | nxted.ai',
   description:
-    'How AI labs, robotics companies, and EU compliance teams use Nxted Expert and Nxted Capture in production.',
-};
+    'How AI labs, robotics teams and EU compliance teams use nxted Expert and nxted Capture in production - anonymised, measurable engagements.',
+  path: '/case-studies',
+  keywords: [
+    'robotics training data case studies',
+    'physical AI data provider',
+    'RLHF case study',
+  ],
+});
 
 interface CaseStudy {
   product: 'Expert' | 'Capture' | 'Both';

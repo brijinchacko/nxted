@@ -1,13 +1,22 @@
-import type { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import Link from 'next/link';
 import { prisma } from '@/lib/prisma';
 import { FadeUp } from '@/components/motion/FadeUp';
 import { Badge } from '@/components/ui/Badge';
 import { ArrowRight } from '@phosphor-icons/react/dist/ssr';
 
-export const metadata: Metadata = {
-  title: 'Research - Nxted',
-};
+export const metadata = pageMeta({
+  title: 'Research & Insights: Physical AI & RLHF | nxted.ai',
+  description:
+    'nxted research on physical AI, egocentric data, robotics dataset formats, RLHF and data governance - practitioner guides and original analysis.',
+  path: '/research',
+  keywords: [
+    'physical AI research',
+    'egocentric data guide',
+    'robotics dataset formats',
+    'RLHF guide',
+  ],
+});
 
 export const dynamic = 'force-dynamic';
 

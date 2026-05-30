@@ -20,41 +20,57 @@ const bodyFont = Nunito({
   display: 'swap',
 });
 
+const verification: Metadata['verification'] = {};
+if (process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION) {
+  verification.google = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
+}
+if (process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION) {
+  verification.other = { 'msvalidate.01': process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION };
+}
+
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://nxted.ai'),
   title: {
-    default: 'nxted.ai - Human Intelligence at Machine Scale',
+    default: 'Physical AI Training Data & RLHF, India | nxted.ai',
     template: '%s | nxted.ai',
   },
   description:
-    'The platform where India\'s brightest minds train the world\'s most advanced AI systems - text and physical. Nxted Expert + Nxted Capture. By OFORO LTD, UK.',
+    'nxted supplies egocentric physical-AI training data and expert RLHF evaluation from India - consented, robotics-ready and UK/EU-contracted. By OFORO LTD.',
+  applicationName: 'nxted.ai',
+  authors: [{ name: 'OFORO LTD' }],
+  creator: 'OFORO LTD',
+  publisher: 'OFORO LTD',
   keywords: [
-    'AI training data India',
-    'RLHF platform',
     'physical AI training data',
-    'egocentric video collection India',
+    'egocentric data for robotics',
+    'embodied AI data',
+    'robot manipulation dataset',
+    'RLHF data provider',
+    'human evaluation for AI',
     'humanoid robot training data',
-    'expert AI evaluation UK',
-    'embodied AI dataset',
+    'AI training data company UK',
+    'consented AI training data',
   ],
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://nxted.ai'),
   openGraph: {
     type: 'website',
-    title: 'nxted.ai - Human Intelligence at Machine Scale',
+    title: 'Physical AI Training Data & RLHF, India | nxted.ai',
     description:
-      'Two products. One mission. Nxted Expert evaluates your AI. Nxted Capture records human skills for robotics.',
+      'Egocentric physical-AI capture and expert RLHF evaluation from India - consented, robotics-ready, UK/EU-contracted. By OFORO LTD.',
     siteName: 'nxted.ai',
     locale: 'en_GB',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'nxted.ai - Human Intelligence at Machine Scale',
+    title: 'Physical AI Training Data & RLHF, India | nxted.ai',
     description:
-      'India-first training data for AI labs and humanoid robot companies. By OFORO LTD.',
+      'Egocentric physical-AI data and expert RLHF evaluation from India. Consented, robotics-ready, UK/EU-contracted.',
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
   },
+  ...(Object.keys(verification).length ? { verification } : {}),
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

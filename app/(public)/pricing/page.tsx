@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import { ArrowRight, CheckCircle } from '@phosphor-icons/react/dist/ssr';
 import { FadeUp } from '@/components/motion/FadeUp';
 import { Card, CardTitle, CardBody, CardHeader } from '@/components/ui/Card';
@@ -6,9 +6,18 @@ import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { EXPERT_PRODUCTS } from '@/lib/constants';
 
-export const metadata: Metadata = {
-  title: 'Pricing - Nxted Expert & Nxted Capture',
-};
+export const metadata = pageMeta({
+  title: 'Robotics Training Data Pricing | nxted.ai',
+  description:
+    'Transparent pricing for physical-AI capture and expert AI evaluation - Physical AI Test Kit from $2,500, per-hour capture tiers and GBP/USD/EUR billing.',
+  path: '/pricing',
+  keywords: [
+    'robotics training data pricing',
+    'buy robot manipulation data',
+    'physical AI data provider',
+    'what robot training data costs',
+  ],
+});
 
 export default function PricingPage() {
   return (

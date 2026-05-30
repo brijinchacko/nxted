@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import {
   ArrowRight,
   ArrowUpRight,
@@ -27,11 +27,20 @@ import {
   FURTHER_READING,
 } from '@/lib/capture-data';
 
-export const metadata: Metadata = {
-  title: 'Nxted Capture - Physical AI training data from India',
+export const metadata = pageMeta({
+  title: 'Egocentric Data for Robotics | nxted.ai',
   description:
-    'Egocentric human demonstration data for robots and embodied AI. Skilled Indian workers, research-grade capture rigs, robotics-ready formats (LeRobot, RLDS, HDF5). The scarce ingredient for physical AI - at India scale and cost.',
-};
+    'First-person egocentric demonstration data for robots and embodied AI - skilled Indian workers, research-grade rigs, robotics-ready LeRobot/RLDS/HDF5.',
+  path: '/capture',
+  keywords: [
+    'egocentric data for robotics',
+    'physical AI training data',
+    'robot manipulation dataset',
+    'egocentric video dataset',
+    'vision-language-action training data',
+    'teleoperation data collection',
+  ],
+});
 
 const MODALITIES = [
   { icon: Camera, label: 'First-person RGB', sub: 'up to 1408² / 30fps' },

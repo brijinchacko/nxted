@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import {
   ArrowRight,
   Upload,
@@ -13,11 +13,19 @@ import { Badge } from '@/components/ui/Badge';
 import { Progress } from '@/components/ui/Progress';
 import { EXPERT_PRODUCTS } from '@/lib/constants';
 
-export const metadata: Metadata = {
-  title: 'Nxted Expert - RLHF, AI evaluation, red-teaming',
+export const metadata = pageMeta({
+  title: 'RLHF & Human Evaluation for AI | nxted.ai',
   description:
-    'Domain experts across engineering, the sciences, medicine, law and finance evaluate your AI outputs with full quality transparency. From £249.',
-};
+    'Expert human evaluation, RLHF and red-teaming for AI - credentialed domain reviewers, inter-rater agreement and full quality transparency. From £249.',
+  path: '/expert',
+  keywords: [
+    'RLHF data provider',
+    'human evaluation for AI',
+    'what is RLHF',
+    'AI red-teaming',
+    'expert AI evaluation UK',
+  ],
+});
 
 const STEPS = [
   { n: '01', icon: Upload, title: 'Submit your AI outputs', body: 'Text via secure portal - EU-hosted.' },
