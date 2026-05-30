@@ -1,5 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { prisma } from '@/lib/prisma';
+import { VERTICALS, FORMATS, ALTERNATIVES } from '@/lib/programmatic';
+import { GLOSSARY } from '@/lib/glossary';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = process.env.NEXT_PUBLIC_APP_URL || 'https://nxted.ai';
@@ -17,6 +19,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/how-it-works': [0.6, 'monthly'],
     '/apply': [0.6, 'monthly'],
     '/contact': [0.5, 'monthly'],
+    '/data': [0.7, 'monthly'],
+    '/formats': [0.7, 'monthly'],
+    '/alternatives': [0.6, 'monthly'],
+    '/compare': [0.6, 'monthly'],
+    '/compare/egocentric-data-providers': [0.7, 'monthly'],
+    '/glossary': [0.6, 'monthly'],
     '/legal/terms': [0.3, 'yearly'],
     '/legal/privacy': [0.3, 'yearly'],
     '/legal/cookies': [0.3, 'yearly'],
@@ -51,5 +59,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...postRoutes];
+  const programmatic = [
+    ...VERTICALS.map((v) => `/data/${v.slug}`),
+    ...FORMATS.map((f) => `/formats/${f.slug}`),
+    ...ALTERNATIVES.map((a) => `/alternatives/${a.slug}`),
+    ...GLOSSARY.map((g) => `/glossary/${g.slug}`),
+  ].map((path) => ({
+    url: `${base}${path}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }));
+
+  return [...staticRoutes, ...postRoutes, ...programmatic];
 }

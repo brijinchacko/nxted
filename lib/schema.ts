@@ -125,6 +125,17 @@ export function articleSchema(opts: {
   };
 }
 
+export function definedTermSchema(opts: { name: string; description: string; path: string }) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'DefinedTerm',
+    name: opts.name,
+    description: opts.description,
+    inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'nxted glossary', url: `${SITE_URL}/glossary` },
+    url: `${SITE_URL}${opts.path}`,
+  };
+}
+
 /**
  * schema.org/Dataset for an illustrative example delivery. Marked clearly as
  * an example structure - we do not claim a downloadable public dataset.

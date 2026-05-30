@@ -8,7 +8,8 @@ const COLUMNS = [
     links: [
       { href: '/expert', label: 'Nxted Expert' },
       { href: '/capture', label: 'Nxted Capture' },
-      { href: '/capture/levels', label: '5-Level Taxonomy' },
+      { href: '/data', label: 'Data verticals' },
+      { href: '/formats', label: 'Dataset formats' },
       { href: '/pricing', label: 'Pricing' },
     ],
   },
@@ -18,6 +19,8 @@ const COLUMNS = [
       { href: '/case-studies', label: 'Case Studies' },
       { href: '/trust', label: 'Trust & Compliance' },
       { href: '/research', label: 'Research' },
+      { href: '/glossary', label: 'Glossary' },
+      { href: '/compare/egocentric-data-providers', label: 'Compare providers' },
       { href: '/how-it-works', label: 'How it works' },
       { href: '/contact', label: 'Contact' },
     ],

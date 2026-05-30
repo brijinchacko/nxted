@@ -37,7 +37,7 @@ export function pageMeta({
     title: { absolute: title },
     description,
     ...(keywords && keywords.length ? { keywords } : {}),
-    alternates: { canonical: path },
+    alternates: { canonical: path, types: { 'application/rss+xml': '/feed.xml' } },
     openGraph: {
       type: ogType,
       title,
