@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Baloo_2, Nunito } from 'next/font/google';
 import { Toaster } from 'react-hot-toast';
+import Script from 'next/script';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { organizationSchema, websiteSchema } from '@/lib/schema';
 import './globals.css';
@@ -75,6 +76,8 @@ export const metadata: Metadata = {
   ...(Object.keys(verification).length ? { verification } : {}),
 };
 
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-MB83TD2F70';
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${logoFont.variable} ${bodyFont.variable}`}>
@@ -93,6 +96,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             },
           }}
         />
+
+        {/* Google Analytics (GA4) */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA_ID}');`}
+        </Script>
       </body>
     </html>
   );
