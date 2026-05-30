@@ -8,7 +8,6 @@ interface LevelDetail {
   complexity: number;
   price: string;
   example: string;
-  image: string;
 }
 
 export function LevelCard({ level, full = false }: { level: LevelDetail; full?: boolean }) {

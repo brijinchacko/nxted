@@ -22,7 +22,6 @@ interface CaseStudy {
   tag: string;
   client: string;
   industry: string;
-  image: string;
   challenge: string;
   approach: string[];
   results: { label: string; value: string }[];
@@ -35,10 +34,7 @@ const STUDIES: CaseStudy[] = [
     product: 'Expert',
     tag: 'Industrial AI · Predictive maintenance',
     client: 'UK Industrial AI Company',
-    industry: 'Heavy industry',
-    image:
-      'https://images.unsplash.com/photo-1565514020179-026b92b2d70b?w=1600&h=900&fit=crop',
-    challenge:
+    industry: 'Heavy industry',    challenge:
       'A vibration-sensor predictive maintenance model was misdiagnosing bearing failures 32% of the time. The team needed deep-domain evaluation faster than their incumbent could deliver - and without GDPR exposure.',
     approach: [
       'Assigned 50 verified mechanical engineers across three plants worth of failure-mode data.',
@@ -60,10 +56,7 @@ const STUDIES: CaseStudy[] = [
     product: 'Capture',
     tag: 'Physical AI · Humanoid manipulation',
     client: 'US Humanoid Robot Company',
-    industry: 'Humanoid robotics',
-    image:
-      'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1600&h=900&fit=crop',
-    challenge:
+    industry: 'Humanoid robotics',    challenge:
       'A humanoid robot company needed 1,000 hours of garment-making footage covering 60 distinct task variations - at a unit cost the US market couldn\'t deliver.',
     approach: [
       'Recruited 200 professional tailors across Tirupur and Bengaluru garment districts.',
@@ -85,10 +78,7 @@ const STUDIES: CaseStudy[] = [
     product: 'Both',
     tag: 'Healthcare AI · Surgical assistance',
     client: 'EU AI Research Lab',
-    industry: 'Medical AI',
-    image:
-      'https://images.unsplash.com/photo-1551076805-e1869033e561?w=1600&h=900&fit=crop',
-    challenge:
+    industry: 'Medical AI',    challenge:
       'A surgical-assistance AI required both expert text evaluation of clinical reasoning AND egocentric video of procedure-adjacent tasks. The lab wanted a single supplier across both modalities with full EU AI Act documentation.',
     approach: [
       'Expert module: qualified doctors evaluated 300 model outputs against a 12-axis surgical rubric.',

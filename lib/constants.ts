@@ -35,9 +35,7 @@ export const CAPTURE_LEVELS = [
     skills: 'Sorting, stacking, packing, basic assembly, labeling',
     complexity: 1,
     price: 'from $35/hr',
-    example: 'Pack 50 items per minute across 5 product types',
-    image: 'https://images.unsplash.com/photo-1553484771-371a605b060b?w=800&h=600&fit=crop',
-    accent: 'expert' as const,
+    example: 'Pack 50 items per minute across 5 product types',    accent: 'expert' as const,
   },
   {
     id: 'L2_SKILLED_TRADES',
@@ -46,9 +44,7 @@ export const CAPTURE_LEVELS = [
     skills: 'Tailoring, carpentry, cooking, cleaning, gardening',
     complexity: 2,
     price: 'from $55/hr',
-    example: 'Complete garment assembly with hand and machine techniques',
-    image: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800&h=600&fit=crop',
-    accent: 'capture' as const,
+    example: 'Complete garment assembly with hand and machine techniques',    accent: 'capture' as const,
   },
   {
     id: 'L3_TECHNICAL',
@@ -57,9 +53,7 @@ export const CAPTURE_LEVELS = [
     skills: 'CNC operation, welding, electrical work, plumbing, electronics assembly',
     complexity: 3,
     price: 'from $80/hr',
-    example: 'Set up and operate a CNC lathe for precision part manufacture',
-    image: 'https://images.unsplash.com/photo-1565514020179-026b92b2d70b?w=800&h=600&fit=crop',
-    accent: 'expert' as const,
+    example: 'Set up and operate a CNC lathe for precision part manufacture',    accent: 'expert' as const,
   },
   {
     id: 'L4_PROFESSIONAL',
@@ -68,9 +62,7 @@ export const CAPTURE_LEVELS = [
     skills: 'Surgical assistance, patient care, pharmacy, dental, lab work',
     complexity: 4,
     price: 'from $120/hr',
-    example: 'Prep and assist in laparoscopic procedure, instrument handling',
-    image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&h=600&fit=crop',
-    accent: 'capture' as const,
+    example: 'Prep and assist in laparoscopic procedure, instrument handling',    accent: 'capture' as const,
   },
   {
     id: 'L5_SPECIALIST',
@@ -79,9 +71,7 @@ export const CAPTURE_LEVELS = [
     skills: 'Heritage crafts, traditional medicine, precision jewellery, instrument making',
     complexity: 5,
     price: 'Custom quote',
-    example: 'Traditional Kanjivaram silk weaving - 40-step process',
-    image: 'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&h=600&fit=crop',
-    accent: 'expert' as const,
+    example: 'Traditional Kanjivaram silk weaving - 40-step process',    accent: 'expert' as const,
   },
 ] as const;
 
