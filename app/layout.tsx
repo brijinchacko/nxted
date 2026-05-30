@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Baloo_2, Nunito } from 'next/font/google';
 import { Toaster } from 'react-hot-toast';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { organizationSchema, websiteSchema } from '@/lib/schema';
 import './globals.css';
 
 // Baloo 2 - the logo + heading font (rounded display)
@@ -77,6 +79,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${logoFont.variable} ${bodyFont.variable}`}>
       <body>
+        <JsonLd data={[organizationSchema(), websiteSchema()]} />
         {children}
         <Toaster
           position="bottom-right"

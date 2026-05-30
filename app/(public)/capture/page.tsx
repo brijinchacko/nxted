@@ -1,4 +1,8 @@
 import { pageMeta } from '@/lib/seo';
+import { FaqSection, type FaqItem } from '@/components/seo/FaqSection';
+import { DirectAnswer } from '@/components/seo/DirectAnswer';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { serviceSchema, datasetSchema } from '@/lib/schema';
 import {
   ArrowRight,
   ArrowUpRight,
@@ -41,6 +45,33 @@ export const metadata = pageMeta({
     'teleoperation data collection',
   ],
 });
+
+const CAPTURE_FAQ: FaqItem[] = [
+  {
+    q: 'What is egocentric data and why do robots need it?',
+    a: 'Egocentric data is first-person video recorded from the doer’s point of view - what a robot’s own camera would see - usually with depth, hand pose and 6-DoF motion. Robots need it because there is no web-scale corpus of physical actions; manipulation policies have to be shown how skilled humans move, demonstration by demonstration.',
+  },
+  {
+    q: 'What hardware does nxted capture with?',
+    a: 'nxted builds on the rigs the research field already uses: Meta Project Aria glasses, Intel RealSense and Stereolabs ZED depth cameras, and Universal Manipulation Interface grippers - the same class of stack behind datasets like Ego-Exo4D. Three tiers map to how training-ready you need the data, from RGB-only up to full depth and hand pose.',
+  },
+  {
+    q: 'What skill categories can nxted record?',
+    a: 'The flagship vertical is skilled industrial and technical work - electrical panel assembly, machine tending, CNC setup, electronics assembly and inspection. nxted also captures tailoring and textile, construction and warehouse, carpentry, cooking, and medical-adjacent tasks, using credentialed contributors for the specialist categories.',
+  },
+  {
+    q: 'What formats and annotations are included?',
+    a: 'Each dataset ships in LeRobot, RLDS and HDF5, plus raw and processed egocentric video, an optional third-person reference angle, full metadata (camera calibration, 6-DoF trajectories, hand pose, timestamps), action segmentation and success/failure labels, a dataset card, a consent manifest and a QA report.',
+  },
+  {
+    q: 'Is nxted’s capture consented and ethically sourced?',
+    a: 'Yes. Contributors are paid above the local market rate, give explicit, withdrawable consent, and every filming site signs a release. Faces, plates, screens and PII are redacted, no contributor is under 18, and each delivery includes a Data Trust Pack with a DPDP & GDPR-aligned DPA.',
+  },
+  {
+    q: 'How much does an egocentric dataset cost?',
+    a: 'Start with a Physical AI Test Kit from $2,500 - 5 to 10 usable hours of one skilled task with a consent pack, metadata, basic labels and a LeRobot/RLDS/HDF5 sample, delivered in 7-10 days. Full datasets are priced per usable hour by skill level and quoted within 24 hours.',
+  },
+];
 
 const MODALITIES = [
   { icon: Camera, label: 'First-person RGB', sub: 'up to 1408² / 30fps' },
@@ -129,6 +160,24 @@ export default function CapturePage() {
               </div>
             </div>
           </FadeUp>
+        </div>
+      </section>
+
+      {/* ─── Direct answer ────────────────────────────────── */}
+      <section className="section-pad bg-[var(--bg-surface)] border-b border-[var(--border-dim)]">
+        <div className="container-site grid md:grid-cols-2 gap-5 max-w-5xl">
+          <DirectAnswer question="What is egocentric data for robotics?" accent="capture">
+            Egocentric data for robotics is first-person video recorded from the worker&rsquo;s own
+            point of view as they perform a task - what a robot&rsquo;s head- or wrist-mounted camera
+            would see - plus depth, hand pose and 6-DoF motion. It teaches manipulation policies how a
+            skilled human actually moves, which third-person or web video cannot.
+          </DirectAnswer>
+          <DirectAnswer question="Why capture this data in India?" accent="capture">
+            India has one of the world&rsquo;s largest skilled workforces across the trades and
+            professions the scaling laws reward. nxted captures only verified, consented contributors
+            in real workplaces, with fair pay and documented provenance. Skill depth and provenance -
+            not cost - are the point, though Indian capture is also materially lower-cost.
+          </DirectAnswer>
         </div>
       </section>
 
@@ -477,6 +526,25 @@ export default function CapturePage() {
           </div>
         </div>
       </section>
+
+      <FaqSection
+        items={CAPTURE_FAQ}
+        heading="Egocentric data for robotics: FAQ"
+        accent="capture"
+      />
+
+      <JsonLd
+        data={[
+          serviceSchema({
+            name: 'nxted Capture - egocentric data for robotics',
+            description:
+              'Egocentric, first-person human demonstration data for robots and embodied AI, captured from skilled, consented contributors and delivered robotics-ready in LeRobot, RLDS and HDF5.',
+            serviceType: 'Physical AI training data collection',
+            path: '/capture',
+          }),
+          datasetSchema(),
+        ]}
+      />
     </>
   );
 }

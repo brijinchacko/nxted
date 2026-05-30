@@ -1,4 +1,5 @@
 import { pageMeta } from '@/lib/seo';
+import { FaqSection, type FaqItem } from '@/components/seo/FaqSection';
 import {
   ShieldCheck,
   HandCoins,
@@ -25,6 +26,29 @@ export const metadata = pageMeta({
     'EU AI Act data governance training data',
   ],
 });
+
+const TRUST_FAQ: FaqItem[] = [
+  {
+    q: 'What is the Data Trust Pack?',
+    a: 'The Data Trust Pack is the documentation that ships with every nxted dataset: contributor consent records and location releases, a fair-payment confirmation, skill and reviewer credentials, a no-minors and redaction record, a dataset card and provenance log, a DPA, an on-site safety record, and a QA report.',
+  },
+  {
+    q: 'Is nxted data DPDP and GDPR compliant?',
+    a: 'nxted captures under India’s DPDP Act with explicit, withdrawable consent, and contracts under a GDPR-aligned Data Processing Agreement for UK and EU buyers, using the UK IDTA or EU SCCs for international transfers. PII, faces, plates and screens are redacted as standard.',
+  },
+  {
+    q: 'How do you prove data provenance?',
+    a: 'Every dataset ships with a data-provenance log that traces each clip back to its source contributor and session, plus a dataset card describing scope, splits and limitations. You always know who produced the data, what they’re qualified in, and who reviewed it.',
+  },
+  {
+    q: 'Do you ever use data from minors?',
+    a: 'No. No contributor is under 18. The no-minors policy is part of the Data Trust Pack, alongside standard redaction of faces, licence plates, screens and other personal data.',
+  },
+  {
+    q: 'Can EU and UK legal teams sign this off?',
+    a: 'That is the purpose of the Data Trust Pack: a DPA template with SCCs/IDTA, consent and fair-pay records, redaction, provenance and a QA report - the artifacts your data, legal and safety teams need to approve a dataset for production use.',
+  },
+];
 
 const PACK = [
   {
@@ -71,6 +95,7 @@ const PACK = [
 
 export default function TrustPage() {
   return (
+    <>
     <section className="page-pad">
       <div className="container-site">
         <div className="max-w-3xl mb-14">
@@ -125,5 +150,8 @@ export default function TrustPage() {
         </p>
       </div>
     </section>
+
+      <FaqSection items={TRUST_FAQ} heading="Trust & compliance: FAQ" />
+    </>
   );
 }

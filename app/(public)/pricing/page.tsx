@@ -1,4 +1,5 @@
 import { pageMeta } from '@/lib/seo';
+import { FaqSection, type FaqItem } from '@/components/seo/FaqSection';
 import { ArrowRight, CheckCircle } from '@phosphor-icons/react/dist/ssr';
 import { FadeUp } from '@/components/motion/FadeUp';
 import { Card, CardTitle, CardBody, CardHeader } from '@/components/ui/Card';
@@ -19,8 +20,32 @@ export const metadata = pageMeta({
   ],
 });
 
+const PRICING_FAQ: FaqItem[] = [
+  {
+    q: 'How much does robotics training data cost?',
+    a: 'It depends on skill level, hours and annotation depth. nxted’s entry point is a Physical AI Test Kit from $2,500 (5-10 usable hours of one skilled task). Full capture datasets are priced per usable hour by level, and expert AI evaluation starts at £249. Custom datasets are quoted within 24 hours.',
+  },
+  {
+    q: 'What is the Physical AI Test Kit?',
+    a: 'A low-risk first engagement: from $2,500 for 5-10 usable hours of one skilled task, including a consent pack, full metadata, basic action labels and a LeRobot/RLDS/HDF5 sample, delivered in 7-10 days. It lets you validate quality before commissioning a full dataset.',
+  },
+  {
+    q: 'Is the Expert Test Kit really free?',
+    a: 'Yes. The free Expert Test Kit gives you 20 evaluated AI outputs with a quality-score report from two verified contributors, no card required - separate from the paid Physical AI Test Kit on the Capture side.',
+  },
+  {
+    q: 'What currencies and terms do you bill in?',
+    a: 'nxted invoices in GBP, USD or EUR through OFORO LTD, a UK-registered company. Capture engagements typically run on a 50% deposit with the balance on delivery; expert sprints are self-serve. There are no minimum-commitment or referral gates.',
+  },
+  {
+    q: 'Are there volume or retainer options?',
+    a: 'Yes. Capture is priced per usable hour with rates that reflect scale and skill level, and Expert offers monthly retainers from £1,500 for ongoing evaluation with a live quality dashboard. Tell us your spec and we’ll quote within 24 hours.',
+  },
+];
+
 export default function PricingPage() {
   return (
+    <>
     <section className="page-pad">
       <div className="container-site">
         <FadeUp className="max-w-3xl mb-16">
@@ -163,6 +188,9 @@ export default function PricingPage() {
         </div>
       </div>
     </section>
+
+      <FaqSection items={PRICING_FAQ} heading="Robotics training data pricing: FAQ" />
+    </>
   );
 }
 

@@ -1,4 +1,8 @@
 import { pageMeta } from '@/lib/seo';
+import { FaqSection, type FaqItem } from '@/components/seo/FaqSection';
+import { DirectAnswer } from '@/components/seo/DirectAnswer';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { serviceSchema } from '@/lib/schema';
 import {
   ArrowRight,
   Upload,
@@ -26,6 +30,29 @@ export const metadata = pageMeta({
     'expert AI evaluation UK',
   ],
 });
+
+const EXPERT_FAQ: FaqItem[] = [
+  {
+    q: 'What is RLHF and human evaluation for AI?',
+    a: 'RLHF (reinforcement learning from human feedback) uses human judgements of model outputs to align an AI’s behaviour. Human evaluation more broadly means qualified people rating accuracy, safety and domain-correctness. nxted Expert supplies credentialed domain reviewers and reports inter-rater agreement, so you can tell real signal from annotator noise.',
+  },
+  {
+    q: 'Who reviews my AI outputs?',
+    a: 'Credentialed domain experts matched to your field - engineering, the sciences, medicine, law or finance - not a generalist crowd. Reviewer credentials are disclosed per project, and every batch reports inter-rater agreement plus an error taxonomy tied to your deployment risks.',
+  },
+  {
+    q: 'How is nxted Expert different from a generalist crowd?',
+    a: 'Generalist crowds catch tone and format problems but miss expert failures - a confident, wrong answer about bearing modes or drug interactions sails through. nxted matches reviewers to the exact sub-domain and scores severity by deployment risk, surfacing the errors only a professional can see.',
+  },
+  {
+    q: 'Is it suitable for EU AI Act compliance?',
+    a: 'nxted Expert reports are built to drop into a high-risk AI technical file: evaluator credentials, inter-rater agreement, an error taxonomy and methodology, mapped to EU AI Act Article 10 and Annex IV. Every engagement is covered by a signed DPA - see our EU AI Act position statement.',
+  },
+  {
+    q: 'How do I try nxted Expert?',
+    a: 'Start with a free Expert Test Kit: 20 evaluated outputs with a quality-score report from verified contributors, no card required. Paid sprints start at £249 and ongoing retainers are available. Engagements are scoped within hours on business days.',
+  },
+];
 
 const STEPS = [
   { n: '01', icon: Upload, title: 'Submit your AI outputs', body: 'Text via secure portal - EU-hosted.' },
@@ -95,6 +122,23 @@ export default function ExpertPage() {
               Full transparency on every batch - the score, the breakdown, and who produced it.
             </p>
           </FadeUp>
+        </div>
+      </section>
+
+      <section className="section-pad bg-[var(--bg-surface)] border-b border-[var(--border-dim)]">
+        <div className="container-site grid md:grid-cols-2 gap-5 max-w-5xl">
+          <DirectAnswer question="What is RLHF and human evaluation for AI?">
+            RLHF - reinforcement learning from human feedback - uses human judgements of model outputs
+            to align an AI&rsquo;s behaviour. Human evaluation more broadly means qualified people
+            rating accuracy, safety and domain-correctness. nxted Expert supplies credentialed domain
+            reviewers and reports inter-rater agreement, so you can tell real signal from noise.
+          </DirectAnswer>
+          <DirectAnswer question="Why use domain experts instead of a crowd?">
+            A confident, fluent, completely wrong answer about bearing failure, drug interactions or
+            contract law sails through a generalist review. Only a reviewer with the right training
+            spots it. nxted matches experts to the exact sub-domain and scores severity by deployment
+            risk - catching the failures that matter.
+          </DirectAnswer>
         </div>
       </section>
 
@@ -201,6 +245,18 @@ export default function ExpertPage() {
           </div>
         </div>
       </section>
+
+      <FaqSection items={EXPERT_FAQ} heading="RLHF & human evaluation for AI: FAQ" />
+
+      <JsonLd
+        data={serviceSchema({
+          name: 'nxted Expert - RLHF & human evaluation for AI',
+          description:
+            'Expert human evaluation, RLHF and red-teaming for AI models from credentialed domain reviewers, with inter-rater agreement and an error taxonomy mapped to EU AI Act documentation.',
+          serviceType: 'AI model evaluation and RLHF',
+          path: '/expert',
+        })}
+      />
     </>
   );
 }
