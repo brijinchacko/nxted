@@ -20,23 +20,55 @@ export const metadata = pageMeta({
 
 export const dynamic = 'force-dynamic';
 
-export default async function ResearchPage() {
+export default async function ResearchPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ category?: string }>;
+}) {
+  const { category } = await searchParams;
+
+  const all = await prisma.researchPost
+    .findMany({ where: { status: 'PUBLISHED' }, select: { category: true } })
+    .catch(() => []);
+  const categories = [...new Set(all.map((p) => p.category))].sort();
+
   const posts = await prisma.researchPost
     .findMany({
-      where: { status: 'PUBLISHED' },
+      where: { status: 'PUBLISHED', ...(category ? { category } : {}) },
       orderBy: { publishedAt: 'desc' },
-      take: 30,
+      take: 60,
     })
     .catch(() => []);
 
   return (
     <section className="page-pad">
       <div className="container-narrow">
-        <div className="mb-14 max-w-3xl">
+        <div className="mb-8 max-w-3xl">
           <div className="text-label mb-5">Research</div>
           <h1 className="text-h1">
             Notes from the frontier of <span className="text-[var(--expert)]">human × machine</span>.
           </h1>
+        </div>
+
+        <div className="mb-12 flex flex-wrap items-center gap-2">
+          <Link
+            href="/research"
+            className={`text-xs px-3 h-7 inline-flex items-center rounded-full border transition-colors ${!category ? 'border-[var(--expert)] text-[var(--expert)]' : 'border-[var(--border-default)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]'}`}
+          >
+            All
+          </Link>
+          {categories.map((c) => (
+            <Link
+              key={c}
+              href={`/research?category=${encodeURIComponent(c)}`}
+              className={`text-xs px-3 h-7 inline-flex items-center rounded-full border transition-colors ${category === c ? 'border-[var(--expert)] text-[var(--expert)]' : 'border-[var(--border-default)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]'}`}
+            >
+              {c}
+            </Link>
+          ))}
+          <Link href="/search" className="text-xs px-3 h-7 inline-flex items-center rounded-full border border-[var(--border-default)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] ml-auto">
+            Search ⌕
+          </Link>
         </div>
 
         {posts.length === 0 ? (

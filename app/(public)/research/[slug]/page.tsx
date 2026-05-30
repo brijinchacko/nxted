@@ -47,6 +47,15 @@ export default async function ResearchPostPage({ params }: { params: Promise<{ s
   const datePublished = (post.publishedAt || post.createdAt).toISOString();
   const dateModified = post.updatedAt.toISOString();
 
+  const related = await prisma.researchPost
+    .findMany({
+      where: { status: 'PUBLISHED', category: post.category, slug: { not: post.slug } },
+      orderBy: { publishedAt: 'desc' },
+      take: 3,
+      select: { slug: true, title: true, excerpt: true },
+    })
+    .catch(() => []);
+
   return (
     <article className="page-pad">
       <div className="container-site max-w-3xl">
@@ -89,6 +98,20 @@ export default async function ResearchPostPage({ params }: { params: Promise<{ s
             {post.content}
           </ReactMarkdown>
         </div>
+
+        {related.length > 0 && (
+          <div className="mt-14">
+            <div className="text-label text-[var(--text-tertiary)] mb-4">Related reading</div>
+            <div className="space-y-3">
+              {related.map((r) => (
+                <Link key={r.slug} href={`/research/${r.slug}`} className="block surface surface-hover p-4">
+                  <div className="text-[var(--text-primary)] font-medium">{r.title}</div>
+                  <div className="text-sm text-[var(--text-tertiary)] mt-1 line-clamp-1">{r.excerpt}</div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Author / E-E-A-T box */}
         <div className="surface p-6 mt-14 flex items-start gap-4">
