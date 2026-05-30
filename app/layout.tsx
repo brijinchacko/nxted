@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     'physical AI training data',
     'egocentric video collection India',
     'humanoid robot training data',
-    'Mercor alternative UK',
+    'expert AI evaluation UK',
     'embodied AI dataset',
   ],
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://nxted.ai'),

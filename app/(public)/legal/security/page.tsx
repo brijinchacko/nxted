@@ -37,7 +37,7 @@ export default function SecurityPage() {
       </Section>
 
       <Section title="5. Software supply chain">
-        <p>We learned from the March 2026 Mercor LiteLLM incident. Our specific controls:</p>
+        <p>We have learned from the wave of supply-chain and data-exfiltration incidents across the AI data industry. Our specific controls:</p>
         <ul>
           <li>All third-party packages pinned by hash (npm <code>integrity</code> attributes; lockfile committed).</li>
           <li>LLM gateway dependencies isolated in a sandboxed egress namespace.</li>

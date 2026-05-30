@@ -45,7 +45,7 @@ async function main() {
       firstName: 'Priya',
       lastName: 'Rao',
       expertise: ['Industrial Engineering', 'PLC/SCADA', 'Manufacturing'],
-      credentials: 'B.Tech, IIT Bombay · 8 yrs at L&T heavy industries',
+      credentials: 'B.Tech (mechanical) · 8 yrs in heavy industry & manufacturing',
       location: 'Pune, India',
       bio: 'Industrial AI evaluator with deep manufacturing background.',
     },
@@ -54,7 +54,7 @@ async function main() {
       firstName: 'Arjun',
       lastName: 'Menon',
       expertise: ['Healthcare', 'Medical AI', 'Cardiology'],
-      credentials: 'MBBS, AIIMS Delhi · MD Internal Medicine',
+      credentials: 'MBBS · MD Internal Medicine · practising physician',
       location: 'New Delhi, India',
       bio: 'Practising physician focused on medical AI safety.',
     },
@@ -63,7 +63,7 @@ async function main() {
       firstName: 'Meera',
       lastName: 'Iyer',
       expertise: ['Law', 'Compliance', 'EU AI Act'],
-      credentials: 'LLB, NLU Bangalore · LLM, LSE',
+      credentials: 'LLB · LLM in technology law · regulatory specialist',
       location: 'Bengaluru, India',
       bio: 'Tech regulation specialist with EU AI Act expertise.',
     },
@@ -79,7 +79,7 @@ async function main() {
     });
     await prisma.contributorProfile.upsert({
       where: { userId: u.id },
-      update: {},
+      update: { credentials: spec.credentials, expertise: spec.expertise, bio: spec.bio },
       create: {
         userId: u.id,
         expertise: spec.expertise,
@@ -137,7 +137,12 @@ async function main() {
 
   await prisma.qualityReport.upsert({
     where: { projectId: expertProject.id },
-    update: {},
+    update: {
+      expertCredentials: [
+        { name: 'Priya R.', credentials: 'B.Tech mechanical · 8 yrs heavy industry' },
+        { name: 'Arjun M.', credentials: 'MBBS · MD (cross-domain reviewer)' },
+      ],
+    },
     create: {
       reportCode: 'RPT-2026-0001',
       projectId: expertProject.id,
@@ -159,8 +164,8 @@ async function main() {
         { title: 'Add domain rubric to system prompt', detail: 'Embed the engineering rubric used here directly into the model\'s system instructions.', priority: 'short-term' },
       ],
       expertCredentials: [
-        { name: 'Priya R.', credentials: 'B.Tech IIT Bombay · 8 yrs L&T' },
-        { name: 'Arjun M.', credentials: 'MBBS AIIMS Delhi (cross-domain reviewer)' },
+        { name: 'Priya R.', credentials: 'B.Tech mechanical · 8 yrs heavy industry' },
+        { name: 'Arjun M.', credentials: 'MBBS · MD (cross-domain reviewer)' },
       ],
       generatedAt: new Date(),
       sentToClientAt: new Date(),
@@ -235,7 +240,7 @@ If you extrapolate that ratio to the 5,000+ tasks a general-purpose humanoid nee
 
 ## Why India
 
-India has 500 million skilled workers, English fluency in the working population, and a cost base 10× cheaper than the US. It is the only country where this scale of capture is economically rational.`,
+India has one of the world's largest skilled workforces, broad English fluency in the working population, and a materially lower cost base than the US. It is one of the few places where this scale of capture is economically rational.`,
     },
     {
       slug: 'india-and-physical-ai-the-numbers',
@@ -251,23 +256,23 @@ India has 500 million skilled workers, English fluency in the working population
 - 15 million+ carpenters
 - 12 million+ construction workers
 - 1.5 million STEM graduates *annually*
-- 500,000 doctors registered with the MCI
-- 300,000+ chartered accountants (ICAI)
+- 500,000+ registered doctors
+- 300,000+ chartered accountants
 - 80,000 law graduates per year
 
 ## Why this matters for capture
 
-A humanoid robot trained on dish-washing in California cannot generalise to a Mumbai household kitchen, a Tirupur tailoring floor, or an AIIMS operating theatre. India is not just cheaper - it is also a *broader* training distribution.`,
+A humanoid robot trained on dish-washing in California cannot generalise to a Mumbai household kitchen, a Tirupur tailoring floor, or a hospital operating theatre. India is not just cheaper - it is also a *broader* training distribution.`,
     },
     {
       slug: 'rlhf-in-2026-quality-concentration-beats-scale',
       title: 'RLHF in 2026: why quality concentration beats scale',
-      excerpt: 'The Mercor breach was inevitable. Black-box, low-context evaluation cannot scale safely. The alternative is concentrated, transparent expertise.',
+      excerpt: 'High-profile breaches showed that black-box, low-context evaluation cannot scale safely. The alternative is concentrated, transparent expertise.',
       category: 'RLHF',
       tags: ['rlhf', 'evaluation', 'quality'],
-      content: `## The Mercor moment
+      content: `## The wake-up call
 
-The 4TB Mercor breach in March 2026 was not an outlier - it was an inevitability. When you build an AI evaluation platform on a US-housed, opaque, sub-contracted crowd, the failure modes compound.
+The high-profile data breaches that hit AI evaluation platforms in 2026 were not outliers - they were predictable. When you build an AI evaluation platform on a US-housed, opaque, sub-contracted crowd, the failure modes compound.
 
 ## The alternative
 
@@ -275,7 +280,7 @@ Quality concentration. Fewer evaluators, deeper expertise, full transparency on 
 
 ## What good looks like in 2026
 
-- Verified credentials (IIT, AIIMS, ICAI, NLU)
+- Verified credentials, disclosed per project
 - Inter-rater agreement reported per project
 - Error taxonomies tied to the AI's deployment risks
 - A DPA on day one`,
@@ -337,12 +342,12 @@ Your training stack does not want raw video. It wants structured episodes:
 Every clip ships with action segmentation, first-person narration, hand-pose tracks, and skill-level metadata. The annotation is the difference between footage and training data.`,
     },
     {
-      slug: 'what-the-mercor-breach-taught-the-industry',
-      title: 'What the Mercor breach taught the AI data industry',
-      excerpt: 'A 4TB leak of contractor data in 2026 was not bad luck. It was an architecture problem, and it is avoidable.',
+      slug: 'what-ai-data-breaches-taught-the-industry',
+      title: 'What the 2026 data breaches taught the AI data industry',
+      excerpt: 'A major leak of contractor data in 2026 was not bad luck. It was an architecture problem, and it is avoidable.',
       category: 'Research',
       tags: ['security', 'data protection', 'rlhf'],
-      content: `In early 2026 a leading AI talent marketplace disclosed a breach that exposed roughly 4TB of data, including contractor identity documents, banking details, and biometric interview video. It reset the industry's assumptions about how to run a data platform.
+      content: `In early 2026 a leading AI talent marketplace disclosed a breach that exposed a large volume of data, including contractor identity documents, banking details, and biometric interview video. It reset the industry's assumptions about how to run a data platform.
 
 ## The lessons
 
@@ -403,7 +408,7 @@ India also offers:
 
 ## Ethical floor
 
-Lower cost does not mean exploitation. Workers are paid above the local market rate, fully consented, and covered by a GDPR-compliant agreement. That is a precondition, not a marketing line.`,
+Lower cost does not mean exploitation. Workers are paid above the local market rate, fully consented, and covered by a GDPR-aligned agreement. That is a precondition, not a marketing line.`,
     },
     {
       slug: 'red-teaming-domain-ai-needs-experts',
@@ -433,7 +438,14 @@ If your AI makes decisions a professional would be liable for, your evaluators s
   for (const p of posts) {
     await prisma.researchPost.upsert({
       where: { slug: p.slug },
-      update: {},
+      update: {
+        title: p.title,
+        excerpt: p.excerpt,
+        category: p.category,
+        tags: p.tags,
+        content: p.content,
+        readingTime: Math.max(2, Math.round(p.content.split(/\s+/).length / 220)),
+      },
       create: {
         slug: p.slug,
         title: p.title,
