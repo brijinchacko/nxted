@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { LegalShell, Section, Sub } from '@/components/legal/LegalShell';
 
-export const metadata: Metadata = { title: 'Terms of Service' };
+export const metadata: Metadata = { title: 'Terms of Service', description: "The nxted.ai terms of service governing use of our AI evaluation and physical-AI capture services, operated by OFORO LTD (UK).", alternates: { canonical: "/legal/terms" } };
 
 export default function TermsPage() {
   return (

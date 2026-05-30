@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { LegalShell, Section, Sub } from '@/components/legal/LegalShell';
 
-export const metadata: Metadata = { title: 'Data Processing Agreement' };
+export const metadata: Metadata = { title: 'Data Processing Agreement', description: "The nxted Data Processing Agreement: roles, security, sub-processors, international transfers (UK IDTA / EU SCCs) and DPDP and GDPR obligations.", alternates: { canonical: "/legal/dpa" } };
 
 export default function DpaPage() {
   return (

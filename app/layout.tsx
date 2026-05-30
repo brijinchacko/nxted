@@ -74,6 +74,9 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
   },
+  alternates: {
+    types: { 'application/rss+xml': '/feed.xml' },
+  },
   ...(Object.keys(verification).length ? { verification } : {}),
 };
 

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { LegalShell, Section } from '@/components/legal/LegalShell';
 
-export const metadata: Metadata = { title: 'Modern Slavery Statement' };
+export const metadata: Metadata = { title: 'Modern Slavery Statement', description: "The nxted (OFORO LTD) modern slavery statement: how we prevent forced labour across our India capture supply chain, with on-site verification.", alternates: { canonical: "/legal/modern-slavery" } };
 
 export default function ModernSlaveryPage() {
   return (

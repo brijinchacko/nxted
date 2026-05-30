@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { LegalShell, Section } from '@/components/legal/LegalShell';
 
-export const metadata: Metadata = { title: 'Refund & Cancellation Policy' };
+export const metadata: Metadata = { title: 'Refund & Cancellation Policy', description: "The nxted refund and cancellation policy for expert evaluation sprints, retainers and capture orders.", alternates: { canonical: "/legal/refund" } };
 
 export default function RefundPage() {
   return (

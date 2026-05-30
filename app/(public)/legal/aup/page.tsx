@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { LegalShell, Section } from '@/components/legal/LegalShell';
 
-export const metadata: Metadata = { title: 'Acceptable Use Policy' };
+export const metadata: Metadata = { title: 'Acceptable Use Policy', description: "The nxted Acceptable Use Policy: permitted and prohibited uses of our AI training-data and evaluation services.", alternates: { canonical: "/legal/aup" } };
 
 export default function AupPage() {
   return (

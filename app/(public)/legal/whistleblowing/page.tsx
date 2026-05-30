@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { LegalShell, Section } from '@/components/legal/LegalShell';
 
-export const metadata: Metadata = { title: 'Whistleblowing Policy' };
+export const metadata: Metadata = { title: 'Whistleblowing Policy', description: "The nxted whistleblowing policy: how to raise concerns confidentially, and our non-retaliation commitment.", alternates: { canonical: "/legal/whistleblowing" } };
 
 export default function WhistleblowingPage() {
   return (

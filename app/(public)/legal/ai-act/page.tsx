@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { LegalShell, Section } from '@/components/legal/LegalShell';
 
-export const metadata: Metadata = { title: 'EU AI Act Position Statement' };
+export const metadata: Metadata = { title: 'EU AI Act Position Statement', description: "The nxted EU AI Act position: how expert evaluation and capture data support Article 10 data governance and Annex IV documentation for high-risk AI.", alternates: { canonical: "/legal/ai-act" } };
 
 export default function AiActPage() {
   return (

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { LegalShell, Section, Sub } from '@/components/legal/LegalShell';
 
-export const metadata: Metadata = { title: 'Privacy Policy' };
+export const metadata: Metadata = { title: 'Privacy Policy', description: "The nxted.ai privacy policy: what personal data we collect and why, your rights under UK/EU GDPR and the India DPDP Act, and how to contact us.", alternates: { canonical: "/legal/privacy" } };
 
 export default function PrivacyPage() {
   return (

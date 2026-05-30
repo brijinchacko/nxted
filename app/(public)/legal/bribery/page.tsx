@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { LegalShell, Section } from '@/components/legal/LegalShell';
 
-export const metadata: Metadata = { title: 'Anti-Bribery & Anti-Corruption Policy' };
+export const metadata: Metadata = { title: 'Anti-Bribery & Anti-Corruption Policy', description: "The nxted (OFORO LTD) anti-bribery and anti-corruption policy covering gifts, facilitation payments and third-party due diligence.", alternates: { canonical: "/legal/bribery" } };
 
 export default function BriberyPage() {
   return (

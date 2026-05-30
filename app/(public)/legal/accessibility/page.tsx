@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { LegalShell, Section } from '@/components/legal/LegalShell';
 
-export const metadata: Metadata = { title: 'Accessibility Statement' };
+export const metadata: Metadata = { title: 'Accessibility Statement', description: "The nxted.ai accessibility statement: our commitment to WCAG-aligned, keyboard and screen-reader friendly access, and how to report issues.", alternates: { canonical: "/legal/accessibility" } };
 
 export default function AccessibilityPage() {
   return (

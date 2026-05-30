@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { LegalShell, Section, Sub } from '@/components/legal/LegalShell';
 
-export const metadata: Metadata = { title: 'Contributor Agreement' };
+export const metadata: Metadata = { title: 'Contributor Agreement', description: "The nxted Contributor Agreement: terms for experts and capture contributors covering consent, fair pay, IP, confidentiality and conduct.", alternates: { canonical: "/legal/contributor-agreement" } };
 
 export default function ContributorAgreementPage() {
   return (

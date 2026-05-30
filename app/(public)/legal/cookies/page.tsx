@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { LegalShell, Section } from '@/components/legal/LegalShell';
 
-export const metadata: Metadata = { title: 'Cookie Policy' };
+export const metadata: Metadata = { title: 'Cookie Policy', description: "How nxted.ai uses cookies and similar technologies, the categories we set, and how to manage your preferences.", alternates: { canonical: "/legal/cookies" } };
 
 export default function CookiesPage() {
   return (

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { LegalShell, Section } from '@/components/legal/LegalShell';
 
-export const metadata: Metadata = { title: 'Security Whitepaper' };
+export const metadata: Metadata = { title: 'Security Whitepaper', description: "The nxted security whitepaper: encryption, access control, supply-chain controls, vulnerability management and data handling for AI training data.", alternates: { canonical: "/legal/security" } };
 
 export default function SecurityPage() {
   return (

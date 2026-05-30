@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { LegalShell, Section } from '@/components/legal/LegalShell';
 
-export const metadata: Metadata = { title: 'DMCA Copyright Policy' };
+export const metadata: Metadata = { title: 'DMCA Copyright Policy', description: "The nxted DMCA copyright policy: how to submit takedown and counter-notices for content on nxted.ai.", alternates: { canonical: "/legal/dmca" } };
 
 export default function DmcaPage() {
   return (
