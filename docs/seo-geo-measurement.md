@@ -91,13 +91,14 @@ Watch the trend, not the absolute - GEO compounds over weeks as engines re-crawl
   Article + BreadcrumbList (posts), FAQPage (home, capture, expert, pricing, trust).
 - `/llms.txt` and `/llms-full.txt`.
 - Direct-answer blocks + FAQ sections (the units AI engines lift).
-- 10 cited, original blog posts (Tier 1 buyer-intent + Tier 2 explainers).
+- 23 cited, original blog posts (Tier 1 buyer-intent, Tier 2 explainers,
+  Tier 3 technical/how-to, Tier 4 defensible niche, Tier 5 analysis), all
+  cross-linked into topic clusters.
 - E-E-A-T: author byline, visible Published/Updated dates, inline citations.
 
 ## 5. Backlog (not yet built)
 
-- Tier 3-5 posts (technical/how-to, niche, trend) - ~13 more from the brief.
 - Named-founder author page once real chartered-engineer credentials are provided
   (currently attributed to "nxted Research Team").
 - Optional: markdown tables in posts (needs `remark-gfm`); a real on-site search
-  to justify a WebSite SearchAction.
+  to justify a WebSite SearchAction; ongoing fresh posts to keep the blog active.
