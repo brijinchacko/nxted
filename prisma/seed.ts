@@ -1,5 +1,6 @@
 import { PrismaClient, type CaptureLevel } from '@prisma/client';
 import bcrypt from 'bcryptjs';
+import { BLOG_POSTS } from './blog-seed';
 
 const prisma = new PrismaClient();
 
@@ -435,7 +436,17 @@ If your AI makes decisions a professional would be liable for, your evaluators s
     },
   ];
 
-  for (const p of posts) {
+  const allPosts = [
+    ...posts.map((p) => ({ ...p, metaTitle: null as string | null, metaDesc: null as string | null })),
+    ...BLOG_POSTS.map((p) => ({
+      ...p,
+      metaTitle: p.metaTitle as string | null,
+      metaDesc: p.metaDesc as string | null,
+    })),
+  ];
+
+  for (const p of allPosts) {
+    const readingTime = Math.max(2, Math.round(p.content.split(/\s+/).length / 220));
     await prisma.researchPost.upsert({
       where: { slug: p.slug },
       update: {
@@ -444,7 +455,9 @@ If your AI makes decisions a professional would be liable for, your evaluators s
         category: p.category,
         tags: p.tags,
         content: p.content,
-        readingTime: Math.max(2, Math.round(p.content.split(/\s+/).length / 220)),
+        readingTime,
+        metaTitle: p.metaTitle,
+        metaDesc: p.metaDesc,
       },
       create: {
         slug: p.slug,
@@ -455,7 +468,9 @@ If your AI makes decisions a professional would be liable for, your evaluators s
         content: p.content,
         status: 'PUBLISHED',
         publishedAt: new Date(),
-        readingTime: Math.max(2, Math.round(p.content.split(/\s+/).length / 220)),
+        readingTime,
+        metaTitle: p.metaTitle,
+        metaDesc: p.metaDesc,
       },
     });
   }
