@@ -509,3 +509,22 @@ model ConsentRecord {
   consentTypes String[]
   givenAt      DateTime @default(now())
 }
+
+/// Lightweight first-party web analytics. One row per tracked page view.
+model PageView {
+  id        String   @id @default(cuid())
+  path      String
+  referrer  String?
+  source    String   @default("direct") // direct | organic | ai | social | referral
+  device    String   @default("desktop") // desktop | mobile | tablet
+  country   String?
+  visitorId String // anonymous, client-generated id (no PII)
+  sessionId String? // also used as a marker for seeded demo rows ("demo")
+  isBot     Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([visitorId])
+  @@index([path])
+  @@index([source])
+}

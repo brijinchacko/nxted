@@ -1,6 +1,7 @@
 import { PrismaClient, type CaptureLevel } from '@prisma/client';
 import bcrypt from 'bcryptjs';
 import { BLOG_POSTS } from './blog-seed';
+import { seedTraffic } from './traffic-seed';
 
 const prisma = new PrismaClient();
 
@@ -474,6 +475,9 @@ If your AI makes decisions a professional would be liable for, your evaluators s
       },
     });
   }
+
+  const pageViews = await seedTraffic(prisma);
+  console.log('Seeded demo page views:', pageViews);
 
   console.log('Seed complete.');
 }
