@@ -23,8 +23,8 @@ export const TICKER_ITEMS = [
   'HUMANOID ROBOT MARKET: $165B BY 2034',
   '54% ROBOT IMPROVEMENT WITH EGOCENTRIC DATA',
   '1M HOURS OF PHYSICAL AI DATA COLLECTED IN 2026',
-  '500M+ INDIA SKILLED WORKERS AVAILABLE',
-  'ZERO COMPETITORS DOING BOTH TEXT + PHYSICAL AI FROM INDIA',
+  "VERIFIED, CONSENTED CONTRIBUTORS ACROSS INDIA'S SKILLED TRADES",
+  'ENGINEER-LED CAPTURE FOR SKILLED INDUSTRIAL & TECHNICAL WORK',
 ];
 
 export const CAPTURE_LEVELS = [
@@ -158,24 +158,24 @@ export const EXPERT_PRODUCTS = [
 
 export const COMPETITORS = [
   {
-    name: 'Mercor',
-    sub: '$10B valuation · 4TB breach March 2026',
-    body: 'Black box evaluation with zero quality transparency. US servers = GDPR violation for EU clients. No physical AI capability whatsoever.',
+    type: 'Broad annotation vendors',
+    limitation: 'Generic; not built for skilled physical-task data',
+    focus: 'Vertical, expert-reviewed task packs',
   },
   {
-    name: 'Scale AI / Outlier',
-    sub: '$29B · 49% owned by Meta',
-    body: 'Direct conflict for any lab competing with Meta. OpenAI and Google already left. $500K+ minimum engagement.',
+    type: 'Expert-evaluation networks',
+    limitation: 'Strong on text, light on physical capture',
+    focus: 'Expert + Capture in one pipeline',
   },
   {
-    name: 'Claru',
-    sub: 'US-based · Physical AI only',
-    body: '$340/hr for recording in California. Zero India operations. Missing the world\'s richest skill base.',
+    type: 'Gig-scale egocentric collectors',
+    limitation: 'Volume, but weaker trust and skill verification',
+    focus: 'Consent-first Data Trust Pack',
   },
   {
-    name: 'Surge AI',
-    sub: '$1.2B revenue · referral-only',
-    body: 'You can\'t get in. Referral-only access. No India concentration. Zero physical AI capability.',
+    type: 'Enterprise incumbents',
+    limitation: 'Slow pilots, large minimums',
+    focus: '7-day paid Test Kit',
   },
 ] as const;
 
@@ -186,5 +186,5 @@ export const INDIA_NUMBERS = [
   { number: '1.5M', label: 'STEM graduates annually - technical evaluation' },
   { number: '500K', label: 'doctors - medical AI evaluation' },
   { number: '80K', label: 'law graduates - legal domain expertise' },
-  { number: '300K+', label: 'CAs (ICAI) - financial AI evaluation' },
+  { number: '300K+', label: 'chartered accountants - financial domain expertise' },
 ] as const;

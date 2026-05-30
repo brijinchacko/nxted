@@ -1,13 +1,13 @@
 import { FadeUp } from '@/components/motion/FadeUp';
 
 const ROWS = [
-  ['Text RLHF + Physical AI in one platform', 'Zero competitors', '✓ Both in one'],
-  ['India quality concentration', 'Global spread (Mercor, Scale)', '✓ India-first supply'],
-  ['Self-serve entry', 'Surge: referral-only · Scale: $500K+ min', '✓ Free Test Kit + self-serve'],
-  ['Transparent quality metrics', 'Black box (Mercor)', '✓ Live quality dashboard'],
-  ['UK/EU registered entity', 'All US-based', '✓ OFORO LTD, Milton Keynes'],
-  ['No Meta conflict', 'Scale: 49% owned by Meta', '✓ Independent, neutral'],
-  ['Physical AI from India', 'Claru: US-based, 10× cost', '✓ India-based, 90% cheaper'],
+  ['Text RLHF + Physical AI in one platform', 'Few combine both with skill verification', '✓ Both in one'],
+  ['India quality concentration', 'Global crowd, less concentration', '✓ India-first, skill-verified'],
+  ['Self-serve entry', 'Referral gates or high minimums', '✓ Free Test Kit + self-serve'],
+  ['Transparent quality metrics', 'Often a black box', '✓ Live quality dashboard'],
+  ['UK/EU registered entity', 'Mostly US-based', '✓ OFORO LTD, Milton Keynes'],
+  ['Neutral, no platform conflict', 'Possible platform conflicts', '✓ Independent, neutral'],
+  ['Physical AI from India', 'US-centric collection', '✓ Engineer-led capture of skilled, credentialed work'],
   ['5-level skill taxonomy', 'No platform classifies this way', '✓ Level 1-5 complexity system'],
 ];
 

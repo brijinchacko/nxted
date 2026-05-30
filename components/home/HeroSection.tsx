@@ -35,18 +35,17 @@ export function HeroSection() {
           </FadeUp>
 
           <FadeUp delay={0.85} className="mt-8 flex flex-wrap gap-3">
-            <Button href="/expert" variant="expert" size="lg">
-              Train your text AI
+            <Button href="/portal/capture/new" variant="expert" size="lg">
+              Request a Physical AI Test Kit
               <ArrowRight size={18} weight="bold" />
             </Button>
-            <Button href="/capture" variant="capture" size="lg">
-              Capture physical data
-              <ArrowRight size={18} weight="bold" />
+            <Button href="/expert" variant="outline" size="lg">
+              Explore Expert evaluation
             </Button>
           </FadeUp>
 
           <FadeUp delay={1.05} className="mt-10 flex flex-wrap items-center gap-x-4 gap-y-2">
-            {['OFORO LTD', 'UK Registered', 'GDPR Compliant', 'India-based supply'].map((item) => (
+            {['OFORO LTD', 'UK Registered', 'DPDP & GDPR-aligned', 'Consent-first collection'].map((item) => (
               <span key={item} className="text-[11px] tracking-[0.18em] uppercase text-[var(--text-tertiary)]">
                 {item}
               </span>

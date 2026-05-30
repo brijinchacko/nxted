@@ -35,7 +35,7 @@ const STUDIES: CaseStudy[] = [
     challenge:
       'A vibration-sensor predictive maintenance model was misdiagnosing bearing failures 32% of the time. The team needed deep-domain evaluation faster than their incumbent could deliver - and without GDPR exposure.',
     approach: [
-      'Assigned 50 IIT-verified mechanical engineers across three plants worth of failure-mode data.',
+      'Assigned 50 verified mechanical engineers across three plants worth of failure-mode data.',
       'Built a 9-axis rubric covering bearing modes, lubrication faults, mounting errors, and combined-mode failures.',
       'Delivered inter-rater agreement reports with every batch - surfacing controversial outputs for re-evaluation.',
     ],
@@ -45,7 +45,7 @@ const STUDIES: CaseStudy[] = [
       { label: 'Engagement length', value: '8 weeks' },
     ],
     quote: {
-      text: '"We tried Mercor. Their breach shut us down. Nxted onboarded us in 72 hours with a fully signed DPA."',
+      text: '"Our previous vendor couldn\'t give us a signed DPA. Nxted onboarded us in 72 hours with one in place."',
       role: 'Head of ML, UK industrial AI company',
     },
     meta: { duration: '8 weeks', team: '50 engineers', scope: '500 outputs' },
@@ -85,7 +85,7 @@ const STUDIES: CaseStudy[] = [
     challenge:
       'A surgical-assistance AI required both expert text evaluation of clinical reasoning AND egocentric video of procedure-adjacent tasks. The lab wanted a single supplier across both modalities with full EU AI Act documentation.',
     approach: [
-      'Expert module: AIIMS-trained doctors evaluated 300 model outputs against a 12-axis surgical rubric.',
+      'Expert module: qualified doctors evaluated 300 model outputs against a 12-axis surgical rubric.',
       'Capture module: 150 hours of instrument-handoff and patient-prep footage with consent + ethics committee approval.',
       'Unified delivery with one DPA, one contract, one invoice - and an EU AI Act compliance narrative.',
     ],

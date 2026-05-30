@@ -8,6 +8,7 @@ import {
   Path,
   Eye,
   Waveform,
+  CheckCircle,
 } from '@phosphor-icons/react/dist/ssr';
 import { FadeUp } from '@/components/motion/FadeUp';
 import { CountUp } from '@/components/motion/CountUp';
@@ -41,13 +42,39 @@ const MODALITIES = [
   { icon: Waveform, label: 'Action labels', sub: 'segmented + narrated' },
 ];
 
+const DATASET_INCLUDES = [
+  'Raw and processed egocentric video, redacted to spec (faces, plates, screens, PII).',
+  'Third-person reference video where a second angle helps the policy.',
+  'Per-episode task cards plus action labels, segments and success / failure flags.',
+  'LeRobot, RLDS and HDF5 exports of every episode - drop straight into your pipeline.',
+  'Full metadata: camera calibration, 6DoF trajectories, hand poses and timestamps.',
+  'Dataset card and data-provenance log tracing every clip back to its source.',
+  'Consent manifest and fair-payment record for every contributor.',
+  'QA report with inter-annotator agreement and labelled edge cases.',
+];
+
+const SAMPLE_TREE = `nxted_industrial_india_01/
+  dataset_card.md          # scope, splits, limitations
+  consent_manifest.csv     # per-contributor consent + pay
+  task_cards/              # what each episode demonstrates
+  raw_video/               # original egocentric capture
+  processed_video/         # redacted, stabilised, trimmed
+  exo_video/               # third-person reference angle
+  metadata/                # calibration, 6DoF poses, timestamps
+  annotations/             # action labels, segments, success
+  quality_report.pdf       # inter-annotator agreement + QA
+  lerobot/                 # LeRobot-format episodes
+  rlds/                    # RLDS / TFDS shards
+  hdf5/                    # HDF5 trajectories`;
+
 const CATEGORIES = [
-  { title: 'Tailoring & Textile', examples: ['Hand stitching', 'Machine sewing', 'Pattern cutting'], count: '45M workers in India' },
-  { title: 'Carpentry & Furniture', examples: ['Joinery', 'Lathe work', 'Lacquer finishing'], count: '15M+ workers' },
+  { title: 'Electrical / Industrial assembly', examples: ['Panel wiring', 'Electronics assembly', 'Machine tending', 'Inspection'], count: 'Flagship vertical' },
+  { title: 'CNC / Machining', examples: ['Lathe ops', 'Mill setup', 'Quality inspection'], count: 'Skilled machinists' },
+  { title: 'Tailoring & Textile', examples: ['Hand stitching', 'Machine sewing', 'Pattern cutting'], count: 'Deep skilled pool' },
+  { title: 'Construction / Warehouse', examples: ['Bricklaying', 'Tile setting', 'Pick and pack'], count: 'Heavy physical tasks' },
+  { title: 'Carpentry & Furniture', examples: ['Joinery', 'Lathe work', 'Lacquer finishing'], count: 'Complex 3D assembly' },
   { title: 'Cooking & Food', examples: ['Knife skills', 'Plating', 'Tandoor / griddle'], count: 'Multi-cuisine pool' },
-  { title: 'CNC / Machining', examples: ['Lathe ops', 'Mill setup', 'Quality inspection'], count: 'IIT-trained operators' },
-  { title: 'Medical & Surgical', examples: ['Suturing', 'Instrument handoff', 'Patient prep'], count: '500K doctors' },
-  { title: 'Construction', examples: ['Bricklaying', 'Tile setting', 'Rebar tying'], count: '12M+ workers' },
+  { title: 'Medical & Surgical', examples: ['Suturing', 'Instrument handoff', 'Patient prep'], count: 'Credentialed clinicians' },
 ];
 
 export default function CapturePage() {
@@ -73,7 +100,7 @@ export default function CapturePage() {
             </div>
             <div className="flex flex-wrap gap-3 mt-8">
               <Button href="/portal/capture/new" variant="capture" size="lg">
-                Request a dataset
+                Request a Physical AI Test Kit
                 <ArrowRight size={18} weight="bold" />
               </Button>
               <Button href="/capture/levels" variant="outline" size="lg">
@@ -265,6 +292,58 @@ export default function CapturePage() {
       {/* ─── Output formats ───────────────────────────────── */}
       <DatasetSpec />
 
+      {/* ─── Sample dataset ───────────────────────────────── */}
+      <section className="section-pad bg-[var(--bg-base)]">
+        <div className="container-site">
+          <FadeUp className="max-w-2xl mb-4">
+            <div className="text-label mb-5">Sample dataset</div>
+            <h2 className="text-h2">
+              What actually lands in <span className="text-[var(--capture)]">your bucket</span>.
+            </h2>
+          </FadeUp>
+          <FadeUp delay={0.1} className="max-w-3xl mb-12">
+            <p className="text-body text-[var(--text-secondary)]">
+              Every dataset ships in a consistent, robotics-ready structure - raw and processed video, multi-format episodes, full metadata, and the compliance pack. Below is the shape of a typical industrial delivery.
+            </p>
+          </FadeUp>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 items-stretch">
+            <FadeUp className="surface p-6 sm:p-7 h-full">
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-[11px] uppercase tracking-[0.16em] text-[var(--text-tertiary)]">
+                  Example structure
+                </span>
+                <Badge tone="capture">Illustrative</Badge>
+              </div>
+              <pre
+                className="text-xs sm:text-sm leading-relaxed overflow-x-auto text-[var(--text-secondary)]"
+                style={{ fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Consolas, monospace' }}
+              >
+                {SAMPLE_TREE}
+              </pre>
+            </FadeUp>
+
+            <FadeUp delay={0.08} className="surface p-6 sm:p-7 h-full flex flex-col">
+              <h3 className="text-h4 mb-5">Every dataset includes</h3>
+              <ul className="space-y-3 flex-1">
+                {DATASET_INCLUDES.map((item) => (
+                  <li key={item} className="flex gap-3 text-sm text-[var(--text-secondary)]">
+                    <CheckCircle size={18} weight="fill" style={{ color: 'var(--capture)' }} className="shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-6 pt-5 border-t border-[var(--border-dim)]">
+                <p className="text-sm text-[var(--text-secondary)]">
+                  The consent, provenance, redaction and QA artifacts are bundled as the{' '}
+                  <a href="/trust" className="text-[var(--capture)] underline">Data Trust Pack</a> - the documentation your data, legal and safety teams need to sign off a dataset for production.
+                </p>
+              </div>
+            </FadeUp>
+          </div>
+        </div>
+      </section>
+
       {/* ─── Proof / case studies ─────────────────────────── */}
       <section className="section-pad bg-[var(--bg-base)]">
         <div className="container-site">
@@ -309,11 +388,14 @@ export default function CapturePage() {
       {/* ─── Skill categories ─────────────────────────────── */}
       <section className="section-pad bg-[var(--bg-surface)] border-y border-[var(--border-dim)]">
         <div className="container-site">
-          <FadeUp className="mb-12 max-w-2xl">
+          <FadeUp className="mb-8 max-w-3xl">
             <div className="text-label mb-5">Skill categories</div>
             <h2 className="text-h2">
               What we can <span className="text-[var(--capture)]">record</span>.
             </h2>
+            <p className="text-body text-[var(--text-secondary)] mt-5">
+              Our flagship vertical is skilled industrial and technical work - electrical panel assembly, machine tending, CNC setup, electronics assembly, and inspection - the data the free open datasets don't cover and gig networks can't reach.
+            </p>
           </FadeUp>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {CATEGORIES.map((c) => (
@@ -329,14 +411,14 @@ export default function CapturePage() {
           <div className="lg:col-span-5">
             <div className="text-label mb-5" style={{ color: 'var(--capture)' }}>Why India</div>
             <h2 className="text-h2">
-              The cost base of the East. The skill depth of <span className="text-[var(--capture)]">centuries of craft</span>.
+              The skill depth of centuries of craft - <span className="text-[var(--capture)]">captured with consent</span>.
             </h2>
           </div>
           <div className="lg:col-span-7 space-y-5 text-[var(--text-secondary)]">
-            <Why label="Cost" body="US data-collection labour runs ~$20-48/hr (Tesla paid up to $48/hr for Optimus capture). India delivers the same skilled capture at a fraction of that - industry estimates put the differential at 70-90%." />
-            <Why label="Diversity" body="45M garment workers, 15M+ carpenters, 12M+ construction workers, 500K doctors. The breadth of trades the scaling laws reward - and that Western, lab-bound datasets lack." />
-            <Why label="Ethics" body="Workers paid above local market rate, fully consented, with signed releases and PII blurring. A GDPR-compliant DPA covers every frame. Ethical capture is a feature, not an afterthought." />
-            <Why label="Scale" body="500 contributors today, scalable to 50,000 within six months. India already shipped 100,000+ hours of egocentric robot-training data to Hugging Face in 2025." />
+            <Why label="Skill" body="Real tradespeople doing real, skilled work - electrical assembly, machine tending, CNC setup, tailoring, surgical-adjacent tasks. The breadth of credentialed trades the scaling laws reward, and that Western lab-bound datasets lack." />
+            <Why label="Trust" body="Workers paid above local market rate, fully consented, with signed releases and PII/face/plate/screen redaction. Every frame is covered by a DPDP and GDPR-aligned DPA. Consent-first capture is the product, not an afterthought." />
+            <Why label="Provenance" body="Every dataset ships with a Data Trust Pack: consent records, skill verification, reviewer credentials, a dataset card, and a QA report. You always know who produced the data and how." />
+            <Why label="Cost" body="Indian capture is also materially lower-cost, but cost is the footnote, not the pitch." />
           </div>
         </div>
       </section>

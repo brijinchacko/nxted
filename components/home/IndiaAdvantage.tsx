@@ -8,11 +8,11 @@ export function IndiaAdvantage() {
       <div className="container-site grid lg:grid-cols-12 gap-12 xl:gap-20 items-start">
         <FadeUp className="lg:col-span-5 lg:sticky lg:top-28">
           <div className="text-label mb-5" style={{ color: 'var(--india-saffron)' }}>India</div>
-          <h2 className="text-h1 leading-[1] max-w-[14ch]">
-            The world's largest <span className="text-[var(--expert)]">human intelligence base</span>.
+          <h2 className="text-h1 leading-[1] max-w-[16ch]">
+            Skilled work, <span className="text-[var(--expert)]">verified and consented</span>.
           </h2>
-          <p className="mt-6 text-body text-[var(--text-secondary)] max-w-[44ch]">
-            500 million skilled workers. World-class IITs, AIIMS, IIMs and NLUs. English fluency. The supply structure no other country can match.
+          <p className="mt-6 text-body text-[var(--text-secondary)] max-w-[48ch]">
+            India has one of the world's largest skilled labour forces. nxted captures only verified contributors and partner locations - with explicit consent, fair compensation above local market rate, and documented usage rights. Skill and provenance, not cost, are the point.
           </p>
           <div className="relative mt-10 aspect-[5/3] rounded-2xl overflow-hidden border border-[var(--border-default)] bg-[var(--bg-card)] p-5">
             <WorkforceGraphic />
@@ -34,7 +34,7 @@ export function IndiaAdvantage() {
             ))}
           </ul>
           <FadeUp delay={0.5} className="mt-10 text-h4 text-[var(--text-primary)]">
-            All verified. All in India. All available through Nxted.
+            All verified. All consented. All available through nxted.
           </FadeUp>
         </div>
       </div>

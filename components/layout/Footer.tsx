@@ -16,6 +16,7 @@ const COLUMNS = [
     title: 'Company',
     links: [
       { href: '/case-studies', label: 'Case Studies' },
+      { href: '/trust', label: 'Trust & Compliance' },
       { href: '/research', label: 'Research' },
       { href: '/how-it-works', label: 'How it works' },
       { href: '/contact', label: 'Contact' },
@@ -58,7 +59,7 @@ export function Footer() {
               <p>{COMPANY.address}</p>
             </div>
             <div className="flex flex-wrap gap-2 mt-6">
-              {['GDPR Compliant', 'UK Registered', 'ISO 9001 ref'].map((b) => (
+              {['UK Registered', 'UK/EU Contracting', 'DPDP & GDPR-aligned', 'Consent-first collection'].map((b) => (
                 <span
                   key={b}
                   className="inline-flex items-center h-6 px-2.5 rounded border border-[var(--border-default)] text-[10px] uppercase tracking-wider text-[var(--text-secondary)]"

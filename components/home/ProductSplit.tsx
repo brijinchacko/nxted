@@ -14,7 +14,7 @@ export function ProductSplit() {
               Human experts evaluate your AI <span className="text-[var(--expert)]">at the highest level</span>.
             </h2>
             <p className="text-body text-[var(--text-secondary)] mt-5 max-w-[42ch]">
-              RLHF feedback, red-teaming, and structured training data from India's IIT engineers, AIIMS doctors, IIM consultants and ILS lawyers - the world's deepest talent base.
+              RLHF feedback, red-teaming, and structured training data from domain experts across engineering, the sciences, medicine, law and finance.
             </p>
             <div className="mt-7 h-[110px]">
               <ExpertMiniGraphic />

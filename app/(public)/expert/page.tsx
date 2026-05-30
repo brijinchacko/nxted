@@ -16,7 +16,7 @@ import { EXPERT_PRODUCTS } from '@/lib/constants';
 export const metadata: Metadata = {
   title: 'Nxted Expert - RLHF, AI evaluation, red-teaming',
   description:
-    'India\'s IIT engineers, AIIMS doctors, IIM consultants and ILS lawyers evaluate your AI outputs with full quality transparency. From £249.',
+    'Domain experts across engineering, the sciences, medicine, law and finance evaluate your AI outputs with full quality transparency. From £249.',
 };
 
 const STEPS = [
@@ -50,7 +50,7 @@ export default function ExpertPage() {
               Your AI learns from the <span className="text-[var(--expert)]">people who know it best</span>.
             </h1>
             <p className="text-body text-[var(--text-secondary)] mt-6 max-w-[52ch]">
-              India's IIT engineers, AIIMS doctors, and IIM consultants evaluate your AI outputs, generate training data, and red-team your models - with full transparency on who reviewed your AI and exactly how accurate they were.
+              Domain experts across engineering, the sciences, medicine, law and finance evaluate your AI outputs, generate training data, and red-team your models - with full transparency on who reviewed your AI and exactly how accurate they were.
             </p>
             <div className="flex flex-wrap gap-3 mt-8">
               <Button href="/portal/expert/new?product=TEST_KIT" variant="expert" size="lg">
@@ -79,12 +79,12 @@ export default function ExpertPage() {
                   <MiniStat label="Domain errors" value="8" />
                 </div>
                 <p className="text-xs text-[var(--text-tertiary)] pt-4 border-t border-[var(--border-dim)]">
-                  2 CE-verified IIT engineers · 4.8/5 contributor score
+                  2 CE-verified domain engineers · 4.8/5 contributor score
                 </p>
               </div>
             </div>
             <p className="text-xs text-[var(--text-tertiary)] mt-4 italic">
-              This is what Mercor won't show you. We show you everything.
+              Full transparency on every batch - the score, the breakdown, and who produced it.
             </p>
           </FadeUp>
         </div>

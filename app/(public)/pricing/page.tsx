@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { ArrowRight } from '@phosphor-icons/react/dist/ssr';
+import { ArrowRight, CheckCircle } from '@phosphor-icons/react/dist/ssr';
 import { FadeUp } from '@/components/motion/FadeUp';
 import { Card, CardTitle, CardBody, CardHeader } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
@@ -29,7 +29,7 @@ export default function PricingPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
             <PriceCard
-              title="Free Test Kit"
+              title="Free Expert Test Kit"
               price="£0"
               meta="20 outputs · 48h delivery"
               bullets={['Quality score report', '2 verified contributors', 'No card required']}
@@ -71,6 +71,47 @@ export default function PricingPage() {
 
         <div>
           <div className="text-label mb-7" style={{ color: 'var(--capture)' }}>Nxted Capture</div>
+
+          <FadeUp>
+            <Card className="p-8 mb-5 border-[var(--capture)] ring-1 ring-[var(--capture-dim)]">
+              <div className="flex flex-col lg:flex-row lg:items-center gap-8">
+                <div className="lg:w-1/4">
+                  <Badge tone="capture">Start here</Badge>
+                  <h3 className="text-h3 mt-3">Physical AI Test Kit</h3>
+                  <p className="text-[var(--text-primary)] text-3xl font-semibold mt-3">from $2,500</p>
+                  <p className="text-xs text-[var(--text-tertiary)] mt-1">
+                    5-10 usable hours · one skilled task · 7-10 day delivery
+                  </p>
+                </div>
+                <div className="lg:flex-1 grid sm:grid-cols-2 gap-x-8 gap-y-2.5">
+                  {[
+                    '5-10 usable hours of egocentric capture',
+                    'One skilled task of your choice',
+                    'Consent pack + full metadata',
+                    'Basic action labels',
+                    'LeRobot / RLDS / HDF5 sample',
+                    '7-10 day delivery',
+                  ].map((b) => (
+                    <div key={b} className="flex gap-2.5 text-sm text-[var(--text-secondary)]">
+                      <CheckCircle size={18} weight="fill" style={{ color: 'var(--capture)' }} className="shrink-0 mt-0.5" />
+                      <span>{b}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="shrink-0">
+                  <Button href="/portal/capture/new" variant="capture" size="lg">
+                    Request Test Kit
+                    <ArrowRight size={18} weight="bold" />
+                  </Button>
+                </div>
+              </div>
+            </Card>
+          </FadeUp>
+
+          <p className="text-sm text-[var(--text-secondary)] mb-5 mt-2">
+            Or commission a full dataset at production scale, priced per usable hour by skill level:
+          </p>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
             <PriceCard
               title="L1 Foundation"

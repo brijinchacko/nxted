@@ -91,7 +91,7 @@ export default function ApplyPage() {
             Apply to <span className="text-[var(--expert)]">train the world's AI</span>.
           </h1>
           <p className="text-body text-[var(--text-secondary)] max-w-[58ch] mb-10">
-            We pay UK rates to India-based domain experts. Average earnings: £15-£40 per hour. Most contributors come from IIT, AIIMS, IIM, NLU and ICAI backgrounds. Apply once - qualify for every role that matches your skills.
+            We pay UK rates to India-based domain experts. Average earnings: £15-£40 per hour. Most contributors are credentialed professionals across engineering, the sciences, medicine, law and finance. Apply once - qualify for every role that matches your skills.
           </p>
         </FadeUp>
 
